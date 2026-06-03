@@ -11,13 +11,22 @@ export default function HomePage() {
         </header>
 
         <section className="hero">
-          <div className="hero-card">
+          <div className="hero-card hero-card--cover">
+            <div className="palace-gate" aria-hidden="true">
+              <span />
+              <span />
+            </div>
             <p className="seal">剧本化心理测试</p>
             <h1>深宫纪</h1>
             <h2>三十幕宫廷选择，照见你在压力、关系与权力中的真实反应。</h2>
             <p>
-              这不是宫斗小游戏。你将在一段精心设计的深宫剧本里完成心理测评：每一次退让、试探、沉默与出手，都会留下你的心理痕迹。
+              由中国古典审美前端设计师、女性心理学家与宫斗剧本编剧共同打造。表面是入宫剧本，底层是心理测评。
             </p>
+            <div className="expert-row">
+              <span>古典审美</span>
+              <span>心理测评</span>
+              <span>宫斗剧本</span>
+            </div>
           </div>
 
           <div className="button-row">
