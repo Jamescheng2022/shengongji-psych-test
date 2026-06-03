@@ -38,6 +38,7 @@ button { font: inherit; }
   position: relative;
   padding: 18px 18px 22px;
 }
+.phone--test { padding-bottom: 14px; }
 
 .topbar {
   height: 42px;
@@ -160,22 +161,58 @@ h1 { font-size: 46px; line-height: 1; margin: 0; letter-spacing: 0.18em; font-we
 .paper-card p, .paper-card li { color: #5d3e31; line-height: 1.8; }
 .paper-card ul { padding-left: 20px; }
 
-.test-screen { min-height: calc(100dvh - 82px); display: grid; grid-template-rows: auto auto auto 1fr auto; gap: 12px; }
+.test-screen {
+  min-height: calc(100dvh - 58px);
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.test-progress-block { padding-top: 2px; }
 .progress-text { font-size: 12px; color: rgba(243,227,199,0.72); display:flex; justify-content:space-between; }
-.progress { height: 4px; border-radius: 99px; background: rgba(255,255,255,0.08); overflow: hidden; }
+.progress { height: 4px; border-radius: 99px; background: rgba(255,255,255,0.08); overflow: hidden; margin-top: 4px; }
 .progress span { display:block; height:100%; background: linear-gradient(90deg, var(--gold), #ffe3a0); }
-.chapter-intro-card { border: 1px solid rgba(215,181,109,0.22); border-radius: 18px; padding: 12px 14px; background: rgba(255,255,255,0.045); display: grid; gap: 5px; }
-.chapter-intro-card strong { color: var(--gold); letter-spacing: 0.16em; }
-.chapter-intro-card span { color: rgba(243,227,199,0.75); line-height: 1.55; font-size: 13px; }
-.question-card { padding: 24px 22px; }
-.chapter { margin: 0 0 10px; color: var(--gold); font-size: 12px; letter-spacing: 0.2em; }
-.question-card h1 { font-size: 26px; letter-spacing: 0.08em; margin-bottom: 14px; }
-.scene { color: rgba(243,227,199,0.86); line-height: 1.82; font-size: 16px; margin: 0; }
+.chapter-intro-card {
+  border: 1px solid rgba(215,181,109,0.18);
+  border-radius: 16px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.035);
+  display: grid;
+  gap: 4px;
+}
+.chapter-intro-card strong { color: var(--gold); font-size: 13px; letter-spacing: 0.16em; }
+.chapter-intro-card span { color: rgba(243,227,199,0.72); line-height: 1.55; font-size: 13px; }
+.question-card { padding: 22px 20px; border-radius: 25px; }
+.chapter { margin: 0 0 10px; color: var(--gold); font-size: 12px; letter-spacing: 0.18em; }
+.question-card h1 { font-size: 24px; letter-spacing: 0.06em; margin-bottom: 12px; }
+.scene { color: rgba(243,227,199,0.88); line-height: 1.78; font-size: 16px; margin: 0; }
 .choices { display: grid; gap: 10px; }
-.choice { width: 100%; text-align: left; border: 1px solid rgba(215,181,109,0.26); border-radius: 18px; background: rgba(255,255,255,0.06); color: var(--paper); padding: 13px 14px; line-height: 1.55; display: grid; grid-template-columns: 26px 1fr; gap: 8px; }
-.choice strong { color: var(--gold); }
+.choice {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(215,181,109,0.22);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  color: var(--paper);
+  padding: 12px 14px;
+  line-height: 1.55;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+.choice strong { color: var(--gold); font-size: 15px; }
 .choice:disabled { opacity: 0.72; }
-.choice.selected { background: rgba(215,181,109,0.2); border-color: rgba(215,181,109,0.72); }
+.choice.selected { background: rgba(215,181,109,0.18); border-color: rgba(215,181,109,0.68); transform: translateY(1px); }
+.test-actions { display: flex; justify-content: center; padding: 4px 0 10px; }
+.text-button {
+  border: 0;
+  background: transparent;
+  color: rgba(243,227,199,0.58);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  padding: 8px 12px;
+}
+.text-button:active { color: var(--gold); }
 
 .result-card { padding: 28px 22px; margin-top: 10px; }
 .result-card h1 { font-size: 34px; letter-spacing: 0.1em; }
@@ -213,6 +250,8 @@ h1 { font-size: 46px; line-height: 1; margin: 0; letter-spacing: 0.18em; font-we
   .hero-card { padding: 30px 24px; }
   h1 { font-size: 40px; }
   .question-card { padding: 18px; }
-  .scene { font-size: 15px; line-height: 1.7; }
+  .question-card h1 { font-size: 22px; }
+  .scene { font-size: 15px; line-height: 1.68; }
   .choice { padding: 10px 12px; font-size: 14px; }
+  .chapter-intro-card { padding: 8px 12px; }
 }
