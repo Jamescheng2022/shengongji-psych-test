@@ -59,14 +59,14 @@ export default function TestPage() {
 
   return (
     <main className="shell">
-      <section className="phone">
+      <section className="phone phone--test">
         <header className="topbar">
           <Link href="/">‹ 离宫</Link>
           <MusicToggle />
         </header>
 
         <section className="test-screen">
-          <div>
+          <div className="test-progress-block">
             <div className="progress-text">
               <span>{chapterTitles[question.chapter - 1]}</span>
               <span>{index + 1} / {questions.length}</span>
@@ -82,7 +82,7 @@ export default function TestPage() {
           ) : null}
 
           <article className="hero-card question-card">
-            <p className="chapter">第 {question.chapter} 章 · {question.pressurePoint}</p>
+            <p className="chapter">第 {question.chapter} 幕 · {question.pressurePoint}</p>
             <h1>{question.title}</h1>
             <p className="scene">{question.scene}</p>
           </article>
@@ -102,7 +102,9 @@ export default function TestPage() {
             ))}
           </div>
 
-          <button className="secondary-button" type="button" onClick={restart}>重新开始</button>
+          <div className="test-actions">
+            <button className="text-button" type="button" onClick={restart}>重新开始</button>
+          </div>
         </section>
       </section>
     </main>
