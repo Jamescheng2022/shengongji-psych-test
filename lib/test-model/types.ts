@@ -12,6 +12,7 @@ export type Dimension = {
 export type Choice = {
   id: string;
   text: string;
+  evidence: string;
   weights: Weights;
   tags: string[];
 };
@@ -30,6 +31,7 @@ export type Answer = {
   questionId: string;
   choiceId: string;
   choiceText: string;
+  evidence: string;
   weights: Weights;
   tags: string[];
 };
@@ -42,6 +44,8 @@ export type ResultType = {
   verdict: string;
   archetype: string;
   psychProfile: string;
+  realLifeMirror: string;
+  miniBiography: string;
   relationshipPattern: string;
   stressResponse: string;
   hiddenRisk: string;
