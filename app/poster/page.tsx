@@ -43,13 +43,13 @@ export default function PosterPage() {
 
           <div className="poster-bottom">
             <p>最高倾向：{top?.name}</p>
-            <p className="small-note">截图保存 · 邀朋友一起入宫测试</p>
+            <p className="small-note">保存这张命签 · 看看朋友会落在哪一种命格</p>
           </div>
         </article>
 
         <div className="button-row">
           <Link className="primary-button" href="/result">查看完整解释</Link>
-          <Link className="secondary-button" href="/test">重新测试</Link>
+          <Link className="secondary-button" href="/test">再测一次</Link>
         </div>
       </section>
     </main>
