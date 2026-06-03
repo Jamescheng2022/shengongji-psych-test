@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MusicToggle } from "@/components/MusicToggle";
-import { chapterTitles, questions } from "@/lib/test-model/questions";
-import { getChapterIntro, buildEvidence } from "@/lib/test-model/narrative";
+import { questions } from "@/lib/test-model/questions";
+import { buildEvidence } from "@/lib/test-model/narrative";
 import { computeResult } from "@/lib/test-model/scoring";
 import { clearTest, saveAnswers, saveResult } from "@/lib/test-model/storage";
 import type { Answer, Choice } from "@/lib/test-model/types";
@@ -16,14 +16,11 @@ export default function TestPage() {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const question = questions[index];
-  const chapterIntro = getChapterIntro(question.chapter);
   const progress = Math.round(((index + 1) / questions.length) * 100);
-  const isChapterOpening = [1, 7, 13, 19, 25].includes(question.order);
 
   function choose(choice: Choice) {
     if (selected) return;
     setSelected(choice.id);
-
     const nextAnswers = [
       ...answers,
       {
@@ -35,7 +32,6 @@ export default function TestPage() {
         tags: choice.tags,
       },
     ];
-
     saveAnswers(nextAnswers);
     window.setTimeout(() => {
       if (index + 1 >= questions.length) {
@@ -61,29 +57,20 @@ export default function TestPage() {
     <main className="shell">
       <section className="phone phone--test">
         <header className="topbar">
-          <Link href="/">‹ 离宫</Link>
+          <Link href="/">‹ 返回</Link>
           <MusicToggle />
         </header>
 
         <section className="test-screen">
           <div className="test-progress-block">
             <div className="progress-text">
-              <span>{chapterTitles[question.chapter - 1]}</span>
+              <span>直觉选择</span>
               <span>{index + 1} / {questions.length}</span>
             </div>
             <div className="progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
           </div>
 
-          {isChapterOpening ? (
-            <aside className="chapter-intro-card">
-              <strong>{chapterIntro.title}</strong>
-              <span>{chapterIntro.intro}</span>
-            </aside>
-          ) : null}
-
           <article className="hero-card question-card">
-            <p className="chapter">第 {question.chapter} 幕 · {question.pressurePoint}</p>
-            <h1>{question.title}</h1>
             <p className="scene">{question.scene}</p>
           </article>
 
