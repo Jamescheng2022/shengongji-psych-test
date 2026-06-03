@@ -8,14 +8,14 @@ export function HomeHero() {
           <span />
           <span />
         </div>
-        <p className="seal">30 幕 · 深宫人格测试</p>
+        <p className="seal">30 幕 · 约 6 分钟</p>
         <h1>深宫纪</h1>
-        <h2>你在压力、关系和权力面前，会本能地选择哪一种生存方式？</h2>
-        <p>进入一段深宫处境，凭直觉做出选择。测试结束后，你会得到一张专属命格签。</p>
+        <h2>你处理关系和压力的方式，往往藏在第一反应里。</h2>
+        <p>进入一段深宫处境，凭直觉选择。结束后，你会得到一张属于自己的命格签。</p>
       </div>
       <div className="button-row">
         <Link className="primary-button" href="/test">开始测试</Link>
-        <Link className="secondary-button" href="/about">测试说明</Link>
+        <Link className="secondary-button" href="/about">了解测试</Link>
       </div>
     </section>
   );
