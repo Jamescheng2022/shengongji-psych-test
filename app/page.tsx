@@ -22,7 +22,7 @@ export default function HomePage() {
             <p>
               三十幕深宫选择，测出你在关系、压力、权力与自我边界里的真实反应。完成后生成你的专属命格签，适合截图分享。
             </p>
-            <div className="expert-row expert-row--four">
+            <div className="expert-row" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
               <span>古典审美</span>
               <span>心理测评</span>
               <span>宫斗剧本</span>
