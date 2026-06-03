@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MusicToggle } from "@/components/MusicToggle";
 import { chapterTitles, questions } from "@/lib/test-model/questions";
+import { getChapterIntro, buildEvidence } from "@/lib/test-model/narrative";
 import { computeResult } from "@/lib/test-model/scoring";
 import { clearTest, saveAnswers, saveResult } from "@/lib/test-model/storage";
 import type { Answer, Choice } from "@/lib/test-model/types";
@@ -15,7 +16,9 @@ export default function TestPage() {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const question = questions[index];
+  const chapterIntro = getChapterIntro(question.chapter);
   const progress = Math.round(((index + 1) / questions.length) * 100);
+  const isChapterOpening = [1, 7, 13, 19, 25].includes(question.order);
 
   function choose(choice: Choice) {
     if (selected) return;
@@ -27,6 +30,7 @@ export default function TestPage() {
         questionId: question.id,
         choiceId: choice.id,
         choiceText: choice.text,
+        evidence: choice.evidence ?? buildEvidence(choice.tags),
         weights: choice.weights,
         tags: choice.tags,
       },
@@ -69,6 +73,13 @@ export default function TestPage() {
             </div>
             <div className="progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
           </div>
+
+          {isChapterOpening ? (
+            <aside className="chapter-intro-card">
+              <strong>{chapterIntro.title}</strong>
+              <span>{chapterIntro.intro}</span>
+            </aside>
+          ) : null}
 
           <article className="hero-card question-card">
             <p className="chapter">第 {question.chapter} 章 · {question.pressurePoint}</p>
