@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MusicToggle } from "@/components/MusicToggle";
+import { buildMiniBiography, buildRealLifeMirror } from "@/lib/test-model/narrative";
 import { readResult } from "@/lib/test-model/storage";
 import type { ComputedResult } from "@/lib/test-model/types";
 
@@ -45,6 +46,9 @@ export default function ResultPage() {
   }
 
   const values = payload.rankedDimensions.map((item) => item.score);
+  const primary = payload.rankedDimensions[0];
+  const miniBiography = payload.result.miniBiography ?? buildMiniBiography(payload.result.name);
+  const realLifeMirror = payload.result.realLifeMirror ?? buildRealLifeMirror(primary?.name ?? "压力反应");
 
   return (
     <main className="shell">
@@ -54,10 +58,18 @@ export default function ResultPage() {
           <MusicToggle />
         </header>
 
-        <article className="result-card">
-          <p className="seal">你的深宫命格</p>
-          <h1>{payload.result.name}</h1>
-          <p className="verdict">{payload.result.verdict}</p>
+        <article className="result-card result-card--ritual">
+          <div className="fate-slip">
+            <p className="seal">你的深宫命格</p>
+            <h1>{payload.result.name}</h1>
+            <p className="verdict">{payload.result.verdict}</p>
+            <span className="fate-stamp">命</span>
+          </div>
+
+          <section className="result-section">
+            <h2>你的深宫小传</h2>
+            <p>{miniBiography}</p>
+          </section>
 
           <section className="result-section">
             <h2>深宫画像</h2>
@@ -67,6 +79,22 @@ export default function ResultPage() {
           <section className="result-section">
             <h2>心理画像</h2>
             <p>{payload.result.psychProfile}</p>
+          </section>
+
+          <section className="result-section">
+            <h2>现实映射</h2>
+            <p>{realLifeMirror}</p>
+          </section>
+
+          <section className="result-section evidence-section">
+            <h2>为什么是这个结果</h2>
+            {payload.keyChoices.map((answer, index) => (
+              <article className="evidence-card" key={`${answer.questionId}-${answer.choiceId}`}>
+                <strong>关键选择 {index + 1}</strong>
+                <p>{answer.choiceText}</p>
+                <span>{answer.evidence ?? "这个选择暴露了你在压力中的惯用保护方式。"}</span>
+              </article>
+            ))}
           </section>
 
           <section className="result-section">
@@ -90,28 +118,22 @@ export default function ResultPage() {
           </section>
 
           <section className="result-section">
-            <h2>五维倾向</h2>
+            <h2>心理倾向图</h2>
+            <p className="small-note">不是好坏分数，只是你在三十幕里最常使用的心理工具。</p>
             <div className="dim-list">
               {payload.rankedDimensions.map((dimension) => (
                 <div className="dim-row" key={dimension.id}>
                   <span>{dimension.name}</span>
                   <span className="dim-bar"><span style={{ width: `${percent(dimension.score, values)}%` }} /></span>
-                  <span>{dimension.score}</span>
+                  <span>{percent(dimension.score, values)}%</span>
                 </div>
               ))}
             </div>
           </section>
-
-          <section className="result-section">
-            <h2>关键选择</h2>
-            {payload.keyChoices.map((answer, index) => (
-              <p key={`${answer.questionId}-${answer.choiceId}`}>幕 {index + 1}：{answer.choiceText}</p>
-            ))}
-          </section>
         </article>
 
         <div className="button-row" style={{ marginTop: 16 }}>
-          <Link className="primary-button" href="/poster">生成分享海报</Link>
+          <Link className="primary-button" href="/poster">生成分享命签</Link>
           <Link className="secondary-button" href="/test">重新测试</Link>
         </div>
       </section>
