@@ -61,7 +61,7 @@ export default function TestPage() {
           <MusicToggle />
         </header>
 
-        <section className="test-screen">
+        <section className="test-screen" style={{ gap: 14 }}>
           <div className="test-progress-block">
             <div className="progress-text">
               <span>选择最接近你的反应</span>
@@ -70,23 +70,32 @@ export default function TestPage() {
             <div className="progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
           </div>
 
-          <article className="hero-card question-card">
-            <p className="scene">{question.scene}</p>
+          <article className="hero-card question-card" style={{ padding: "26px 22px", borderRadius: 28 }}>
+            <p className="scene" style={{ fontSize: 17, lineHeight: 1.82 }}>{question.scene}</p>
           </article>
 
-          <div className="choices">
-            {question.choices.map((choice) => (
-              <button
-                key={choice.id}
-                type="button"
-                className={selected === choice.id ? "choice selected" : "choice"}
-                disabled={Boolean(selected)}
-                onClick={() => choose(choice)}
-              >
-                <strong>{selected === choice.id ? "✓" : choice.id.toUpperCase()}</strong>
-                <span>{choice.text}</span>
-              </button>
-            ))}
+          <div className="choices" style={{ gap: 12 }}>
+            {question.choices.map((choice) => {
+              const isSelected = selected === choice.id;
+              return (
+                <button
+                  key={choice.id}
+                  type="button"
+                  className={isSelected ? "choice selected" : "choice"}
+                  disabled={Boolean(selected)}
+                  onClick={() => choose(choice)}
+                  style={{
+                    minHeight: 58,
+                    borderRadius: 18,
+                    padding: "13px 15px",
+                    background: isSelected ? "rgba(215,181,109,0.18)" : "rgba(255,255,255,0.045)",
+                  }}
+                >
+                  <strong>{isSelected ? "✓" : choice.id.toUpperCase()}</strong>
+                  <span>{choice.text}</span>
+                </button>
+              );
+            })}
           </div>
 
           <div className="test-actions">
