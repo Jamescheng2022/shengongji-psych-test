@@ -64,7 +64,7 @@ export default function TestPage() {
         <section className="test-screen">
           <div className="test-progress-block">
             <div className="progress-text">
-              <span>直觉选择</span>
+              <span>选择最接近你的反应</span>
               <span>{index + 1} / {questions.length}</span>
             </div>
             <div className="progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
