@@ -1,4 +1,4 @@
-export type DimensionId = "agency" | "defense" | "relation" | "risk" | "boundary";
+export type DimensionId = "agency" | "caution" | "affiliation" | "boundary" | "emotionality" | "power";
 
 export type Weights = Record<DimensionId, number>;
 
@@ -24,6 +24,7 @@ export type Question = {
   title: string;
   scene: string;
   pressurePoint: string;
+  hiddenConstruct: string;
   choices: Choice[];
 };
 
@@ -51,12 +52,7 @@ export type ResultType = {
   hiddenRisk: string;
   growthAdvice: string;
   shareQuote: string;
-  rule: {
-    primary: DimensionId;
-    secondary?: DimensionId;
-    low?: DimensionId;
-    tags?: string[];
-  };
+  profile: Scores;
 };
 
 export type ComputedResult = {
