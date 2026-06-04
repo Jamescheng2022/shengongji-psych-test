@@ -1,11 +1,12 @@
 import { questions } from "./questions";
 import { DIMENSION_IDS, emptyScores } from "./dimensions";
-import type { Answer, Choice, DimensionId, Scores, Weights } from "./types";
+import type { Answer, Choice, DimensionId, Question, Scores, Weights } from "./types";
 
 export type ScoringKeyItem = {
   questionId: string;
   choiceId: string;
   weights: Weights;
+  centeredWeights: Weights;
   tags: string[];
 };
 
@@ -22,12 +23,28 @@ export function scoringKeyId(questionId: string, choiceId: string) {
   return `${questionId}.${choiceId}`;
 }
 
+function questionMean(question: Question): Scores {
+  const mean = cloneScores();
+  for (const id of DIMENSION_IDS) {
+    mean[id] = question.choices.reduce((sum, choice) => sum + choice.weights[id], 0) / question.choices.length;
+  }
+  return mean;
+}
+
+function centerWeights(weights: Weights, mean: Scores): Weights {
+  const centered = cloneScores();
+  for (const id of DIMENSION_IDS) centered[id] = weights[id] - mean[id];
+  return centered;
+}
+
 export const scoringKey: Record<string, ScoringKeyItem> = questions.reduce<Record<string, ScoringKeyItem>>((acc, question) => {
+  const mean = questionMean(question);
   for (const choice of question.choices) {
     acc[scoringKeyId(question.id, choice.id)] = {
       questionId: question.id,
       choiceId: choice.id,
       weights: choice.weights,
+      centeredWeights: centerWeights(choice.weights, mean),
       tags: choice.tags,
     };
   }
@@ -36,10 +53,11 @@ export const scoringKey: Record<string, ScoringKeyItem> = questions.reduce<Recor
 
 export const scaleBounds: ScaleBounds = questions.reduce<ScaleBounds>(
   (bounds, question) => {
+    const mean = questionMean(question);
     for (const id of DIMENSION_IDS) {
-      const values = question.choices.map((choice: Choice) => choice.weights[id]);
-      bounds.min[id] += Math.min(...values);
-      bounds.max[id] += Math.max(...values);
+      const centeredValues = question.choices.map((choice: Choice) => choice.weights[id] - mean[id]);
+      bounds.min[id] += Math.min(...centeredValues);
+      bounds.max[id] += Math.max(...centeredValues);
     }
     return bounds;
   },
@@ -49,7 +67,7 @@ export const scaleBounds: ScaleBounds = questions.reduce<ScaleBounds>(
 export function getChoiceWeights(questionId: string, choiceId: string): Weights {
   const item = scoringKey[scoringKeyId(questionId, choiceId)];
   if (!item) return cloneScores();
-  return item.weights;
+  return item.centeredWeights;
 }
 
 export function scoreAnswers(answers: Answer[]): Scores {
@@ -67,7 +85,8 @@ export function normalizeRawScores(raw: Scores): Scores {
     const min = scaleBounds.min[id];
     const max = scaleBounds.max[id];
     const span = max - min;
-    normalized[id] = span === 0 ? 50 : Math.round(((raw[id] - min) / span) * 100);
+    const value = span === 0 ? 50 : Math.round(((raw[id] - min) / span) * 100);
+    normalized[id] = Math.max(0, Math.min(100, value));
   }
   return normalized;
 }
