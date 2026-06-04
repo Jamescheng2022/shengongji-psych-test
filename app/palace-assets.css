@@ -1,6 +1,15 @@
 .shell {
   background:
     linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.48)),
+    url('/assets/home-palace-bg.png') center/cover no-repeat,
+    url('/assets/palace-bg.svg') center/cover no-repeat;
+}
+
+.result-shell,
+.poster-shell {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.62)),
+    url('/assets/poster-bg.png') center/cover no-repeat,
     url('/assets/palace-bg.svg') center/cover no-repeat;
 }
 
@@ -14,6 +23,7 @@
 .palace-cover {
   background:
     linear-gradient(180deg, rgba(255, 244, 221, 0.20) 0 34%, rgba(10, 4, 4, 0.78) 72%),
+    url('/assets/home-palace-bg.png') center/cover no-repeat,
     url('/assets/palace-bg.svg') center/cover no-repeat;
 }
 
@@ -32,8 +42,30 @@
 
 .palace-gate { display: none; }
 
+.paper-card,
+.question-card,
+.choice {
+  background-image:
+    linear-gradient(180deg, rgba(250,239,216,0.96), rgba(232,205,160,0.92)),
+    url('/assets/paper-texture.png');
+  background-size: cover;
+  background-position: center;
+}
+
 .question-card {
   box-shadow: 0 18px 42px rgba(0,0,0,0.24), inset 0 0 0 1px rgba(126,31,36,0.08);
+}
+
+.test-screen::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.58)),
+    url('/assets/test-paper-bg.png') center/cover no-repeat;
+  opacity: 0.78;
+  pointer-events: none;
 }
 
 .choice {
@@ -52,26 +84,56 @@
 .result-card {
   background:
     linear-gradient(180deg, rgba(11,5,5,0.72), rgba(11,5,5,0.92)),
+    url('/assets/poster-bg.png') center/cover no-repeat,
     url('/assets/palace-bg.svg') center/cover no-repeat;
 }
 
-.fate-slip {
-  padding-left: 118px;
-  min-height: 188px;
+.result-hero {
+  display: grid;
+  grid-template-columns: minmax(112px, 38%) 1fr;
+  gap: 14px;
+  align-items: stretch;
+  border: 1px solid rgba(215,181,109,0.28);
+  border-radius: 24px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.14));
 }
 
-.fate-slip::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  bottom: 12px;
-  width: 92px;
-  height: 128px;
-  border-radius: 18px;
-  border: 1px solid rgba(141,91,34,0.35);
-  background: url('/assets/portrait-guifei.svg') center/cover no-repeat;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.26);
+.result-portrait-frame {
+  min-height: 196px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(215,181,109,0.42);
+  background: rgba(0,0,0,0.28);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.34);
 }
+
+.result-portrait-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.result-title-block {
+  position: relative;
+  min-height: 196px;
+  border-radius: 20px;
+  padding: 22px 16px;
+  background:
+    linear-gradient(180deg, rgba(250,239,216,0.94), rgba(226,195,145,0.88)),
+    url('/assets/paper-texture.png') center/cover no-repeat;
+  color: #2b1714;
+  overflow: hidden;
+}
+
+.result-title-block .seal { color: #8d5b22; }
+.result-title-block h1 { color: #2b1714; text-shadow: none; font-size: 30px; }
+.result-title-block .verdict { color: #7e1f24; font-size: 15px; }
+
+.fate-slip { display: none; }
+.fate-slip::after { display: none; }
 
 .result-section {
   border: 1px solid rgba(215,181,109,0.16);
@@ -100,17 +162,33 @@
   background:
     linear-gradient(180deg, rgba(12,5,5,0.18), rgba(12,5,5,0.78)),
     radial-gradient(circle at 50% 0%, rgba(215,181,109,0.24), transparent 38%),
+    url('/assets/poster-bg.png') center/cover no-repeat,
     url('/assets/palace-bg.svg') center/cover no-repeat;
 }
 
-.poster-card--fate::after {
-  content: "";
+.poster-card--fate::after { display: none; }
+
+.poster-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 72%;
+}
+
+.poster-portrait {
   position: absolute;
-  right: 14px;
-  bottom: 78px;
-  width: 104px;
-  height: 145px;
-  background: url('/assets/portrait-guifei.svg') center/cover no-repeat;
-  opacity: 0.72;
-  filter: drop-shadow(0 18px 24px rgba(0,0,0,0.45));
+  right: 12px;
+  bottom: 76px;
+  width: 44%;
+  max-height: 54%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 18px;
+  border: 1px solid rgba(215,181,109,0.32);
+  box-shadow: 0 18px 24px rgba(0,0,0,0.45);
+}
+
+.poster-quote,
+.poster-bottom {
+  position: relative;
+  z-index: 2;
 }
