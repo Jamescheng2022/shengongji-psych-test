@@ -17,7 +17,43 @@
     url('/assets/palace-bg.svg') center/cover no-repeat;
 }
 
+.palace-cover h1 {
+  font-size: 50px;
+  color: #fff0d1;
+  text-shadow: 0 3px 30px rgba(0,0,0,0.72), 0 0 18px rgba(215,181,109,0.32);
+}
+
+.palace-cover h2,
+.palace-cover p {
+  max-width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .palace-gate { display: none; }
+
+.question-card {
+  box-shadow: 0 18px 42px rgba(0,0,0,0.24), inset 0 0 0 1px rgba(126,31,36,0.08);
+}
+
+.choice {
+  position: relative;
+}
+
+.choice::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(141,91,34,0.10);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.result-card {
+  background:
+    linear-gradient(180deg, rgba(11,5,5,0.72), rgba(11,5,5,0.92)),
+    url('/assets/palace-bg.svg') center/cover no-repeat;
+}
 
 .fate-slip {
   padding-left: 118px;
@@ -34,10 +70,47 @@
   border-radius: 18px;
   border: 1px solid rgba(141,91,34,0.35);
   background: url('/assets/portrait-guifei.svg') center/cover no-repeat;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.26);
+}
+
+.result-section {
+  border: 1px solid rgba(215,181,109,0.16);
+  border-radius: 18px;
+  padding: 14px 14px 15px;
+  background: rgba(0,0,0,0.18);
+}
+
+.result-section + .result-section {
+  margin-top: 12px;
+}
+
+.result-section h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.result-section h2::before {
+  content: "✦";
+  color: rgba(215,181,109,0.86);
+  font-size: 12px;
 }
 
 .poster-card--fate {
   background:
+    linear-gradient(180deg, rgba(12,5,5,0.18), rgba(12,5,5,0.78)),
     radial-gradient(circle at 50% 0%, rgba(215,181,109,0.24), transparent 38%),
     url('/assets/palace-bg.svg') center/cover no-repeat;
+}
+
+.poster-card--fate::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  bottom: 78px;
+  width: 104px;
+  height: 145px;
+  background: url('/assets/portrait-guifei.svg') center/cover no-repeat;
+  opacity: 0.72;
+  filter: drop-shadow(0 18px 24px rgba(0,0,0,0.45));
 }
