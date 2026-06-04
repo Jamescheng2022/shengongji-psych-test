@@ -1,6 +1,6 @@
 import { dimensions, DIMENSION_IDS, emptyScores, getDimensionName } from "./dimensions";
 import { resultTypes } from "./results";
-import type { Answer, ComputedResult, Scores } from "./types";
+import type { Answer, ComputedResult, ResultType, Scores } from "./types";
 
 function cloneScores(): Scores {
   return { ...emptyScores };
@@ -40,9 +40,9 @@ function mean(scores: Scores) {
   return DIMENSION_IDS.reduce((sum, id) => sum + scores[id], 0) / DIMENSION_IDS.length;
 }
 
-function shapeGap(user: Scores, target: Scores) {
+function shapeGap(user: Scores, target: ResultType) {
   const userMean = mean(user);
-  const targetMean = mean(target);
+  const targetMean = mean(target.profile);
   const userRank = rankScores(user);
   const targetRank = rankScores(target.profile);
   const userTop = new Set(userRank.slice(0, 2).map((item) => item.id));
