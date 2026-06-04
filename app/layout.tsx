@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./palace-assets.css";
 import "./poster-polish.css";
+import "./result-polish.css";
 
 export const metadata: Metadata = {
   title: "深宫命格",
