@@ -64,15 +64,18 @@ export default function TestPage() {
         <section className="test-screen" style={{ gap: 14 }}>
           <div className="test-progress-block">
             <div className="progress-text">
-              <span>选择最接近你的反应</span>
-              <span>{index + 1} / {questions.length}</span>
+              <span>凭第一念选择</span>
+              <span>第 {index + 1} 幕 / 共 {questions.length} 幕</span>
             </div>
             <div className="progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
           </div>
 
           <article className="hero-card question-card" style={{ padding: "26px 22px", borderRadius: 28 }}>
+            <p className="chapter">入宫十二问</p>
             <p className="scene" style={{ fontSize: 17, lineHeight: 1.82 }}>{question.scene}</p>
           </article>
+
+          <p className="small-note" style={{ textAlign: "center", margin: 0 }}>在这种情境下，你更可能：</p>
 
           <div className="choices" style={{ gap: 12 }}>
             {question.choices.map((choice) => {
