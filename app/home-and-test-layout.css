@@ -65,13 +65,14 @@
 }
 
 .phone--test {
-  overflow: hidden;
+  overflow: visible !important;
+  padding-bottom: max(14px, env(safe-area-inset-bottom)) !important;
 }
 
 .test-screen {
-  min-height: calc(100dvh - 60px) !important;
-  display: grid !important;
-  grid-template-rows: auto auto minmax(214px, 25dvh) auto minmax(276px, auto);
+  min-height: auto !important;
+  display: flex !important;
+  flex-direction: column;
   gap: 10px !important;
   align-content: start;
 }
@@ -93,6 +94,7 @@
   overflow: hidden;
   padding-top: 22px !important;
   padding-bottom: 22px !important;
+  flex: none !important;
 }
 
 .question-card .chapter {
@@ -113,8 +115,8 @@
 
 .choice-guide {
   flex: none;
-  min-height: 22px;
-  margin: 6px 0 0 !important;
+  min-height: auto;
+  margin: 4px 0 2px !important;
 }
 
 .choices {
@@ -122,7 +124,8 @@
   display: grid !important;
   grid-template-rows: repeat(4, 64px);
   gap: 10px !important;
-  min-height: 286px;
+  min-height: auto !important;
+  flex: none !important;
 }
 
 .choice {
@@ -141,7 +144,6 @@
 
 @media (max-height: 760px) {
   .test-screen {
-    grid-template-rows: auto auto minmax(190px, 24dvh) auto minmax(252px, auto);
     gap: 7px !important;
   }
 
@@ -158,13 +160,12 @@
   }
 
   .choice-guide {
-    margin-top: 4px !important;
-    min-height: 20px;
+    margin-top: 2px !important;
+    min-height: auto;
   }
 
   .choices {
     grid-template-rows: repeat(4, 57px);
-    min-height: 252px;
     gap: 8px !important;
   }
 
@@ -187,9 +188,5 @@
 
   .cover-subtitle {
     font-size: 17px;
-  }
-
-  .test-screen {
-    grid-template-rows: auto auto minmax(198px, 24dvh) auto minmax(256px, auto);
   }
 }
