@@ -36,13 +36,34 @@ function normalized(raw: Scores, answers: Answer[]): Scores {
   return out;
 }
 
-function gap(a: Scores, b: Scores) {
-  let total = 0;
+function mean(scores: Scores) {
+  return DIMENSION_IDS.reduce((sum, id) => sum + scores[id], 0) / DIMENSION_IDS.length;
+}
+
+function shapeGap(user: Scores, target: Scores) {
+  const userMean = mean(user);
+  const targetMean = mean(target);
+  const userRank = rankScores(user);
+  const targetRank = rankScores(target.profile);
+  const userTop = new Set(userRank.slice(0, 2).map((item) => item.id));
+  const targetTop = new Set(targetRank.slice(0, 2).map((item) => item.id));
+  const userLow = userRank[userRank.length - 1]?.id;
+  const targetLow = targetRank[targetRank.length - 1]?.id;
+
+  let value = 0;
   for (const id of DIMENSION_IDS) {
-    const d = a[id] - b[id];
-    total += d * d;
+    const weight = userTop.has(id) || targetTop.has(id) ? 1.55 : 1;
+    const a = user[id] - userMean;
+    const b = target.profile[id] - targetMean;
+    value += (a - b) * (a - b) * weight;
   }
-  return total;
+
+  for (const id of userTop) {
+    if (!targetTop.has(id)) value += 900;
+  }
+  if (userLow && targetLow && userLow !== targetLow) value += 420;
+
+  return value;
 }
 
 function pickKeyChoices(answers: Answer[]) {
@@ -58,7 +79,7 @@ export function computeResult(answers: Answer[]): ComputedResult {
   for (const answer of answers) addWeights(raw, answer);
   const scores = normalized(raw, answers);
   const rankedDimensions = rankScores(scores);
-  const result = resultTypes.map((type) => ({ type, value: gap(scores, type.profile) })).sort((a, b) => a.value - b.value)[0]?.type ?? resultTypes[0];
+  const result = resultTypes.map((type) => ({ type, value: shapeGap(scores, type) })).sort((a, b) => a.value - b.value)[0]?.type ?? resultTypes[0];
   return { scores, rankedDimensions, result, answers, keyChoices: pickKeyChoices(answers) };
 }
 
