@@ -40,6 +40,53 @@ function mean(scores: Scores) {
   return DIMENSION_IDS.reduce((sum, id) => sum + scores[id], 0) / DIMENSION_IDS.length;
 }
 
+function getResult(id: string) {
+  return resultTypes.find((item) => item.id === id) ?? null;
+}
+
+function anchoredResult(scores: Scores) {
+  const ranked = rankScores(scores);
+  const top1 = ranked[0]?.id;
+  const top2 = ranked[1]?.id;
+  const top3 = ranked[2]?.id;
+  const low = ranked[ranked.length - 1]?.id;
+  const hasTop = (id: string) => top1 === id || top2 === id || top3 === id;
+
+  if (scores.power >= 70 && scores.agency >= 62) {
+    if (scores.caution >= 66 && scores.affiliation <= 52) return getResult("cold-palace-reviewer");
+    if (scores.boundary >= 72 && scores.affiliation <= 55) return getResult("phoenix-seal");
+    if (scores.affiliation >= 62) return getResult("gold-hairpin-breaker");
+    return getResult("brocade-controller");
+  }
+
+  if (scores.affiliation >= 74 && scores.emotionality >= 62 && scores.power <= 52) {
+    return getResult("long-night-empath");
+  }
+
+  if (scores.caution >= 74 && scores.boundary >= 68 && scores.power <= 48) {
+    if (scores.affiliation <= 46 && scores.emotionality <= 44) return getResult("winter-lamp");
+    return getResult("hidden-fragrance");
+  }
+
+  if (scores.boundary >= 76 && scores.agency >= 58 && scores.affiliation <= 58) {
+    return getResult("phoenix-seal");
+  }
+
+  if (scores.agency >= 76 && scores.boundary >= 62 && scores.emotionality <= 54) {
+    return getResult("brocade-controller");
+  }
+
+  if (scores.affiliation >= 72 && scores.boundary >= 66 && hasTop("caution") && scores.power >= 36 && scores.power <= 66) {
+    return getResult("jade-step-tester");
+  }
+
+  if (top1 === "caution" && top2 === "boundary" && low === "power") {
+    return getResult("winter-lamp");
+  }
+
+  return null;
+}
+
 function shapeGap(user: Scores, target: ResultType) {
   const userMean = mean(user);
   const targetMean = mean(target.profile);
@@ -52,16 +99,21 @@ function shapeGap(user: Scores, target: ResultType) {
 
   let value = 0;
   for (const id of DIMENSION_IDS) {
-    const weight = userTop.has(id) || targetTop.has(id) ? 1.55 : 1;
+    const weight = userTop.has(id) || targetTop.has(id) ? 1.65 : 1;
     const a = user[id] - userMean;
     const b = target.profile[id] - targetMean;
     value += (a - b) * (a - b) * weight;
   }
 
   for (const id of userTop) {
-    if (!targetTop.has(id)) value += 900;
+    if (!targetTop.has(id)) value += 1400;
   }
-  if (userLow && targetLow && userLow !== targetLow) value += 420;
+  if (userLow && targetLow && userLow !== targetLow) value += 650;
+
+  if (target.id === "jade-step-tester") {
+    const strongLinglongShape = userTop.has("affiliation") && userTop.has("boundary") && user.caution >= 55 && user.power >= 36 && user.power <= 66;
+    if (!strongLinglongShape) value += 1800;
+  }
 
   return value;
 }
@@ -79,7 +131,8 @@ export function computeResult(answers: Answer[]): ComputedResult {
   for (const answer of answers) addWeights(raw, answer);
   const scores = normalized(raw, answers);
   const rankedDimensions = rankScores(scores);
-  const result = resultTypes.map((type) => ({ type, value: shapeGap(scores, type) })).sort((a, b) => a.value - b.value)[0]?.type ?? resultTypes[0];
+  const anchored = anchoredResult(scores);
+  const result = anchored ?? resultTypes.map((type) => ({ type, value: shapeGap(scores, type) })).sort((a, b) => a.value - b.value)[0]?.type ?? resultTypes[0];
   return { scores, rankedDimensions, result, answers, keyChoices: pickKeyChoices(answers) };
 }
 
