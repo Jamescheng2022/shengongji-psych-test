@@ -43,6 +43,7 @@ export default function TestPage() {
       setAnswers(nextAnswers);
       setIndex((value) => value + 1);
       setSelected(null);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }, 180);
   }
 
@@ -51,17 +52,18 @@ export default function TestPage() {
     setAnswers([]);
     setIndex(0);
     setSelected(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
-    <main className="shell">
+    <main className="shell test-shell">
       <section className="phone phone--test">
         <header className="topbar">
           <Link href="/">‹ 返回</Link>
           <MusicToggle />
         </header>
 
-        <section className="test-screen" style={{ gap: 14 }}>
+        <section className="test-screen">
           <div className="test-progress-block">
             <div className="progress-text">
               <span>凭第一念选择</span>
@@ -70,14 +72,14 @@ export default function TestPage() {
             <div className="progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
           </div>
 
-          <article className="hero-card question-card" style={{ padding: "26px 22px", borderRadius: 28 }}>
-            <p className="chapter">入宫十二问</p>
-            <p className="scene" style={{ fontSize: 17, lineHeight: 1.82 }}>{question.scene}</p>
+          <article className="hero-card question-card">
+            <p className="chapter">深宫命册</p>
+            <p className="scene">{question.scene}</p>
           </article>
 
-          <p className="small-note" style={{ textAlign: "center", margin: 0 }}>在这种情境下，你更可能：</p>
+          <p className="choice-guide">在这种情境下，你更可能：</p>
 
-          <div className="choices" style={{ gap: 12 }}>
+          <div className="choices">
             {question.choices.map((choice) => {
               const isSelected = selected === choice.id;
               return (
@@ -87,12 +89,6 @@ export default function TestPage() {
                   className={isSelected ? "choice selected" : "choice"}
                   disabled={Boolean(selected)}
                   onClick={() => choose(choice)}
-                  style={{
-                    minHeight: 58,
-                    borderRadius: 18,
-                    padding: "13px 15px",
-                    background: isSelected ? "rgba(215,181,109,0.18)" : "rgba(255,255,255,0.045)",
-                  }}
                 >
                   <strong>{isSelected ? "✓" : choice.id.toUpperCase()}</strong>
                   <span>{choice.text}</span>
@@ -102,7 +98,7 @@ export default function TestPage() {
           </div>
 
           <div className="test-actions">
-            <button className="text-button" type="button" onClick={restart}>重新开始</button>
+            <button className="restart-button" type="button" onClick={restart}>重新开始</button>
           </div>
         </section>
       </section>
