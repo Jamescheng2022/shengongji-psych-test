@@ -1,0 +1,267 @@
+/* Visual redesign pass 02: cover rhythm, test title, poster share-card polish. */
+.phone {
+  position: relative;
+}
+
+.phone::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 4%, rgba(255, 229, 173, 0.13), transparent 22%),
+    linear-gradient(90deg, rgba(119, 24, 26, 0.22), transparent 16%, transparent 84%, rgba(0,0,0,0.24));
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+.topbar {
+  padding-inline: 2px;
+}
+
+.hero-card,
+.result-card,
+.poster-card,
+.paper-card,
+.question-card {
+  backdrop-filter: blur(7px);
+}
+
+.palace-cover {
+  justify-content: flex-end !important;
+  text-align: center;
+  overflow: hidden;
+}
+
+.palace-cover::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(217,181,106,0.14);
+  border-radius: 25px;
+  pointer-events: none;
+  box-shadow: inset 0 0 36px rgba(217,181,106,0.05);
+}
+
+.palace-cover .seal {
+  margin-top: auto !important;
+  margin-bottom: 12px !important;
+}
+
+.palace-cover .seal::before,
+.palace-cover .seal::after {
+  content: "—— ✦ ——";
+  display: block;
+  margin: 0 auto 8px;
+  color: rgba(244,221,163,0.76);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.palace-cover .seal::after {
+  margin: 8px auto 0;
+}
+
+.landing-intro-card {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-intro-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(217,181,106,0.13);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.expert-row span {
+  box-shadow: inset 0 1px rgba(255,255,255,0.06), 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.landing-buttons .primary-button::before {
+  content: "入";
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(244,221,163,0.45);
+  color: #ffe8b2;
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+.test-title {
+  display: block;
+  margin: 2px auto 4px;
+  text-align: center;
+  color: #f4dda3;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-shadow: 0 3px 18px rgba(0,0,0,0.62);
+}
+
+.test-title::before,
+.test-title::after {
+  content: "—— ✦ ——";
+  display: block;
+  color: rgba(244,221,163,0.72);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin-bottom: 5px;
+}
+
+.test-title::after {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.test-progress-block {
+  padding-top: 2px !important;
+}
+
+.question-card {
+  margin-top: 2px;
+}
+
+.question-card .chapter::before,
+.question-card .chapter::after {
+  content: "·";
+  color: rgba(143,42,43,0.46);
+  margin: 0 8px;
+}
+
+.choice {
+  overflow: hidden;
+}
+
+.choice::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244,221,163,0.25), transparent);
+}
+
+.choice:active {
+  filter: brightness(1.08);
+}
+
+.poster-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.poster-card--fate {
+  min-height: calc(100dvh - 160px);
+  border-radius: 34px !important;
+  padding: 24px 18px 20px !important;
+  background:
+    linear-gradient(180deg, rgba(9,4,4,0.64), rgba(8,3,3,0.92)),
+    url('/assets/poster-bg.png') center/cover no-repeat !important;
+  border-color: rgba(244,221,163,0.44) !important;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.52), inset 0 0 0 1px rgba(255,255,255,0.04) !important;
+}
+
+.poster-frame-line {
+  position: absolute;
+  inset: 13px;
+  border: 1px solid rgba(244,221,163,0.22);
+  border-radius: 26px;
+  pointer-events: none;
+}
+
+.poster-copy {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.poster-copy .seal {
+  font-size: 12px;
+  letter-spacing: 0.20em;
+  margin-bottom: 10px;
+}
+
+.poster-copy h1 {
+  font-size: clamp(36px, 10vw, 54px) !important;
+  line-height: 1.06;
+  color: #fff2cc;
+  letter-spacing: 0.08em !important;
+  text-shadow: 0 4px 28px rgba(0,0,0,0.72);
+}
+
+.poster-copy .verdict {
+  max-width: 290px;
+  margin: 12px auto 0;
+  color: rgba(255,241,211,0.90) !important;
+}
+
+.poster-portrait {
+  width: min(78%, 270px) !important;
+  height: auto !important;
+  aspect-ratio: 3 / 4;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  margin: 20px auto 14px;
+  border-radius: 26px;
+  border: 1px solid rgba(244,221,163,0.46);
+  box-shadow: 0 22px 48px rgba(0,0,0,0.48);
+  position: relative;
+  z-index: 1;
+}
+
+.poster-quote-card {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  padding: 16px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(244,221,163,0.30);
+  background: linear-gradient(180deg, rgba(9,4,4,0.72), rgba(9,4,4,0.50));
+  backdrop-filter: blur(8px);
+}
+
+.poster-quote-card p {
+  margin: 0;
+  color: rgba(255,241,211,0.92);
+  line-height: 1.78;
+  text-align: center;
+}
+
+.poster-bottom {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  text-align: center;
+  display: grid;
+  gap: 5px;
+  color: rgba(255,241,211,0.82);
+}
+
+.poster-bottom span {
+  color: #f4dda3;
+  letter-spacing: 0.12em;
+}
+
+.poster-actions {
+  grid-template-columns: 1fr 1fr !important;
+}
+
+.poster-actions button:last-child {
+  display: none;
+}
+
+@media (max-height: 760px) {
+  .poster-card--fate { min-height: auto; }
+  .poster-portrait { width: min(62%, 210px) !important; margin-top: 12px; margin-bottom: 10px; }
+  .poster-copy h1 { font-size: 34px !important; }
+  .poster-quote-card { padding: 12px 14px; }
+}
