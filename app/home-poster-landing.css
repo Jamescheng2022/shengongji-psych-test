@@ -1,0 +1,49 @@
+/* Homepage poster mode. */
+.home-poster-landing {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: #080403 url('/assets/home-landing-poster.jpg') center top / cover no-repeat;
+}
+
+.home-poster-start {
+  position: absolute;
+  left: 50%;
+  top: 63.5%;
+  transform: translate(-50%, -50%);
+  width: 66%;
+  height: 8.1%;
+  min-height: 54px;
+  max-height: 88px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0;
+  z-index: 2;
+}
+
+.home-poster-start:active {
+  background: rgba(255, 230, 180, 0.12);
+  box-shadow: 0 0 28px rgba(255, 210, 130, 0.18);
+}
+
+@supports (height: 100svh) {
+  .home-poster-landing {
+    min-height: 100svh;
+  }
+}
+
+@media (max-aspect-ratio: 9 / 16) {
+  .home-poster-landing {
+    background-size: auto 100%;
+  }
+}
+
+@media (min-aspect-ratio: 9 / 16) {
+  .home-poster-landing {
+    background-size: 100% auto;
+  }
+}
