@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { getResultPortrait, useFallbackPortrait } from "@/lib/test-model/assets";
 import { readResult } from "@/lib/test-model/storage";
 import type { ComputedResult } from "@/lib/test-model/types";
 
@@ -14,7 +15,7 @@ export default function PosterPage() {
 
   if (!payload) {
     return (
-      <main className="shell">
+      <main className="shell poster-shell">
         <section className="phone poster-wrap">
           <article className="paper-card">
             <p className="seal">命签未成</p>
@@ -28,16 +29,19 @@ export default function PosterPage() {
   }
 
   const top = payload.rankedDimensions[0];
+  const portrait = getResultPortrait(payload.result.id);
 
   return (
-    <main className="shell">
+    <main className="shell poster-shell">
       <section className="phone poster-wrap">
         <article className="poster-card poster-card--fate">
-          <div>
+          <div className="poster-copy">
             <p className="seal">深宫命格 · 命格签</p>
             <h1>{payload.result.name}</h1>
             <p className="verdict">{payload.result.verdict}</p>
           </div>
+
+          <img className="poster-portrait" src={portrait} alt={payload.result.name} onError={(event) => useFallbackPortrait(event.currentTarget)} />
 
           <p className="poster-quote">{payload.result.shareQuote}</p>
 
