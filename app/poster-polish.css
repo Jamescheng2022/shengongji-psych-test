@@ -1,0 +1,177 @@
+.poster-wrap {
+  padding-top: 8px;
+  align-content: start !important;
+}
+
+.poster-card--fate {
+  min-height: 650px;
+  aspect-ratio: auto !important;
+  padding: 28px 22px 24px !important;
+  border-radius: 30px !important;
+  border: 1px solid rgba(215,181,109,0.44) !important;
+  background:
+    linear-gradient(180deg, rgba(9, 3, 4, 0.18), rgba(9, 3, 4, 0.48) 38%, rgba(9, 3, 4, 0.88) 100%),
+    radial-gradient(circle at 70% 18%, rgba(239,205,137,0.18), transparent 30%),
+    url('/assets/poster-bg.png') center/cover no-repeat !important;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.48), inset 0 1px rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.poster-card--fate::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(215,181,109,0.26);
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.poster-frame-line {
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(215,181,109,0.16);
+  border-radius: 18px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.poster-copy {
+  max-width: 100% !important;
+  text-align: center;
+  padding: 6px 10px 0;
+}
+
+.poster-copy .seal {
+  margin-bottom: 12px;
+  color: #e5c06f;
+}
+
+.poster-copy h1 {
+  font-size: 42px !important;
+  line-height: 1.06;
+  letter-spacing: 0.12em;
+  color: #fff0d1;
+  text-shadow: 0 3px 24px rgba(0,0,0,0.62), 0 0 18px rgba(215,181,109,0.22);
+}
+
+.poster-copy .verdict {
+  margin: 14px auto 0;
+  max-width: 280px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,241,211,0.88);
+}
+
+.poster-portrait {
+  position: relative !important;
+  right: auto !important;
+  bottom: auto !important;
+  display: block;
+  width: min(74%, 245px) !important;
+  max-height: none !important;
+  height: 300px;
+  margin: 22px auto 0;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 24px;
+  border: 1px solid rgba(215,181,109,0.46);
+  box-shadow: 0 18px 38px rgba(0,0,0,0.48);
+  z-index: 2;
+}
+
+.poster-quote-card {
+  position: relative;
+  z-index: 3;
+  margin: 20px auto 0;
+  padding: 16px 16px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(215,181,109,0.24);
+  background: linear-gradient(180deg, rgba(0,0,0,0.48), rgba(0,0,0,0.30));
+  backdrop-filter: blur(8px);
+}
+
+.poster-quote-card p {
+  margin: 0;
+  color: #f0d58d;
+  font-size: 18px;
+  line-height: 1.72;
+  text-align: center;
+}
+
+.poster-bottom {
+  display: grid;
+  gap: 6px;
+  margin-top: 18px;
+  text-align: center;
+  color: rgba(255,241,211,0.78);
+}
+
+.poster-bottom span {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: #e5c06f;
+}
+
+.poster-bottom small {
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255,241,211,0.62);
+}
+
+.poster-tip {
+  margin: 0;
+  color: rgba(255,241,211,0.70) !important;
+}
+
+.poster-actions {
+  grid-template-columns: 1.35fr 0.82fr 0.82fr;
+  gap: 8px !important;
+}
+
+.poster-actions .primary-button,
+.poster-actions .secondary-button {
+  min-height: 48px;
+  border-radius: 18px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+}
+
+.empty-poster-card {
+  margin-top: 24px;
+}
+
+@media (max-height: 760px) {
+  .poster-card--fate {
+    min-height: 590px;
+    padding-top: 22px !important;
+  }
+
+  .poster-portrait {
+    height: 250px;
+    margin-top: 16px;
+  }
+
+  .poster-quote-card {
+    margin-top: 14px;
+    padding: 13px 14px;
+  }
+
+  .poster-quote-card p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .poster-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .poster-copy h1 {
+    font-size: 36px !important;
+  }
+
+  .poster-portrait {
+    width: min(80%, 230px) !important;
+  }
+}
