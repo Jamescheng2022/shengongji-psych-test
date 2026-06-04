@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./palace-assets.css";
 
 export const metadata: Metadata = {
   title: "深宫命格",
