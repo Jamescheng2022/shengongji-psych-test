@@ -30,7 +30,7 @@ export default function ResultPage() {
 
   if (!payload) {
     return (
-      <main className="shell">
+      <main className="shell result-shell">
         <section className="phone">
           <article className="paper-card">
             <p className="seal">命册未启</p>
@@ -48,6 +48,7 @@ export default function ResultPage() {
 
   const values = payload.rankedDimensions.map((item) => item.score);
   const primary = payload.rankedDimensions[0];
+  const secondary = payload.rankedDimensions[1];
   const portrait = getResultPortrait(payload.result.id);
   const miniBiography = payload.result.miniBiography ?? buildMiniBiography(payload.result.name);
   const realLifeMirror = payload.result.realLifeMirror ?? buildRealLifeMirror(primary?.name ?? "应变方式");
@@ -73,58 +74,17 @@ export default function ResultPage() {
             </div>
           </div>
 
-          <section className="result-section">
-            <h2>你的深宫小传</h2>
+          <section className="result-quick-card">
+            <p className="result-label">命格总览</p>
+            <div className="result-tags">
+              <span>主倾向：{primary?.name}</span>
+              <span>副倾向：{secondary?.name}</span>
+              <span>三十幕落印</span>
+            </div>
             <p>{miniBiography}</p>
           </section>
 
-          <section className="result-section">
-            <h2>命格画像</h2>
-            <p>{payload.result.archetype}</p>
-          </section>
-
-          <section className="result-section">
-            <h2>处世底色</h2>
-            <p>{payload.result.psychProfile}</p>
-          </section>
-
-          <section className="result-section">
-            <h2>现实映照</h2>
-            <p>{realLifeMirror}</p>
-          </section>
-
-          <section className="result-section evidence-section">
-            <h2>为什么是这个命格</h2>
-            {payload.keyChoices.map((answer, index) => (
-              <article className="evidence-card" key={`${answer.questionId}-${answer.choiceId}`}>
-                <strong>关键选择 {index + 1}</strong>
-                <p>{answer.choiceText}</p>
-                <span>{answer.evidence ?? "这个选择映出了你在困局中的惯用保护方式。"}</span>
-              </article>
-            ))}
-          </section>
-
-          <section className="result-section">
-            <h2>关系方式</h2>
-            <p>{payload.result.relationshipPattern}</p>
-          </section>
-
-          <section className="result-section">
-            <h2>困局反应</h2>
-            <p>{payload.result.stressResponse}</p>
-          </section>
-
-          <section className="result-section">
-            <h2>隐藏风险</h2>
-            <p>{payload.result.hiddenRisk}</p>
-          </section>
-
-          <section className="result-section">
-            <h2>命格锦囊</h2>
-            <p>{payload.result.growthAdvice}</p>
-          </section>
-
-          <section className="result-section">
+          <section className="result-section result-section--compact">
             <h2>五维命格图</h2>
             <p className="small-note">不是好坏分数，只是你在三十幕里最常使用的处世方式。</p>
             <div className="dim-list">
@@ -137,9 +97,59 @@ export default function ResultPage() {
               ))}
             </div>
           </section>
+
+          <section className="result-grid-two">
+            <article className="result-section">
+              <h2>命格画像</h2>
+              <p>{payload.result.archetype}</p>
+            </article>
+            <article className="result-section">
+              <h2>处世底色</h2>
+              <p>{payload.result.psychProfile}</p>
+            </article>
+          </section>
+
+          <section className="result-grid-two">
+            <article className="result-section">
+              <h2>关系方式</h2>
+              <p>{payload.result.relationshipPattern}</p>
+            </article>
+            <article className="result-section">
+              <h2>困局反应</h2>
+              <p>{payload.result.stressResponse}</p>
+            </article>
+          </section>
+
+          <section className="result-section">
+            <h2>现实映照</h2>
+            <p>{realLifeMirror}</p>
+          </section>
+
+          <section className="result-section result-section--gold">
+            <h2>命格锦囊</h2>
+            <p>{payload.result.growthAdvice}</p>
+          </section>
+
+          <details className="result-details">
+            <summary>查看关键选择</summary>
+            <div className="evidence-section">
+              {payload.keyChoices.map((answer, index) => (
+                <article className="evidence-card" key={`${answer.questionId}-${answer.choiceId}`}>
+                  <strong>关键选择 {index + 1}</strong>
+                  <p>{answer.choiceText}</p>
+                  <span>{answer.evidence ?? "这个选择映出了你在困局中的惯用保护方式。"}</span>
+                </article>
+              ))}
+            </div>
+          </details>
+
+          <details className="result-details">
+            <summary>查看隐藏风险</summary>
+            <p>{payload.result.hiddenRisk}</p>
+          </details>
         </article>
 
-        <div className="button-row" style={{ marginTop: 16 }}>
+        <div className="button-row result-actions" style={{ marginTop: 16 }}>
           <Link className="primary-button" href="/poster">生成命格海报</Link>
           <Link className="secondary-button" href="/test">重新入宫</Link>
         </div>
