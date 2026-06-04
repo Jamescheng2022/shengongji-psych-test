@@ -18,10 +18,10 @@ export default function PosterPage() {
         <section className="phone poster-wrap">
           <article className="paper-card">
             <p className="seal">命签未成</p>
-            <h1>还没有测试结果</h1>
-            <p>完成三十幕选择后，再回来生成分享命签。</p>
+            <h1>还没有命格结果</h1>
+            <p>完成三十幕选择后，再回来生成命格海报。</p>
           </article>
-          <Link className="primary-button" href="/test">开始测试</Link>
+          <Link className="primary-button" href="/test">开始入宫</Link>
         </section>
       </main>
     );
@@ -34,7 +34,7 @@ export default function PosterPage() {
       <section className="phone poster-wrap">
         <article className="poster-card poster-card--fate">
           <div>
-            <p className="seal">深宫纪 · 命格签</p>
+            <p className="seal">深宫命格 · 命格签</p>
             <h1>{payload.result.name}</h1>
             <p className="verdict">{payload.result.verdict}</p>
           </div>
@@ -48,8 +48,8 @@ export default function PosterPage() {
         </article>
 
         <div className="button-row">
-          <Link className="primary-button" href="/result">查看完整解释</Link>
-          <Link className="secondary-button" href="/test">再测一次</Link>
+          <Link className="primary-button" href="/result">查看命格全解</Link>
+          <Link className="secondary-button" href="/test">重新入宫</Link>
         </div>
       </section>
     </main>
