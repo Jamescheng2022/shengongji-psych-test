@@ -10,7 +10,7 @@ declare global {
 
 function getAudio() {
   if (!window.__shengongjiAudio) {
-    const audio = new Audio("/audio/moonlit-garden-path.mp3");
+    const audio = new Audio("/assets/moonlit-garden-path.mp3");
     audio.loop = true;
     audio.volume = 0.22;
     audio.preload = "auto";
