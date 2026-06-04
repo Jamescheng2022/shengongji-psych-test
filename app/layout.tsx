@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "深宫纪｜剧本化心理测试",
-  description: "一个以深宫剧本为外壳、以心理测评为内核的移动端人格测试。",
+  title: "深宫命格",
+  description: "一场关于选择、情感与人心的宫廷命格体验。",
 };
 
 export const viewport: Viewport = {
