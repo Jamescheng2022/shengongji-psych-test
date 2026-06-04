@@ -1,4 +1,4 @@
-/* Home and test layout refinement: classical title and fixed question stage. */
+/* Home and test layout refinement: classical title and compact fixed question stage. */
 .cover-title-block {
   position: relative;
   z-index: 1;
@@ -69,10 +69,11 @@
 }
 
 .test-screen {
-  min-height: calc(100dvh - 62px) !important;
+  min-height: calc(100dvh - 60px) !important;
   display: grid !important;
-  grid-template-rows: auto auto minmax(238px, 30dvh) auto minmax(252px, 1fr);
+  grid-template-rows: auto auto minmax(214px, 25dvh) auto minmax(276px, auto);
   gap: 10px !important;
+  align-content: start;
 }
 
 .test-title {
@@ -84,16 +85,18 @@
 }
 
 .question-card {
-  height: clamp(238px, 30dvh, 292px) !important;
+  height: clamp(214px, 25dvh, 246px) !important;
   min-height: 0 !important;
   display: flex !important;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  padding-top: 22px !important;
+  padding-bottom: 22px !important;
 }
 
 .question-card .chapter {
-  flex: none;
+  display: none !important;
 }
 
 .question-card .scene {
@@ -111,19 +114,20 @@
 .choice-guide {
   flex: none;
   min-height: 22px;
+  margin: 6px 0 0 !important;
 }
 
 .choices {
   align-self: stretch;
   display: grid !important;
-  grid-template-rows: repeat(4, minmax(58px, 1fr));
+  grid-template-rows: repeat(4, 64px);
   gap: 10px !important;
-  min-height: 252px;
+  min-height: 286px;
 }
 
 .choice {
   min-height: 0 !important;
-  height: 100%;
+  height: 64px !important;
   align-content: center;
 }
 
@@ -137,28 +141,42 @@
 
 @media (max-height: 760px) {
   .test-screen {
-    grid-template-rows: auto auto minmax(210px, 28dvh) auto minmax(226px, 1fr);
-    gap: 8px !important;
+    grid-template-rows: auto auto minmax(190px, 24dvh) auto minmax(252px, auto);
+    gap: 7px !important;
   }
 
   .question-card {
-    height: clamp(210px, 28dvh, 246px) !important;
+    height: clamp(190px, 24dvh, 218px) !important;
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
   }
 
   .question-card .scene {
-    max-height: 148px;
-    font-size: 16px !important;
-    line-height: 1.68 !important;
+    max-height: 154px;
+    font-size: 15.8px !important;
+    line-height: 1.62 !important;
+  }
+
+  .choice-guide {
+    margin-top: 4px !important;
+    min-height: 20px;
   }
 
   .choices {
-    min-height: 226px;
+    grid-template-rows: repeat(4, 57px);
+    min-height: 252px;
     gap: 8px !important;
+  }
+
+  .choice {
+    height: 57px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
   }
 
   .choice span {
     font-size: 14.5px !important;
-    line-height: 1.42 !important;
+    line-height: 1.38 !important;
   }
 }
 
@@ -172,6 +190,6 @@
   }
 
   .test-screen {
-    grid-template-rows: auto auto minmax(218px, 30dvh) auto minmax(232px, 1fr);
+    grid-template-rows: auto auto minmax(198px, 24dvh) auto minmax(256px, auto);
   }
 }
