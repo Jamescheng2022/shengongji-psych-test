@@ -33,11 +33,11 @@ export default function ResultPage() {
         <section className="phone">
           <article className="paper-card">
             <p className="seal">命册未启</p>
-            <h1>你还没有完成测试</h1>
+            <h1>你还没有完成入宫选择</h1>
             <p>请先完成三十幕选择，命格才会落印。</p>
           </article>
           <div className="button-row" style={{ marginTop: 16 }}>
-            <Link className="primary-button" href="/test">开始测试</Link>
+            <Link className="primary-button" href="/test">开始入宫</Link>
             <Link className="secondary-button" href="/">返回首页</Link>
           </div>
         </section>
@@ -48,7 +48,7 @@ export default function ResultPage() {
   const values = payload.rankedDimensions.map((item) => item.score);
   const primary = payload.rankedDimensions[0];
   const miniBiography = payload.result.miniBiography ?? buildMiniBiography(payload.result.name);
-  const realLifeMirror = payload.result.realLifeMirror ?? buildRealLifeMirror(primary?.name ?? "压力反应");
+  const realLifeMirror = payload.result.realLifeMirror ?? buildRealLifeMirror(primary?.name ?? "应变方式");
 
   return (
     <main className="shell">
@@ -72,38 +72,38 @@ export default function ResultPage() {
           </section>
 
           <section className="result-section">
-            <h2>深宫画像</h2>
+            <h2>命格画像</h2>
             <p>{payload.result.archetype}</p>
           </section>
 
           <section className="result-section">
-            <h2>心理画像</h2>
+            <h2>处世底色</h2>
             <p>{payload.result.psychProfile}</p>
           </section>
 
           <section className="result-section">
-            <h2>现实映射</h2>
+            <h2>现实映照</h2>
             <p>{realLifeMirror}</p>
           </section>
 
           <section className="result-section evidence-section">
-            <h2>为什么是这个结果</h2>
+            <h2>为什么是这个命格</h2>
             {payload.keyChoices.map((answer, index) => (
               <article className="evidence-card" key={`${answer.questionId}-${answer.choiceId}`}>
                 <strong>关键选择 {index + 1}</strong>
                 <p>{answer.choiceText}</p>
-                <span>{answer.evidence ?? "这个选择暴露了你在压力中的惯用保护方式。"}</span>
+                <span>{answer.evidence ?? "这个选择映出了你在困局中的惯用保护方式。"}</span>
               </article>
             ))}
           </section>
 
           <section className="result-section">
-            <h2>关系模式</h2>
+            <h2>关系方式</h2>
             <p>{payload.result.relationshipPattern}</p>
           </section>
 
           <section className="result-section">
-            <h2>压力反应</h2>
+            <h2>困局反应</h2>
             <p>{payload.result.stressResponse}</p>
           </section>
 
@@ -113,13 +113,13 @@ export default function ResultPage() {
           </section>
 
           <section className="result-section">
-            <h2>成长建议</h2>
+            <h2>命格锦囊</h2>
             <p>{payload.result.growthAdvice}</p>
           </section>
 
           <section className="result-section">
-            <h2>心理倾向图</h2>
-            <p className="small-note">不是好坏分数，只是你在三十幕里最常使用的心理工具。</p>
+            <h2>五维命格图</h2>
+            <p className="small-note">不是好坏分数，只是你在三十幕里最常使用的处世方式。</p>
             <div className="dim-list">
               {payload.rankedDimensions.map((dimension) => (
                 <div className="dim-row" key={dimension.id}>
@@ -133,8 +133,8 @@ export default function ResultPage() {
         </article>
 
         <div className="button-row" style={{ marginTop: 16 }}>
-          <Link className="primary-button" href="/poster">生成分享命签</Link>
-          <Link className="secondary-button" href="/test">重新测试</Link>
+          <Link className="primary-button" href="/poster">生成命格海报</Link>
+          <Link className="secondary-button" href="/test">重新入宫</Link>
         </div>
       </section>
     </main>
