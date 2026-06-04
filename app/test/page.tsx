@@ -68,7 +68,6 @@ export default function TestPage() {
           </div>
 
           <article className="hero-card question-card">
-            <p className="chapter">第 {index + 1} 幕</p>
             <p className="scene">{scene}</p>
           </article>
 
