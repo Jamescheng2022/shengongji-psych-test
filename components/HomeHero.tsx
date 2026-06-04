@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+const titleFont = {
+  fontFamily: '"STKaiti", "KaiTi", "Kaiti SC", "Songti SC", "Noto Serif SC", serif',
+  fontWeight: 700,
+  letterSpacing: "0.08em",
+} as const;
+
 export function HomeHero() {
   return (
     <section className="hero hero--landing">
@@ -8,10 +14,15 @@ export function HomeHero() {
           <span />
           <span />
         </div>
-        <div className="cover-title-block">
-          <p className="seal">三十幕 · 一卷命册</p>
-          <h1 className="cover-title"><span>深</span><span>宫</span><span>命</span><span>格</span></h1>
-          <h2>一入宫门，照见你的真实命格。</h2>
+        <div className="cover-title-block" style={{ position: "relative", zIndex: 1 }}>
+          <p className="seal" style={{ fontFamily: titleFont.fontFamily }}>三十幕 · 一卷命册</p>
+          <h1 className="cover-title" style={titleFont}>
+            <span style={{ display: "inline-block", transform: "translateY(-2px)" }}>深</span>
+            <span style={{ display: "inline-block", transform: "translateY(3px)" }}>宫</span>
+            <span style={{ display: "inline-block", transform: "translateY(-1px)" }}>命</span>
+            <span style={{ display: "inline-block", transform: "translateY(2px)" }}>格</span>
+          </h1>
+          <p className="cover-subtitle" style={{ fontFamily: titleFont.fontFamily }}>一入宫门，照见你的真实命格。</p>
         </div>
         <div className="landing-intro-card">
           <p>你将进入一段深宫情境。</p>
