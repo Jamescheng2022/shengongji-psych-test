@@ -1,382 +1,49 @@
-/* Landing page polish 02: tighter reference composition and closer first-screen rhythm. */
-.home-page-v2 {
-  min-height: 100dvh;
-  padding: 18px 18px max(18px, env(safe-area-inset-bottom));
-  background:
-    linear-gradient(180deg, rgba(255,246,229,0.72) 0%, rgba(255,246,229,0.34) 44%, rgba(24,11,9,0.82) 72%, rgba(5,3,3,0.96) 100%),
-    url('/assets/home-palace-bg.png') center top/cover no-repeat !important;
-}
-
-.home-page-v2::before {
-  background:
-    radial-gradient(circle at 52% 23%, rgba(255,250,237,0.92), rgba(255,245,223,0.46) 28%, transparent 60%),
-    linear-gradient(90deg, rgba(96,15,18,0.70) 0%, rgba(96,15,18,0.18) 17%, transparent 39%, transparent 78%, rgba(0,0,0,0.34) 100%) !important;
-}
-
-.home-page-v2::after {
-  height: 42%;
-  background: linear-gradient(180deg, transparent, rgba(8,4,4,0.88) 40%, rgba(4,2,2,0.98)) !important;
-}
-
-.home-brand-row {
-  min-height: 44px;
-  color: rgba(62,29,22,0.88);
-  font-size: 18px;
-  padding-left: 2px;
-}
-
-.home-curtain-left {
-  left: -66px;
-  top: -28px;
-  width: 185px;
-  height: 560px;
-  background:
-    linear-gradient(90deg, rgba(80,12,16,0.94), rgba(129,25,30,0.50) 45%, rgba(129,25,30,0.12) 72%, transparent) !important;
-}
-
-.home-lantern {
-  top: 86px;
-  right: 22px;
-  width: 62px;
-  height: 136px;
-}
-
-.home-plum {
-  top: 252px;
-  right: -2px;
-  opacity: 0.80;
-}
-
-.home-title-stage {
-  min-height: 355px;
-  padding-top: 46px;
-}
-
-.home-title-ornament {
-  margin-bottom: 12px;
-  width: 178px;
-}
-
-.home-side-tag {
-  display: none !important;
-}
-
-.home-brush-title {
-  color: #6a3a1e !important;
-  font-size: clamp(68px, 19vw, 92px) !important;
-  letter-spacing: 0.01em !important;
-  text-shadow:
-    0 2px 0 rgba(255,248,230,0.38),
-    0 8px 22px rgba(83,35,16,0.16) !important;
-}
-
-.home-main-subtitle {
-  margin-top: 18px;
-  color: #8f2a2b;
-  font-size: 20px;
-  letter-spacing: 0.08em;
-}
-
-.home-minor-subtitle {
+/* Homepage poster mode: one complete visual image plus one functional overlay button. */
+.home-poster-landing {
   position: relative;
-  margin-top: 12px;
-  padding-inline: 24px;
-  color: rgba(77,43,30,0.78);
-  font-size: 15px;
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: #080403 url('/assets/home-landing-poster.jpg') center top / cover no-repeat;
 }
 
-.home-minor-subtitle::before,
-.home-minor-subtitle::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 58px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(143,92,45,0.56));
-}
-
-.home-minor-subtitle::before {
-  right: 100%;
-}
-
-.home-minor-subtitle::after {
-  left: 100%;
-  transform: rotate(180deg);
-}
-
-.home-intro-panel {
-  width: min(100%, 348px);
-  margin: -4px auto 0;
-  padding: 25px 20px 90px;
-  border-radius: 16px;
-  border-color: rgba(223,183,118,0.42);
-  background:
-    linear-gradient(180deg, rgba(14,13,12,0.94), rgba(8,7,6,0.96)),
-    radial-gradient(circle at 50% 0%, rgba(221,180,108,0.14), transparent 56%) !important;
-}
-
-.home-intro-panel p {
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-.home-main-button {
-  bottom: -25px;
-  height: 64px;
-  width: min(76%, 300px);
-  font-size: 30px;
-  border-radius: 22px;
-}
-
-.home-about-link {
-  margin-top: 42px;
-  margin-bottom: 16px;
-}
-
-.home-feature-strip {
-  width: min(100%, 348px);
-  margin-inline: auto;
-  min-height: 78px;
-  border-radius: 9px;
-  background: rgba(12,10,9,0.70);
-}
-
-.home-feature-icon {
-  font-size: 24px;
-}
-
-.home-feature-strip strong {
-  font-size: 13.5px;
-}
-
-.home-disclaimer {
-  margin-top: 14px;
-  font-size: 11.5px;
-}
-
-@media (max-height: 760px) {
-  .home-page-v2 {
-    padding-top: 12px;
-  }
-  .home-brand-row {
-    min-height: 36px;
-    font-size: 16px;
-  }
-  .home-title-stage {
-    min-height: 288px;
-    padding-top: 28px;
-  }
-  .home-brush-title {
-    font-size: 62px !important;
-  }
-  .home-main-subtitle {
-    margin-top: 12px;
-    font-size: 17px;
-  }
-  .home-minor-subtitle {
-    margin-top: 6px;
-    font-size: 13px;
-  }
-  .home-lantern {
-    top: 70px;
-    width: 50px;
-    height: 112px;
-  }
-  .home-intro-panel {
-    margin-top: 0;
-    padding: 16px 16px 72px;
-  }
-  .home-intro-panel p {
-    font-size: 13.5px;
-    line-height: 1.72;
-  }
-  .home-panel-flower {
-    bottom: 58px;
-  }
-  .home-main-button {
-    height: 56px;
-    bottom: -22px;
-    font-size: 25px;
-  }
-  .home-about-link {
-    margin-top: 34px;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-  .home-feature-strip {
-    min-height: 66px;
-  }
-  .home-feature-icon {
-    font-size: 20px;
-  }
-  .home-feature-strip strong {
-    font-size: 12.5px;
-  }
-  .home-disclaimer {
-    margin-top: 8px;
-    font-size: 10.5px;
-  }
-}
-
-@media (max-width: 380px) {
-  .home-page-v2 {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-  .home-title-stage {
-    min-height: 320px;
-  }
-  .home-brush-title {
-    font-size: 62px !important;
-  }
-  .home-main-subtitle {
-    font-size: 17px;
-  }
-  .home-intro-panel {
-    width: 100%;
-  }
-}
-
-/* Landing polish 03: remove artificial pale poster block and restore airy palace depth. */
-.home-page-v2 {
-  background:
-    linear-gradient(180deg, rgba(255,246,229,0.34) 0%, rgba(255,246,229,0.12) 38%, rgba(17,8,7,0.46) 66%, rgba(5,3,3,0.96) 100%),
-    url('/assets/home-palace-bg.png') center top/cover no-repeat !important;
-}
-
-.home-page-v2::before {
-  background:
-    radial-gradient(ellipse at 50% 25%, rgba(255,250,238,0.58), rgba(255,245,223,0.22) 34%, transparent 62%),
-    linear-gradient(90deg, rgba(95,14,18,0.76) 0%, rgba(95,14,18,0.26) 15%, transparent 35%, transparent 80%, rgba(0,0,0,0.26) 100%) !important;
-}
-
-.home-brand-row {
-  color: rgba(255,241,211,0.94) !important;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.42);
-}
-
-.home-title-stage {
-  min-height: 392px;
-  padding-top: 74px;
-  justify-content: flex-start;
-}
-
-.home-title-stage::before {
-  content: "";
+.home-poster-start {
   position: absolute;
   left: 50%;
-  top: 36px;
-  transform: translateX(-50%);
-  width: min(86vw, 365px);
-  height: 286px;
-  border-radius: 36px;
-  background: radial-gradient(ellipse at 50% 40%, rgba(255,248,229,0.42), rgba(255,248,229,0.14) 44%, transparent 72%);
-  box-shadow: inset 0 0 0 1px rgba(255,244,220,0.06);
-  pointer-events: none;
+  top: 63.5%;
+  transform: translate(-50%, -50%);
+  width: 66%;
+  height: 8.1%;
+  min-height: 54px;
+  max-height: 88px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0;
+  z-index: 2;
 }
 
-.home-title-ornament {
-  opacity: 0.72;
-  margin-bottom: 8px;
+.home-poster-start:active {
+  background: rgba(255, 230, 180, 0.12);
+  box-shadow: 0 0 28px rgba(255, 210, 130, 0.18);
 }
 
-.home-brush-title {
-  position: relative;
-  z-index: 1;
-  color: #5f341c !important;
-  font-family: "STXingkai", "LiSu", "STKaiti", "KaiTi", "Kaiti SC", "Songti SC", serif !important;
-  font-size: clamp(72px, 20vw, 96px) !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.02em !important;
-  transform: scaleX(1.04);
-  text-shadow:
-    0 1px 0 rgba(255,245,219,0.48),
-    0 10px 28px rgba(91,40,16,0.20) !important;
-}
-
-.home-main-subtitle {
-  position: relative;
-  z-index: 1;
-  margin-top: 12px;
-  font-size: 20px;
-  color: #8c2729;
-  text-shadow: 0 1px 0 rgba(255,245,225,0.35);
-}
-
-.home-minor-subtitle {
-  position: relative;
-  z-index: 1;
-  margin-top: 8px;
-  color: rgba(67,38,28,0.74);
-}
-
-.home-lantern {
-  right: 28px;
-  top: 112px;
-  transform: scale(0.86);
-  opacity: 0.72;
-}
-
-.home-curtain-left {
-  opacity: 0.82;
-}
-
-.home-intro-panel {
-  margin-top: -18px;
-  width: min(100%, 352px);
-  padding: 22px 20px 86px;
-  border-radius: 20px;
-  background:
-    linear-gradient(180deg, rgba(13,11,10,0.92), rgba(8,7,6,0.96)) !important;
-  box-shadow: 0 18px 42px rgba(0,0,0,0.36), inset 0 0 0 1px rgba(255,255,255,0.035);
-}
-
-.home-intro-panel p {
-  font-size: 14.5px;
-  line-height: 1.84;
-}
-
-.home-main-button {
-  width: min(75%, 296px);
-  height: 62px;
-  bottom: -24px;
-  border-radius: 24px;
-  background: linear-gradient(180deg, #d25a4a 0%, #b23b37 52%, #872326 100%);
-}
-
-.home-main-button::before,
-.home-main-button::after {
-  font-size: 12px;
-  margin-right: 16px;
-}
-
-.home-main-button::after {
-  margin-right: 0;
-  margin-left: 16px;
-}
-
-.home-about-link {
-  margin-top: 40px;
-}
-
-.home-feature-strip {
-  background: rgba(10,8,7,0.64);
-  backdrop-filter: blur(5px);
-}
-
-@media (max-height: 760px) {
-  .home-title-stage {
-    min-height: 318px;
-    padding-top: 42px;
+@supports (height: 100svh) {
+  .home-poster-landing {
+    min-height: 100svh;
   }
-  .home-title-stage::before {
-    top: 16px;
-    height: 252px;
+}
+
+@media (max-aspect-ratio: 9 / 16) {
+  .home-poster-landing {
+    background-size: auto 100%;
   }
-  .home-brush-title {
-    font-size: 66px !important;
-  }
-  .home-intro-panel {
-    margin-top: -10px;
+}
+
+@media (min-aspect-ratio: 9 / 16) {
+  .home-poster-landing {
+    background-size: 100% auto;
   }
 }
