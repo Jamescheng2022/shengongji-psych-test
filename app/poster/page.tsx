@@ -2,17 +2,25 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { getResultPortrait, useFallbackPortrait } from "@/lib/test-model/assets";
-import { readResult } from "@/lib/test-model/storage";
+import { clearTest, readResult } from "@/lib/test-model/storage";
 import type { ComputedResult } from "@/lib/test-model/types";
 
 export default function PosterPage() {
+  const router = useRouter();
   const [payload, setPayload] = useState<ComputedResult | null>(null);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     setPayload(readResult());
   }, []);
+
+  function retake() {
+    clearTest();
+    setPayload(null);
+    router.replace(`/test?restart=${Date.now()}`);
+  }
 
   async function sharePoster() {
     if (!payload) return;
@@ -77,7 +85,7 @@ export default function PosterPage() {
         <div className="button-row poster-actions">
           <button className="primary-button" type="button" onClick={sharePoster}>{copied ? "已复制文案" : "分享命格"}</button>
           <Link className="secondary-button" href="/result">查看全解</Link>
-          <Link className="secondary-button" href="/test">重新入宫</Link>
+          <button className="secondary-button" type="button" onClick={retake}>重新入宫</button>
         </div>
       </section>
     </main>
