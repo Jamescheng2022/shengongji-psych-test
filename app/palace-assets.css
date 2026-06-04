@@ -5,6 +5,13 @@
     url('/assets/palace-bg.svg') center/cover no-repeat;
 }
 
+.test-shell {
+  background:
+    linear-gradient(180deg, rgba(18,6,8,0.24), rgba(8,3,4,0.68)),
+    url('/assets/test-paper-bg.png') center/cover no-repeat,
+    url('/assets/home-palace-bg.png') center/cover no-repeat;
+}
+
 .result-shell,
 .poster-shell {
   background:
@@ -18,6 +25,11 @@
     url('/assets/palace-lantern.svg') right 72px / 112px 224px no-repeat,
     linear-gradient(100deg, rgba(126, 31, 36, 0.42) 0 9%, transparent 20%),
     radial-gradient(circle at 10% 92%, rgba(236, 167, 136, 0.18), transparent 18%);
+}
+
+.phone--test::before {
+  background:
+    linear-gradient(180deg, rgba(35, 12, 10, 0.16), rgba(35, 12, 10, 0.48));
 }
 
 .palace-cover {
@@ -42,43 +54,126 @@
 
 .palace-gate { display: none; }
 
-.paper-card,
-.question-card,
-.choice {
-  background-image:
-    linear-gradient(180deg, rgba(250,239,216,0.96), rgba(232,205,160,0.92)),
-    url('/assets/paper-texture.png');
-  background-size: cover;
-  background-position: center;
+.test-screen {
+  gap: 12px !important;
 }
 
 .question-card {
-  box-shadow: 0 18px 42px rgba(0,0,0,0.24), inset 0 0 0 1px rgba(126,31,36,0.08);
+  padding: 24px 22px !important;
+  border-radius: 28px !important;
+  background:
+    linear-gradient(180deg, rgba(255, 239, 197, 0.96), rgba(226, 190, 132, 0.93)),
+    url('/assets/paper-texture.png') center/cover no-repeat !important;
+  border: 1px solid rgba(159, 96, 43, 0.48) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(126,31,36,0.10);
 }
 
-.test-screen::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.58)),
-    url('/assets/test-paper-bg.png') center/cover no-repeat;
-  opacity: 0.78;
-  pointer-events: none;
+.question-card::before {
+  border-color: rgba(126,31,36,0.16) !important;
+}
+
+.question-card .chapter {
+  color: #8d5b22;
+  letter-spacing: 0.22em;
+  margin-bottom: 12px;
+}
+
+.question-card .scene {
+  color: #321a14;
+  font-size: 18px !important;
+  line-height: 1.82 !important;
+  text-align: justify;
+}
+
+.choice-guide {
+  text-align: center;
+  margin: 2px 0 0;
+  color: rgba(255, 241, 211, 0.82);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+}
+
+.choices {
+  gap: 12px !important;
 }
 
 .choice {
+  min-height: 62px;
+  border-radius: 18px;
+  padding: 14px 16px;
   position: relative;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: center;
+  color: #fff1d3;
+  border: 1px solid rgba(215,181,109,0.30);
+  background:
+    linear-gradient(180deg, rgba(34, 13, 10, 0.84), rgba(18, 7, 6, 0.76)) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.24), inset 0 1px rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+}
+
+.choice strong {
+  color: #d6453e;
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 225, 178, 0.12);
+  border: 1px solid rgba(215,181,109,0.24);
+}
+
+.choice span {
+  color: rgba(255, 241, 211, 0.94);
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 .choice::after {
   content: "";
   position: absolute;
   inset: 6px;
-  border: 1px solid rgba(141,91,34,0.10);
+  border: 1px solid rgba(215,181,109,0.10);
   border-radius: 12px;
   pointer-events: none;
+}
+
+.choice.selected {
+  border-color: rgba(240,213,141,0.88);
+  background:
+    linear-gradient(180deg, rgba(128, 35, 31, 0.92), rgba(82, 18, 19, 0.90)) !important;
+  transform: translateY(1px);
+}
+
+.restart-button {
+  border: 1px solid rgba(215,181,109,0.34);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.28);
+  color: rgba(255,241,211,0.82);
+  min-height: 38px;
+  min-width: 132px;
+  padding: 8px 18px;
+  letter-spacing: 0.14em;
+  position: relative;
+  z-index: 3;
+}
+
+.restart-button:active {
+  color: #fff1d3;
+  border-color: rgba(240,213,141,0.74);
+}
+
+.paper-card {
+  background-image:
+    linear-gradient(180deg, rgba(250,239,216,0.96), rgba(232,205,160,0.92)),
+    url('/assets/paper-texture.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .result-card {
