@@ -7,7 +7,7 @@ import { MusicToggle } from "@/components/MusicToggle";
 import { questions } from "@/lib/test-model/questions";
 import { buildEvidence } from "@/lib/test-model/narrative";
 import { computeResult } from "@/lib/test-model/scoring";
-import { clearTest, saveAnswers, saveResult } from "@/lib/test-model/storage";
+import { saveAnswers, saveResult } from "@/lib/test-model/storage";
 import type { Answer, Choice } from "@/lib/test-model/types";
 
 export default function TestPage() {
@@ -45,14 +45,6 @@ export default function TestPage() {
       setSelected(null);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, 180);
-  }
-
-  function restart() {
-    clearTest();
-    setAnswers([]);
-    setIndex(0);
-    setSelected(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
@@ -95,10 +87,6 @@ export default function TestPage() {
                 </button>
               );
             })}
-          </div>
-
-          <div className="test-actions">
-            <button className="restart-button" type="button" onClick={restart}>重新开始</button>
           </div>
         </section>
       </section>
