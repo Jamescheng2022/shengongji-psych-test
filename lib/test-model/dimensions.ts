@@ -5,33 +5,33 @@ export const DIMENSION_IDS: DimensionId[] = ["agency", "defense", "relation", "r
 export const dimensions: Dimension[] = [
   {
     id: "agency",
-    name: "权力感",
-    shortName: "权",
-    description: "你在不平等关系里是否愿意主动影响局面、争取资源、承担后果。",
+    name: "掌局",
+    shortName: "局",
+    description: "你面对关系和局势时，是否愿意主动影响走向、争取资源、承担后果。",
   },
   {
     id: "defense",
-    name: "情绪防御",
-    shortName: "防",
-    description: "你受伤、被误解、被羞辱时，如何隐藏、消化或转化自己的情绪。",
+    name: "藏锋",
+    shortName: "藏",
+    description: "你受伤、被误解或被逼迫时，如何收住情绪、保存自己、等待时机。",
   },
   {
     id: "relation",
-    name: "关系策略",
+    name: "人心",
     shortName: "人",
-    description: "你如何判断他人、建立联盟、处理试探、竞争与背叛。",
+    description: "你如何判断他人、建立连接、处理试探、竞争与信任。",
   },
   {
     id: "risk",
-    name: "风险偏好",
-    shortName: "险",
+    name: "破局",
+    shortName: "破",
     description: "你面对机会和不确定时，是押注、拖延、借力还是保全。",
   },
   {
     id: "boundary",
-    name: "自我边界",
-    shortName: "界",
-    description: "你能否守住底线，不被他人期待、情义和权力吞没。",
+    name: "分寸",
+    shortName: "寸",
+    description: "你能否守住自己的底线，不被他人的期待、情义和权力吞没。",
   },
 ];
 
