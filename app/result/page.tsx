@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { MusicToggle } from "@/components/MusicToggle";
 import { getResultPortrait, useFallbackPortrait } from "@/lib/test-model/assets";
 import { buildMiniBiography, buildRealLifeMirror } from "@/lib/test-model/narrative";
-import { readResult } from "@/lib/test-model/storage";
+import { clearTest, readResult } from "@/lib/test-model/storage";
 import type { ComputedResult } from "@/lib/test-model/types";
 
 function percent(value: number, all: number[]) {
@@ -16,6 +17,7 @@ function percent(value: number, all: number[]) {
 }
 
 export default function ResultPage() {
+  const router = useRouter();
   const [payload, setPayload] = useState<ComputedResult | null>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -23,6 +25,12 @@ export default function ResultPage() {
     setPayload(readResult());
     setLoaded(true);
   }, []);
+
+  function retake() {
+    clearTest();
+    setPayload(null);
+    router.replace(`/test?restart=${Date.now()}`);
+  }
 
   if (!loaded) {
     return <main className="shell"><section className="phone"><p>正在翻阅命册……</p></section></main>;
@@ -151,7 +159,7 @@ export default function ResultPage() {
 
         <div className="button-row result-actions" style={{ marginTop: 16 }}>
           <Link className="primary-button" href="/poster">生成命格海报</Link>
-          <Link className="secondary-button" href="/test">重新入宫</Link>
+          <button className="secondary-button" type="button" onClick={retake}>重新入宫</button>
         </div>
       </section>
     </main>
