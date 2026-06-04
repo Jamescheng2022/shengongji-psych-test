@@ -58,9 +58,7 @@
 }
 
 .home-side-tag {
-  left: 18px;
-  top: 136px;
-  background: rgba(255,249,235,0.42);
+  display: none !important;
 }
 
 .home-brush-title {
@@ -236,5 +234,149 @@
   }
   .home-intro-panel {
     width: 100%;
+  }
+}
+
+/* Landing polish 03: remove artificial pale poster block and restore airy palace depth. */
+.home-page-v2 {
+  background:
+    linear-gradient(180deg, rgba(255,246,229,0.34) 0%, rgba(255,246,229,0.12) 38%, rgba(17,8,7,0.46) 66%, rgba(5,3,3,0.96) 100%),
+    url('/assets/home-palace-bg.png') center top/cover no-repeat !important;
+}
+
+.home-page-v2::before {
+  background:
+    radial-gradient(ellipse at 50% 25%, rgba(255,250,238,0.58), rgba(255,245,223,0.22) 34%, transparent 62%),
+    linear-gradient(90deg, rgba(95,14,18,0.76) 0%, rgba(95,14,18,0.26) 15%, transparent 35%, transparent 80%, rgba(0,0,0,0.26) 100%) !important;
+}
+
+.home-brand-row {
+  color: rgba(255,241,211,0.94) !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.42);
+}
+
+.home-title-stage {
+  min-height: 392px;
+  padding-top: 74px;
+  justify-content: flex-start;
+}
+
+.home-title-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 36px;
+  transform: translateX(-50%);
+  width: min(86vw, 365px);
+  height: 286px;
+  border-radius: 36px;
+  background: radial-gradient(ellipse at 50% 40%, rgba(255,248,229,0.42), rgba(255,248,229,0.14) 44%, transparent 72%);
+  box-shadow: inset 0 0 0 1px rgba(255,244,220,0.06);
+  pointer-events: none;
+}
+
+.home-title-ornament {
+  opacity: 0.72;
+  margin-bottom: 8px;
+}
+
+.home-brush-title {
+  position: relative;
+  z-index: 1;
+  color: #5f341c !important;
+  font-family: "STXingkai", "LiSu", "STKaiti", "KaiTi", "Kaiti SC", "Songti SC", serif !important;
+  font-size: clamp(72px, 20vw, 96px) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+  transform: scaleX(1.04);
+  text-shadow:
+    0 1px 0 rgba(255,245,219,0.48),
+    0 10px 28px rgba(91,40,16,0.20) !important;
+}
+
+.home-main-subtitle {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+  font-size: 20px;
+  color: #8c2729;
+  text-shadow: 0 1px 0 rgba(255,245,225,0.35);
+}
+
+.home-minor-subtitle {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+  color: rgba(67,38,28,0.74);
+}
+
+.home-lantern {
+  right: 28px;
+  top: 112px;
+  transform: scale(0.86);
+  opacity: 0.72;
+}
+
+.home-curtain-left {
+  opacity: 0.82;
+}
+
+.home-intro-panel {
+  margin-top: -18px;
+  width: min(100%, 352px);
+  padding: 22px 20px 86px;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(13,11,10,0.92), rgba(8,7,6,0.96)) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.36), inset 0 0 0 1px rgba(255,255,255,0.035);
+}
+
+.home-intro-panel p {
+  font-size: 14.5px;
+  line-height: 1.84;
+}
+
+.home-main-button {
+  width: min(75%, 296px);
+  height: 62px;
+  bottom: -24px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #d25a4a 0%, #b23b37 52%, #872326 100%);
+}
+
+.home-main-button::before,
+.home-main-button::after {
+  font-size: 12px;
+  margin-right: 16px;
+}
+
+.home-main-button::after {
+  margin-right: 0;
+  margin-left: 16px;
+}
+
+.home-about-link {
+  margin-top: 40px;
+}
+
+.home-feature-strip {
+  background: rgba(10,8,7,0.64);
+  backdrop-filter: blur(5px);
+}
+
+@media (max-height: 760px) {
+  .home-title-stage {
+    min-height: 318px;
+    padding-top: 42px;
+  }
+  .home-title-stage::before {
+    top: 16px;
+    height: 252px;
+  }
+  .home-brush-title {
+    font-size: 66px !important;
+  }
+  .home-intro-panel {
+    margin-top: -10px;
   }
 }
