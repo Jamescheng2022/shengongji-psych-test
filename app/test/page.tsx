@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MusicToggle } from "@/components/MusicToggle";
 import { questions } from "@/lib/test-model/questions";
+import { getExpandedScene } from "@/lib/test-model/expanded-scenes";
 import { buildEvidence } from "@/lib/test-model/narrative";
 import { computeResult } from "@/lib/test-model/scoring";
 import { saveAnswers, saveResult } from "@/lib/test-model/storage";
@@ -17,6 +18,7 @@ export default function TestPage() {
   const [selected, setSelected] = useState<string | null>(null);
   const question = questions[index];
   const progress = Math.round(((index + 1) / questions.length) * 100);
+  const scene = getExpandedScene(question.id, question.scene);
 
   function choose(choice: Choice) {
     if (selected) return;
@@ -66,7 +68,7 @@ export default function TestPage() {
 
           <article className="hero-card question-card">
             <p className="chapter">深宫命册</p>
-            <p className="scene">{question.scene}</p>
+            <p className="scene">{scene}</p>
           </article>
 
           <p className="choice-guide">在这种情境下，你更可能：</p>
