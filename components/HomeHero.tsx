@@ -1,43 +1,54 @@
 import Link from "next/link";
 
-const titleFont = {
-  fontFamily: '"STKaiti", "KaiTi", "Kaiti SC", "Songti SC", "Noto Serif SC", serif',
-  fontWeight: 700,
-  letterSpacing: "0.08em",
-} as const;
-
 export function HomeHero() {
   return (
-    <section className="hero hero--landing">
-      <div className="hero-card hero-card--cover palace-cover">
-        <div className="palace-gate" aria-hidden="true">
-          <span />
-          <span />
-        </div>
-        <div className="cover-title-block" style={{ position: "relative", zIndex: 1 }}>
-          <p className="seal" style={{ fontFamily: titleFont.fontFamily }}>三十幕 · 一卷命册</p>
-          <h1 className="cover-title" style={titleFont}>
-            <span style={{ display: "inline-block", transform: "translateY(-2px)" }}>深</span>
-            <span style={{ display: "inline-block", transform: "translateY(3px)" }}>宫</span>
-            <span style={{ display: "inline-block", transform: "translateY(-1px)" }}>命</span>
-            <span style={{ display: "inline-block", transform: "translateY(2px)" }}>格</span>
-          </h1>
-          <p className="cover-subtitle" style={{ fontFamily: titleFont.fontFamily }}>一入宫门，照见你的真实命格。</p>
-        </div>
-        <div className="landing-intro-card">
-          <p>你将进入一段深宫情境。</p>
-          <p>每一次选择，都会映出你面对人心、关系、压力与困局时的真实倾向。</p>
-        </div>
-        <div className="expert-row" aria-label="命格亮点">
-          <span>30幕抉择</span>
-          <span>12种命格</span>
-          <span>专属判词</span>
-        </div>
+    <section className="home-page-v2">
+      <div className="home-scenery" aria-hidden="true">
+        <span className="home-curtain home-curtain-left" />
+        <span className="home-curtain home-curtain-right" />
+        <span className="home-lantern" />
+        <span className="home-plum" />
       </div>
-      <div className="button-row landing-buttons">
-        <Link className="primary-button" href="/test">开始入宫</Link>
-        <Link className="secondary-button" href="/about">查看说明</Link>
+
+      <div className="home-brand-row">
+        <span className="home-brand-mark">✾</span>
+        <span>深宫命格</span>
       </div>
+
+      <section className="home-title-stage">
+        <div className="home-title-ornament" aria-hidden="true"><span /></div>
+        <p className="home-side-tag">命格<br />入宫</p>
+        <h1 className="home-brush-title">深宫命格</h1>
+        <p className="home-main-subtitle">以宫廷情境，映射你的真实人格</p>
+        <p className="home-minor-subtitle">真实严谨的自我探索测试</p>
+      </section>
+
+      <section className="home-intro-panel">
+        <p>通过精心设计的深宫情境与多维选择，</p>
+        <p>本测试将映出你在权谋、情感、关系与压力中的真实倾向，</p>
+        <p>并为你匹配最具代表性的宫廷命格。</p>
+        <span className="home-panel-flower" aria-hidden="true">✤</span>
+        <Link className="home-main-button" href="/test">开始测试</Link>
+      </section>
+
+      <Link className="home-about-link" href="/about">测试说明 ›</Link>
+
+      <section className="home-feature-strip" aria-label="测试亮点">
+        <div>
+          <span className="home-feature-icon">▤</span>
+          <strong>30道题</strong>
+        </div>
+        <div>
+          <span className="home-feature-icon">☷</span>
+          <strong>宫廷剧情包装</strong>
+        </div>
+        <div>
+          <span className="home-feature-icon">◉</span>
+          <strong>人格画像解析</strong>
+        </div>
+      </section>
+
+      <p className="home-disclaimer">本测试为自我探索与娱乐参考，非专业心理诊断。</p>
     </section>
   );
 }
