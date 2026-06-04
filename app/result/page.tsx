@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MusicToggle } from "@/components/MusicToggle";
+import { getResultPortrait, useFallbackPortrait } from "@/lib/test-model/assets";
 import { buildMiniBiography, buildRealLifeMirror } from "@/lib/test-model/narrative";
 import { readResult } from "@/lib/test-model/storage";
 import type { ComputedResult } from "@/lib/test-model/types";
@@ -47,11 +48,12 @@ export default function ResultPage() {
 
   const values = payload.rankedDimensions.map((item) => item.score);
   const primary = payload.rankedDimensions[0];
+  const portrait = getResultPortrait(payload.result.id);
   const miniBiography = payload.result.miniBiography ?? buildMiniBiography(payload.result.name);
   const realLifeMirror = payload.result.realLifeMirror ?? buildRealLifeMirror(primary?.name ?? "应变方式");
 
   return (
-    <main className="shell">
+    <main className="shell result-shell">
       <section className="phone">
         <header className="topbar">
           <Link href="/">‹ 返回</Link>
@@ -59,11 +61,16 @@ export default function ResultPage() {
         </header>
 
         <article className="result-card result-card--ritual">
-          <div className="fate-slip">
-            <p className="seal">你的深宫命格</p>
-            <h1>{payload.result.name}</h1>
-            <p className="verdict">{payload.result.verdict}</p>
-            <span className="fate-stamp">命</span>
+          <div className="result-hero">
+            <div className="result-portrait-frame">
+              <img src={portrait} alt={payload.result.name} onError={(event) => useFallbackPortrait(event.currentTarget)} />
+            </div>
+            <div className="result-title-block">
+              <p className="seal">你的深宫命格</p>
+              <h1>{payload.result.name}</h1>
+              <p className="verdict">{payload.result.verdict}</p>
+              <span className="fate-stamp">命</span>
+            </div>
           </div>
 
           <section className="result-section">
