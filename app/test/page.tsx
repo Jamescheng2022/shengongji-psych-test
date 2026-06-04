@@ -58,6 +58,7 @@ export default function TestPage() {
         </header>
 
         <section className="test-screen">
+          <h1 className="test-title">深宫命册</h1>
           <div className="test-progress-block">
             <div className="progress-text">
               <span>凭第一念选择</span>
@@ -67,7 +68,7 @@ export default function TestPage() {
           </div>
 
           <article className="hero-card question-card">
-            <p className="chapter">深宫命册</p>
+            <p className="chapter">第 {index + 1} 幕</p>
             <p className="scene">{scene}</p>
           </article>
 
