@@ -6,7 +6,7 @@ export default function HomePage() {
     <main className="shell">
       <section className="phone">
         <header className="topbar">
-          <span>深宫纪</span>
+          <span>深宫命格</span>
           <MusicToggle />
         </header>
         <HomeHero />
