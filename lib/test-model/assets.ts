@@ -10,10 +10,6 @@ export const portraitByResultId: Record<string, string> = {
   "jade-step-tester": "/assets/portrait-linglong-nvguan.png",
   "phoenix-seal": "/assets/portrait-guao-fengyi.png",
   "gold-hairpin-breaker": "/assets/portrait-xiaomian-quanchen.png",
-  "curtain-reader": "/assets/portrait-linglong-nvguan.png",
-  "palace-wall-keeper": "/assets/portrait-qingxing-pangguanzhe.png",
-  "mirror-lake-hidden-edge": "/assets/portrait-cangfeng-meiren.png",
-  "crimson-stair-courage": "/assets/portrait-guao-fengyi.png",
 };
 
 export function getResultPortrait(resultId?: string) {
