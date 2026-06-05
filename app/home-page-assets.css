@@ -1,3 +1,26 @@
+.shell:has(.home-asset-artboard) {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(216, 173, 96, 0.18), transparent 32%),
+    linear-gradient(180deg, #160607 0%, #090303 100%);
+  overflow-x: hidden;
+}
+
+.phone:has(.home-asset-artboard) {
+  width: min(100%, 430px);
+  min-height: 100dvh;
+  padding: 0;
+  overflow: hidden;
+}
+
+.phone:has(.home-asset-artboard)::before,
+.phone:has(.home-asset-artboard) .topbar {
+  display: none;
+}
+
 .home-asset-shell {
   min-height: 100dvh;
   width: 100%;
