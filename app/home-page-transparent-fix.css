@@ -1,0 +1,186 @@
+/* Fix for generated PNGs that contain baked checkerboard / white backgrounds.
+   Keep the palace scene background, render title/button/icons/cards in CSS instead. */
+
+.home-asset-title-img,
+.home-asset-divider,
+.home-asset-cta-bg,
+.home-asset-feature-card img,
+.home-asset-footer-ornament {
+  display: none !important;
+}
+
+.home-asset-title-area {
+  top: 118px;
+  padding: 0 22px;
+}
+
+.home-asset-title-area::before {
+  content: "深宫命格";
+  display: block;
+  color: #9b2b1f;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "Songti SC", serif;
+  font-size: clamp(56px, 17vw, 78px);
+  line-height: 1.02;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  -webkit-text-stroke: 1px rgba(255, 214, 134, 0.72);
+  text-shadow:
+    0 2px 0 rgba(255, 238, 190, 0.48),
+    0 0 8px rgba(255, 209, 120, 0.46),
+    0 7px 14px rgba(61, 10, 8, 0.46),
+    2px 2px 0 rgba(115, 35, 18, 0.28);
+}
+
+.home-asset-title-area::after {
+  content: "";
+  width: min(54%, 236px);
+  height: 1px;
+  margin: 8px 0 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 226, 154, 0.42), rgba(255, 238, 190, 0.82), rgba(255, 226, 154, 0.42), transparent);
+  box-shadow: 0 0 9px rgba(255, 216, 134, 0.38);
+}
+
+.home-asset-subtitle-main {
+  margin-top: 14px;
+  font-size: 16px;
+  color: rgba(255, 239, 211, 0.94);
+}
+
+.home-asset-subtitle-minor {
+  margin-top: 7px;
+  color: rgba(255, 228, 184, 0.74);
+}
+
+.home-asset-copy-panel {
+  top: 43.2%;
+  left: 12.5%;
+  right: 12.5%;
+  min-height: 112px;
+}
+
+.home-asset-copy-panel p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255, 242, 218, 0.88);
+}
+
+.home-asset-cta {
+  top: 56.7%;
+  width: min(68%, 292px);
+  min-height: 56px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 227, 162, 0.78);
+  background:
+    radial-gradient(circle at 50% 15%, rgba(255, 238, 178, 0.54), transparent 22%),
+    linear-gradient(180deg, #d85f47 0%, #b93432 48%, #7d1d22 100%);
+  box-shadow:
+    0 0 0 2px rgba(119, 40, 19, 0.64),
+    0 10px 24px rgba(72, 7, 6, 0.45),
+    inset 0 1px 0 rgba(255, 244, 210, 0.34),
+    inset 0 -2px 0 rgba(57, 9, 7, 0.30);
+  overflow: visible;
+}
+
+.home-asset-cta::before,
+.home-asset-cta::after {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 227, 162, 0.82);
+  font-size: 14px;
+  text-shadow: 0 0 8px rgba(255, 211, 120, 0.45);
+}
+
+.home-asset-cta::before { left: 21px; }
+.home-asset-cta::after { right: 21px; }
+
+.home-asset-cta span {
+  font-size: 25px;
+  letter-spacing: 0.18em;
+}
+
+.home-asset-note {
+  top: 63.8%;
+}
+
+.home-asset-note strong {
+  font-size: 13px;
+}
+
+.home-asset-feature-row {
+  top: 70.5%;
+  left: 9.8%;
+  right: 9.8%;
+  height: 142px;
+  gap: 9px;
+}
+
+.home-asset-feature-card {
+  background-image: none !important;
+  border: 1px solid rgba(216, 173, 96, 0.55);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(78, 17, 16, 0.78), rgba(35, 8, 8, 0.86));
+  box-shadow:
+    0 7px 14px rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba(255, 234, 181, 0.10),
+    inset 0 0 18px rgba(204, 126, 49, 0.08);
+}
+
+.home-asset-feature-card::before {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(236, 197, 122, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 223, 157, 0.86);
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: inset 0 0 12px rgba(255, 222, 150, 0.10), 0 0 10px rgba(255, 196, 96, 0.16);
+}
+
+.home-asset-feature-card:nth-child(1)::before { content: "卷"; }
+.home-asset-feature-card:nth-child(2)::before { content: "宫"; }
+.home-asset-feature-card:nth-child(3)::before { content: "像"; }
+
+.home-asset-feature-card strong {
+  max-width: 76px;
+  font-size: 12px;
+  color: rgba(255, 234, 194, 0.92);
+}
+
+.home-asset-disclaimer::before {
+  content: "";
+  display: block;
+  width: min(88%, 330px);
+  height: 1px;
+  margin: 0 auto 9px;
+  background: linear-gradient(90deg, transparent, rgba(255, 226, 162, 0.50), transparent);
+}
+
+@media (max-height: 760px) {
+  .home-asset-title-area { top: 88px; }
+  .home-asset-title-area::before { font-size: clamp(48px, 15vw, 64px); }
+  .home-asset-title-area::after { margin-top: 5px; }
+  .home-asset-subtitle-main { margin-top: 9px; font-size: 14px; }
+  .home-asset-subtitle-minor { margin-top: 4px; font-size: 11px; }
+  .home-asset-copy-panel { top: 41.4%; min-height: 92px; }
+  .home-asset-copy-panel p { font-size: 12.4px; line-height: 1.68; }
+  .home-asset-cta { top: 54.8%; min-height: 50px; }
+  .home-asset-cta span { font-size: 21px; }
+  .home-asset-note { top: 62.3%; }
+  .home-asset-feature-row { top: 69.2%; height: 124px; }
+  .home-asset-feature-card::before { width: 34px; height: 34px; font-size: 18px; }
+  .home-asset-feature-card strong { font-size: 10.5px; }
+}
+
+@media (max-width: 380px) {
+  .home-asset-title-area::before { font-size: clamp(48px, 15vw, 62px); }
+  .home-asset-cta { width: 66%; }
+  .home-asset-feature-row { gap: 7px; }
+}
