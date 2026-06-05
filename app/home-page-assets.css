@@ -1,0 +1,316 @@
+.home-asset-shell {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(216, 173, 96, 0.18), transparent 32%),
+    linear-gradient(180deg, #160607 0%, #090303 100%);
+  overflow-x: hidden;
+}
+
+.home-asset-artboard {
+  --home-gold: #f3d28a;
+  --home-soft-gold: #ffe8b8;
+  --home-cream: #fff2d2;
+  --home-red: #8d1f22;
+  position: relative;
+  width: min(100vw, 430px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  color: var(--home-cream);
+  background-image: url("/assets/page-01-home/home-bg.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  isolation: isolate;
+}
+
+.home-asset-artboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(20, 5, 6, 0.08) 0%, rgba(20, 5, 6, 0.02) 34%, rgba(8, 2, 2, 0.18) 100%),
+    radial-gradient(circle at 50% 22%, rgba(255, 229, 171, 0.08), transparent 34%);
+  z-index: 0;
+}
+
+.home-asset-artboard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-asset-brand {
+  position: absolute;
+  left: 35px;
+  top: 31px;
+  width: 86px;
+  text-align: center;
+  color: rgba(255, 229, 170, 0.92);
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.38);
+}
+
+.home-asset-title-area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 26px;
+}
+
+.home-asset-title-img {
+  width: min(86%, 360px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 14px rgba(62, 12, 10, 0.24));
+}
+
+.home-asset-divider {
+  width: min(58%, 250px);
+  height: auto;
+  margin-top: 4px;
+  opacity: 0.88;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.32));
+}
+
+.home-asset-subtitle-main {
+  margin: 6px 0 0;
+  color: rgba(255, 238, 204, 0.96);
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: 16px;
+  line-height: 1.45;
+  letter-spacing: 0.09em;
+  text-shadow: 0 2px 10px rgba(55, 12, 10, 0.58);
+}
+
+.home-asset-subtitle-minor {
+  margin: 5px 0 0;
+  color: rgba(255, 226, 173, 0.82);
+  font-family: "Songti SC", "Noto Serif SC", serif;
+  font-size: 12px;
+  line-height: 1.45;
+  letter-spacing: 0.16em;
+  text-shadow: 0 2px 8px rgba(55, 12, 10, 0.52);
+}
+
+.home-asset-copy-panel {
+  position: absolute;
+  left: 11.5%;
+  right: 11.5%;
+  top: 43.8%;
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  text-align: center;
+}
+
+.home-asset-copy-panel p {
+  margin: 0;
+  color: rgba(255, 241, 211, 0.90);
+  font-family: "Songti SC", "Noto Serif SC", serif;
+  font-size: 14px;
+  line-height: 1.82;
+  letter-spacing: 0.045em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.62);
+}
+
+.home-asset-cta {
+  position: absolute;
+  left: 50%;
+  top: 56.4%;
+  transform: translateX(-50%);
+  width: min(70%, 300px);
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff5d8;
+  text-decoration: none;
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-shadow: 0 2px 8px rgba(92, 16, 12, 0.72);
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.home-asset-cta:active {
+  transform: translateX(-50%) scale(0.985);
+  filter: brightness(1.08);
+}
+
+.home-asset-cta-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 9px 18px rgba(74, 8, 6, 0.42));
+}
+
+.home-asset-cta span {
+  position: relative;
+  z-index: 1;
+  padding-left: 0.18em;
+}
+
+.home-asset-note {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 63.7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.home-asset-note strong {
+  color: rgba(255, 232, 184, 0.94);
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.48);
+}
+
+.home-asset-note span {
+  color: rgba(255, 226, 178, 0.64);
+  font-size: 11px;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.42);
+}
+
+.home-asset-note img {
+  width: min(76%, 280px);
+  height: auto;
+  opacity: 0.86;
+}
+
+.home-asset-feature-row {
+  position: absolute;
+  left: 9.6%;
+  right: 9.6%;
+  top: 70.2%;
+  height: 142px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.home-asset-feature-card {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 6px 10px;
+  text-align: center;
+  color: rgba(255, 231, 183, 0.94);
+  background-image: url("/assets/page-01-home/home-feature-panel.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 8px 13px rgba(0, 0, 0, 0.24));
+}
+
+.home-asset-feature-card img {
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+  opacity: 0.94;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.30));
+}
+
+.home-asset-feature-card strong {
+  display: block;
+  max-width: 72px;
+  color: rgba(255, 232, 184, 0.92);
+  font-family: "STKaiti", "KaiTi", "Songti SC", serif;
+  font-size: 12px;
+  line-height: 1.28;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.58);
+}
+
+.home-asset-footer-ornament {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  width: min(74%, 318px);
+  height: auto;
+  transform: translateX(-50%);
+  opacity: 0.80;
+}
+
+.home-asset-disclaimer {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: max(13px, env(safe-area-inset-bottom));
+  margin: 0;
+  text-align: center;
+  color: rgba(255, 226, 178, 0.46);
+  font-size: 10px;
+  line-height: 1.55;
+  letter-spacing: 0.06em;
+  text-shadow: 0 2px 7px rgba(0, 0, 0, 0.52);
+}
+
+@media (min-height: 880px) {
+  .home-asset-title-area { top: 128px; }
+  .home-asset-copy-panel { top: 44.5%; }
+  .home-asset-cta { top: 57.4%; }
+  .home-asset-note { top: 64.7%; }
+  .home-asset-feature-row { top: 71%; height: 152px; }
+  .home-asset-feature-card img { width: 47px; height: 47px; }
+}
+
+@media (max-height: 760px) {
+  .home-asset-brand { top: 24px; }
+  .home-asset-title-area { top: 88px; }
+  .home-asset-title-img { width: min(78%, 330px); }
+  .home-asset-divider { width: min(52%, 230px); }
+  .home-asset-subtitle-main { font-size: 14px; margin-top: 3px; }
+  .home-asset-subtitle-minor { font-size: 11px; margin-top: 3px; }
+  .home-asset-copy-panel { top: 41.6%; min-height: 92px; padding: 8px 14px; }
+  .home-asset-copy-panel p { font-size: 12.5px; line-height: 1.68; }
+  .home-asset-cta { top: 54.8%; width: min(66%, 286px); min-height: 52px; font-size: 21px; }
+  .home-asset-note { top: 62.2%; gap: 2px; }
+  .home-asset-note strong { font-size: 12px; }
+  .home-asset-note span { font-size: 10px; }
+  .home-asset-note img { width: min(64%, 242px); }
+  .home-asset-feature-row { top: 69%; height: 124px; gap: 8px; }
+  .home-asset-feature-card { gap: 5px; padding: 8px 5px; }
+  .home-asset-feature-card img { width: 34px; height: 34px; }
+  .home-asset-feature-card strong { font-size: 10.5px; }
+  .home-asset-footer-ornament { bottom: 30px; width: min(70%, 290px); }
+}
+
+@media (max-width: 380px) {
+  .home-asset-brand { left: 31px; top: 29px; font-size: 12px; width: 80px; }
+  .home-asset-title-img { width: 82%; }
+  .home-asset-copy-panel { left: 10%; right: 10%; }
+  .home-asset-copy-panel p { font-size: 12.5px; }
+  .home-asset-cta { width: 68%; }
+  .home-asset-feature-row { left: 8.8%; right: 8.8%; gap: 7px; }
+}
