@@ -8,6 +8,7 @@ import "./visual-redesign.css";
 import "./home-and-test-layout.css";
 import "./home-reference.css";
 import "./home-reference-polish.css";
+import "./home-page-assets.css";
 
 export const metadata: Metadata = {
   title: "深宫命格",
