@@ -337,3 +337,87 @@
   .home-asset-cta { width: 68%; }
   .home-asset-feature-row { left: 8.8%; right: 8.8%; gap: 7px; }
 }
+
+.home-asset-artboard.home-iphone-artboard {
+  position: relative;
+  width: min(100vw, 430px);
+  height: 100dvh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #050201;
+  container-type: size;
+}
+
+.home-asset-artboard.home-iphone-artboard::before {
+  display: none;
+}
+
+.home-iphone-reference {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.home-iphone-artboard .home-asset-cta {
+  position: absolute;
+  left: 10.9%;
+  top: 61.7%;
+  z-index: 1;
+  width: 78.4%;
+  height: 8.8%;
+  min-height: 0;
+  display: block;
+  transform: none;
+  border-radius: 999px;
+  color: transparent;
+  font-size: 0;
+  text-shadow: none;
+  outline: none;
+  transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.home-iphone-artboard .home-asset-cta span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.home-iphone-artboard .home-asset-cta:hover {
+  background: rgba(255, 218, 128, 0.08);
+  box-shadow: 0 0 24px rgba(255, 185, 77, 0.22);
+}
+
+.home-iphone-artboard .home-asset-cta:active {
+  transform: scale(0.985);
+}
+
+.home-iphone-artboard .home-asset-cta:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 228, 159, 0.55);
+}
+
+@supports (width: 1cqw) {
+  .home-iphone-artboard .home-asset-cta {
+    left: 10.9cqw;
+    top: 61.7cqh;
+    width: 78.4cqw;
+    height: 8.8cqh;
+  }
+
+  @container (min-aspect-ratio: 852 / 1847) {
+    .home-iphone-artboard .home-asset-cta {
+      top: 133.77cqw;
+      height: 19.07cqw;
+    }
+  }
+}

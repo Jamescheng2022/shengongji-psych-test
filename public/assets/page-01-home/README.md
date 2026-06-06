@@ -13,6 +13,7 @@
 - home-feature-icon-persona.png：人格画像解析图标，金色线描风格。
 - home-ornament-divider.png：首页装饰分割线。
 - home-footer-ornament.png：首页底部装饰。
+- home-iphone-reference.png：iPhone 竖屏首页整页参考图，适合用于高保真首屏还原与透明点击热区。
 
 使用原则：
 
