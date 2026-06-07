@@ -1,16 +1,84 @@
 import Link from "next/link";
 
+const features = [
+  {
+    label: "30幕剧情",
+    icon: "/assets/page-01-home/home-feature-icon-questions-transparent.png",
+  },
+  {
+    label: "宫廷剧情包裹",
+    icon: "/assets/page-01-home/home-feature-icon-story-transparent.png",
+  },
+  {
+    label: "人格画像解析",
+    icon: "/assets/page-01-home/home-feature-icon-persona-transparent.png",
+  },
+];
+
 export function HomeHero() {
   return (
-    <section className="home-asset-artboard home-iphone-artboard" aria-label="深宫命格首页">
-      <img
-        className="home-iphone-reference"
-        src="/assets/page-01-home/home-iphone-reference.png"
-        alt="深宫命格：首页。以宫廷情境映射真实人格，开始测试。"
-      />
-      <Link className="home-asset-cta home-iphone-cta" href="/test" aria-label="开始测试">
-        <span>开始测试</span>
+    <section className="home-asset-artboard" aria-labelledby="home-title">
+      <div className="home-asset-brand" aria-hidden="true">
+        深宫命格
+      </div>
+
+      <div className="home-asset-title-area">
+        <h1 id="home-title" className="sr-only">
+          深宫命格
+        </h1>
+        <img
+          className="home-asset-title-img"
+          src="/assets/page-01-home/home-title-transparent.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          className="home-asset-divider"
+          src="/assets/page-01-home/home-ornament-divider-transparent.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <p className="home-asset-subtitle-main">以宫廷情境，映照你的真实人格</p>
+        <p className="home-asset-subtitle-minor">基于情境选择的人格倾向观察</p>
+      </div>
+
+      <div className="home-asset-copy-panel" aria-label="命格导语">
+        <p>你将走入一场深宫命局，每一次进退、沉默、示弱与反击，都会映照出你真实的人格倾向。</p>
+      </div>
+
+      <Link className="home-asset-cta" href="/test" aria-label="开始入宫">
+        <img
+          className="home-asset-cta-bg"
+          src="/assets/page-01-home/home-cta-bg-transparent.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <span>开始入宫</span>
       </Link>
+
+      <div className="home-asset-note" aria-label="测试说明">
+        <strong>测试说明</strong>
+        <span>30幕宫廷剧情选择，生成你的专属人格画像</span>
+      </div>
+
+      <div className="home-asset-feature-row" aria-label="产品特点">
+        {features.map((feature) => (
+          <div className="home-asset-feature-card" key={feature.label}>
+            <img src={feature.icon} alt="" aria-hidden="true" />
+            <strong>{feature.label}</strong>
+          </div>
+        ))}
+      </div>
+
+      <img
+        className="home-asset-footer-ornament"
+        src="/assets/page-01-home/home-footer-ornament-transparent.png"
+        alt=""
+        aria-hidden="true"
+      />
+      <p className="home-asset-disclaimer">
+        本测试仅用于娱乐与自我观察，不作为专业心理诊断依据。
+      </p>
     </section>
   );
 }
