@@ -43,7 +43,13 @@ export function HomeHero() {
       </div>
 
       <div className="home-asset-copy-panel" aria-label="命格导语">
-        <p>你将走入一场深宫命局，每一次进退、沉默、示弱与反击，都会映照出你真实的人格倾向。</p>
+        <p>
+          你将走入一场深宫命局。
+          <br />
+          每一次进退、沉默、示弱与反击，
+          <br />
+          都会映照出你的处世底色。
+        </p>
       </div>
 
       <Link className="home-asset-cta" href="/test" aria-label="开始入宫">
@@ -56,10 +62,7 @@ export function HomeHero() {
         <span>开始入宫</span>
       </Link>
 
-      <div className="home-asset-note" aria-label="测试说明">
-        <strong>测试说明</strong>
-        <span>30幕宫廷剧情选择，生成你的专属人格画像</span>
-      </div>
+      <p className="home-asset-note">30幕宫廷剧情选择，生成你的专属人格画像</p>
 
       <div className="home-asset-feature-row" aria-label="产品特点">
         {features.map((feature) => (
@@ -70,12 +73,6 @@ export function HomeHero() {
         ))}
       </div>
 
-      <img
-        className="home-asset-footer-ornament"
-        src="/assets/page-01-home/home-footer-ornament-transparent.png"
-        alt=""
-        aria-hidden="true"
-      />
       <p className="home-asset-disclaimer">
         本测试仅用于娱乐与自我观察，不作为专业心理诊断依据。
       </p>
