@@ -1,11 +1,5 @@
-import { HomeHero } from "@/components/HomeHero";
+import { HomePage } from "@/src/components/home/HomePage";
 
-export default function HomePage() {
-  return (
-    <main className="home-shell">
-      <section className="home-phone">
-        <HomeHero />
-      </section>
-    </main>
-  );
+export default function Page() {
+  return <HomePage />;
 }
