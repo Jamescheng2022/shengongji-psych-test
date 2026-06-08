@@ -16,9 +16,9 @@ export function HomeHero() {
           <span className="home-top-action__icon" aria-hidden="true">告</span>
           <span>公告</span>
         </Link>
-        <Link className="home-top-action home-top-action--gift" href="/test?module=daily" aria-label="签到有礼">
-          <span className="home-top-action__icon" aria-hidden="true">礼</span>
-          <span>签到有礼</span>
+        <Link className="home-top-action home-top-action--gift" href="/test?module=shengongmingge" aria-label="30幕主测试">
+          <span className="home-top-action__icon" aria-hidden="true">命</span>
+          <span>30幕主测</span>
         </Link>
       </div>
 
@@ -34,11 +34,11 @@ export function HomeHero() {
         />
         <p className="home-hero__subtitle">
           <span aria-hidden="true">❖</span>
-          测一测你的宫廷人格与本命宫格
+          30幕深宫抉择，照见你的真实处世底色
           <span aria-hidden="true">❖</span>
         </p>
-        <PalaceButton href="/test" className="home-hero__button" ariaLabel="开始测试">
-          开始测试
+        <PalaceButton href="/test?module=shengongmingge" className="home-hero__button" ariaLabel="开始30幕深宫命格测试">
+          开始入宫
         </PalaceButton>
       </div>
     </section>
