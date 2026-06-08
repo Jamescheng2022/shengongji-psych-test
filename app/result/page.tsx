@@ -43,7 +43,7 @@ export default function ResultPage() {
           <article className="paper-card">
             <p className="seal">命册未启</p>
             <h1>你还没有完成入宫选择</h1>
-            <p>请先完成三十幕选择，命格才会落印。</p>
+            <p>请先完成 30 幕深宫抉择，命格才会落印。</p>
           </article>
           <div className="button-row" style={{ marginTop: 16 }}>
             <Link className="primary-button" href="/test">开始入宫</Link>
@@ -83,18 +83,18 @@ export default function ResultPage() {
           </div>
 
           <section className="result-quick-card">
-            <p className="result-label">命格总览</p>
+            <p className="result-label">30 幕命格总览</p>
             <div className="result-tags">
-              <span>主倾向：{primary?.name}</span>
-              <span>副倾向：{secondary?.name}</span>
-              <span>三十幕落印</span>
+              <span>最高倾向：{primary?.name}</span>
+              <span>次高倾向：{secondary?.name}</span>
+              <span>30 幕落印</span>
             </div>
             <p>{miniBiography}</p>
           </section>
 
           <section className="result-section result-section--compact">
-            <h2>五维命格图</h2>
-            <p className="small-note">不是好坏分数，只是你在三十幕里最常使用的处世方式。</p>
+            <h2>六维命格图</h2>
+            <p className="small-note">不是好坏分数，只是你在 30 幕选择中最常使用的处世方式。本测试仅用于娱乐与自我观察，不作为专业心理诊断依据。</p>
             <div className="dim-list">
               {payload.rankedDimensions.map((dimension) => (
                 <div className="dim-row" key={dimension.id}>
