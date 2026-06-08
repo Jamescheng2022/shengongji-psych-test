@@ -12,7 +12,7 @@ const p = (agency: number, caution: number, affiliation: number, boundary: numbe
 export const resultTypes: ResultType[] = [
   {
     id: "brocade-controller",
-    name: "智谋贵妃",
+    name: "凤仪掌局",
     verdict: "你擅长在复杂关系里看清结构，把局面调到自己能掌握的位置。",
     archetype: "你不是靠热闹取胜的人，而是能在纷乱里看见秩序的人。你知道什么时候该出手，什么时候该让别人先露出底牌。",
     psychProfile: "你的底层剖面是高掌局、高分寸、中高权欲、低心潮。你重视主动权，但不是盲目强势，而是希望事情按可理解、可判断、可复盘的方式运行。",
@@ -25,7 +25,7 @@ export const resultTypes: ResultType[] = [
   },
   {
     id: "long-night-empath",
-    name: "温仪贵人",
+    name: "烟雨贵人",
     verdict: "你最柔软的地方，是在受伤时仍能看见别人的难处。",
     archetype: "深宫不奖励心软，可你依然会在长夜里给别人留一盏灯。你不是不懂危险，只是不愿彻底变冷。",
     psychProfile: "你的底层剖面是高人心、高心潮、中等分寸、低权欲。你对情绪和关系信号敏感，也更愿意承担情绪劳动。",
@@ -38,7 +38,7 @@ export const resultTypes: ResultType[] = [
   },
   {
     id: "cold-palace-reviewer",
-    name: "冷月谋后",
+    name: "冷宫谋后",
     verdict: "你不急着翻身，你先把每一次跌落都看明白。",
     archetype: "在深宫里，你不是最先出手的人，却常常是最后看清局的人。你能忍受被冷落，也能在无人看见时整理线索。",
     psychProfile: "你的底层剖面是高掌局、高藏锋、高权欲、低人心、低心潮。你擅长延迟反应，能把情绪转换成判断。",
@@ -51,7 +51,7 @@ export const resultTypes: ResultType[] = [
   },
   {
     id: "hidden-fragrance",
-    name: "藏锋美人",
+    name: "暗香藏锋",
     verdict: "你不爱硬碰硬，却总能让自己从风口退到安全处。",
     archetype: "在深宫里，你不是最耀眼的人，却常常最不容易被伤到。你知道什么时候该低头，什么时候该转身。",
     psychProfile: "你的底层剖面是高藏锋、高分寸、中人心、低权欲。你温和，但不等于没有锋芒。",
@@ -64,7 +64,7 @@ export const resultTypes: ResultType[] = [
   },
   {
     id: "winter-lamp",
-    name: "清醒旁观者",
+    name: "金枝孤凤",
     verdict: "你在最乱的时候不急着入局，因为你知道离远一点才看得清。",
     archetype: "你像青灯下的人，安静、清醒、不轻易被热闹拖走。你不一定冷漠，只是不愿把自己交给混乱。",
     psychProfile: "你的底层剖面是高藏锋、高分寸、低权欲、低心潮、低人心。你擅长抽离和复盘，不轻易被关系裹挟。",
@@ -77,7 +77,7 @@ export const resultTypes: ResultType[] = [
   },
   {
     id: "jade-step-tester",
-    name: "玲珑女官",
+    name: "玉阶玲珑",
     verdict: "你每靠近一步，都会先确认脚下的玉阶会不会塌。",
     archetype: "你不会轻信，也不会完全拒绝机会。你更像在玉阶上试温的人，边走边看，边靠近边留后路。",
     psychProfile: "你的底层剖面是高人心、高分寸、中高掌局、中等藏锋。你会做人，也懂规则，擅长在复杂关系里保留弹性。",
@@ -90,7 +90,7 @@ export const resultTypes: ResultType[] = [
   },
   {
     id: "phoenix-seal",
-    name: "孤傲凤仪",
+    name: "孤凤执印",
     verdict: "你愿意为位置付出代价，因为你知道低处常常没有解释权。",
     archetype: "你不是被权力迷惑的人，你只是太清楚没有位置时，人连为自己说话的机会都没有。",
     psychProfile: "你的底层剖面是高分寸、高掌局、低人心、中高权欲。你自尊强，不愿用讨好换安全。",
@@ -103,7 +103,7 @@ export const resultTypes: ResultType[] = [
   },
   {
     id: "gold-hairpin-breaker",
-    name: "笑面权臣",
+    name: "笑里藏刀",
     verdict: "你能把看似柔软的东西，变成破局的刃。",
     archetype: "你不一定一开始就强势，但你很会在关键处找到缝隙。别人以为你只是顺从，你却已经看见出口。",
     psychProfile: "你的底层剖面是高权欲、高人心洞察、高掌局。你擅长交换、借势和周旋，但不轻易把真实意图摊开。",
