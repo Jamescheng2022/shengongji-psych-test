@@ -12,17 +12,17 @@ export type TestModule = {
 export const featuredTest = {
   id: "shengongmingge",
   title: "深宫命格",
-  desc: "解锁你的宫廷人格与命运格局",
+  desc: "30幕深宫抉择，照见你的真实处世底色",
   href: "/test?module=shengongmingge",
-  tags: ["宫廷人格解析", "命格格局分析", "专属命理建议"],
+  tags: ["30幕宫廷剧情", "六维人格画像", "专属命格海报"],
 };
 
 export const testModules: TestModule[] = [
   {
     id: "benminggongge",
     title: "本命宫格",
-    desc: "解读你的先天宫格，洞悉命运底色",
-    badge: "免费",
+    desc: "更多深度命格测试正在打磨中",
+    badge: "即将开放",
     icon: "/assets/page-01-home/icon-benminggongge.webp",
     href: "/test?module=benminggongge",
     enabled: true,
@@ -31,8 +31,8 @@ export const testModules: TestModule[] = [
   {
     id: "qingjie",
     title: "情劫命书",
-    desc: "解锁你的情劫剧本，看透缘起缘落",
-    badge: "新测",
+    desc: "情感剧情画像模块即将开放",
+    badge: "即将开放",
     icon: "/assets/page-01-home/icon-qingjie.webp",
     href: "/test?module=qingjie",
     enabled: true,
@@ -41,8 +41,8 @@ export const testModules: TestModule[] = [
   {
     id: "liunian",
     title: "流年签文",
-    desc: "抽一支流年签，预见你的运势走向",
-    badge: "每日",
+    desc: "每日签文模块暂不作为正式入口",
+    badge: "即将开放",
     icon: "/assets/page-01-home/icon-liunian.webp",
     href: "/test?module=liunian",
     enabled: true,
@@ -50,9 +50,9 @@ export const testModules: TestModule[] = [
   },
   {
     id: "guiren",
-    title: "贵人小人局",
-    desc: "识别命中贵人小人，趋吉避凶",
-    badge: "热门",
+    title: "贵人关系局",
+    desc: "人际关系剧情测试即将开放",
+    badge: "即将开放",
     icon: "/assets/page-01-home/icon-guiren.webp",
     href: "/test?module=guiren",
     enabled: true,
@@ -61,9 +61,9 @@ export const testModules: TestModule[] = [
 ];
 
 export const dailyRecommend = {
-  title: "今日运势速览",
-  desc: "每日一测，掌握今日运势关键",
-  badge: "每日更新",
+  title: "30幕深宫抉择",
+  desc: "不是简单问答，而是一场关于情感、权力、人心、自保与边界的命格推演。",
+  badge: "主测试",
   href: "/test?module=daily",
 };
 
