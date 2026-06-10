@@ -1,3 +1,18 @@
-/* Full palace H5 visual layer for 深宫命格. */
-:root{--sg-bg:#080304;--sg-red:#7d1e22;--sg-red2:#3a0b10;--sg-gold:#d8a437;--sg-paper:#f2e3c7;--sg-ink:#2a1612;--sg-muted:rgba(242,227,199,.68)}
-html,body{background:#080304}.shell,.home-shell{min-height:100dvh;background:radial-gradient(circle at 50% -8%,rgba(216,164,55,.24),transparent 28%),radial-gradient(circle at 6% 18%,rgba(125,30,34,.52),transparent 26%),linear-gradient(180deg,#170708 0%,#080304 46%,#
+/* Full palace H5 visual layer for 深宫命格. Safe additive overrides. */
+:root {
+  --sg-bg: #080304;
+  --sg-red: #7d1e22;
+  --sg-gold: #d8a437;
+  --sg-paper: #f2e3c7;
+  --sg-ink: #2a1612;
+}
+html, body {
+  background: var(--sg-bg);
+  color: var(--sg-paper);
+}
+.shell, .home-shell {
+  min-height: 100dvh;
+  background: #080304;
+}
+.phone {
+  border
