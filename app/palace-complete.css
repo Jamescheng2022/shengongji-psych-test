@@ -1,4 +1,4 @@
-/* Full palace H5 visual layer for 深宫命格. Safe additive overrides. */
+/* Safe placeholder for future full palace H5 visual layer. */
 :root {
   --sg-bg: #080304;
   --sg-red: #7d1e22;
@@ -8,12 +8,4 @@
 }
 html, body {
   background: var(--sg-bg);
-  color: var(--sg-paper);
 }
-.shell, .home-shell {
-  min-height: 100dvh;
-  background: #080304;
-}
-.phone {
-  border-color: rgba(216, 164, 55, 0.35);
-  box-shadow: 0 28px 80px rgba(0, 0
