@@ -8,6 +8,7 @@ import type { ComputedResult } from "@/lib/test-model/types";
 import { PosterActions } from "@/src/components/poster/PosterActions";
 import { PosterCard } from "@/src/components/poster/PosterCard";
 import { PosterEmptyState } from "@/src/components/poster/PosterEmptyState";
+import { PosterPageShell } from "@/src/components/poster/PosterPageShell";
 
 export default function PosterPage() {
   const router = useRouter();
@@ -49,22 +50,18 @@ export default function PosterPage() {
 
   if (!payload) {
     return (
-      <main className="shell poster-page">
-        <section className="phone poster-phone">
-          <PosterEmptyState />
-        </section>
-      </main>
+      <PosterPageShell>
+        <PosterEmptyState />
+      </PosterPageShell>
     );
   }
 
   const portrait = getResultPortrait(payload.result.id);
 
   return (
-    <main className="shell poster-page">
-      <section className="phone poster-phone">
-        <PosterCard payload={payload} portrait={portrait} onPortraitError={useFallbackPortrait} />
-        <PosterActions copied={copied} saved={saved} onSave={savePoster} onShare={sharePoster} onRetake={retake} />
-      </section>
-    </main>
+    <PosterPageShell>
+      <PosterCard payload={payload} portrait={portrait} onPortraitError={useFallbackPortrait} />
+      <PosterActions copied={copied} saved={saved} onSave={savePoster} onShare={sharePoster} onRetake={retake} />
+    </PosterPageShell>
   );
 }

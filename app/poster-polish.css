@@ -579,3 +579,572 @@
     grid-column: 1 / -1;
   }
 }
+
+/* Poster premium upgrade: screenshot-ready 9:16 fate card. */
+.poster-page {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  background:
+    radial-gradient(circle at 50% -8%, rgba(244, 210, 138, 0.2), transparent 26%),
+    radial-gradient(circle at 12% 20%, rgba(185, 59, 43, 0.28), transparent 28%),
+    radial-gradient(circle at 88% 26%, rgba(244, 210, 138, 0.1), transparent 24%),
+    linear-gradient(90deg, rgba(35, 3, 3, 0.92), rgba(10, 2, 2, 0.88) 46%, rgba(40, 6, 4, 0.92)),
+    #090202;
+}
+
+.poster-phone {
+  width: min(100%, 430px);
+  min-height: 100dvh;
+  padding: 0 0 calc(16px + env(safe-area-inset-bottom)) !important;
+  overflow-x: hidden;
+}
+
+.poster-page-shell {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 12px;
+  width: 100%;
+}
+
+.poster-fate-card,
+.poster-fate-card--premium {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 390px);
+  aspect-ratio: 390 / 693;
+  max-height: none;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  overflow: hidden;
+  border: 1px solid rgba(244, 210, 138, 0.6);
+  border-radius: 0;
+  padding: 13px 17px 10px;
+  color: #f9e6b6;
+  background:
+    linear-gradient(180deg, rgba(2, 0, 0, 0.24), rgba(2, 0, 0, 0.56) 38%, rgba(3, 0, 0, 0.88) 100%),
+    radial-gradient(circle at 50% 11%, rgba(255, 222, 150, 0.26), transparent 24%),
+    radial-gradient(circle at 92% 36%, rgba(185, 59, 43, 0.32), transparent 26%),
+    radial-gradient(circle at 6% 70%, rgba(143, 33, 27, 0.34), transparent 24%),
+    url("/assets/poster-bg.png") center/cover no-repeat,
+    linear-gradient(180deg, #210604, #050101 58%, #210604);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.58),
+    inset 0 0 0 7px rgba(20, 3, 2, 0.5),
+    inset 0 0 0 8px rgba(244, 210, 138, 0.26);
+  isolation: isolate;
+}
+
+.poster-fate-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  z-index: 3;
+  border: 1px solid rgba(244, 210, 138, 0.34);
+  pointer-events: none;
+}
+
+.poster-fate-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(127, 27, 22, 0.78), transparent 16%, transparent 84%, rgba(127, 27, 22, 0.72)),
+    repeating-linear-gradient(90deg, rgba(244, 210, 138, 0.035) 0 1px, transparent 1px 24px),
+    radial-gradient(ellipse at 50% 100%, rgba(185, 59, 43, 0.38), transparent 42%);
+  mix-blend-mode: screen;
+}
+
+.poster-fate-card__frame {
+  position: absolute;
+  inset: 17px;
+  z-index: 4;
+  border: 1px solid rgba(215, 168, 90, 0.2);
+  pointer-events: none;
+}
+
+.poster-fate-card__frame::before,
+.poster-fate-card__frame::after {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  background: url("/assets/page-04-poster/poster-ornament-corner.svg") center/contain no-repeat;
+  opacity: 0.86;
+}
+
+.poster-fate-card__frame::before {
+  left: -13px;
+  top: -13px;
+}
+
+.poster-fate-card__frame::after {
+  right: -13px;
+  bottom: -13px;
+  transform: rotate(180deg);
+}
+
+.poster-card-flower {
+  position: absolute;
+  z-index: 0;
+  width: 130px;
+  height: 210px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 42% 18%, rgba(185, 59, 43, 0.85) 0 7px, transparent 8px),
+    radial-gradient(circle at 24% 35%, rgba(185, 59, 43, 0.72) 0 5px, transparent 6px),
+    radial-gradient(circle at 62% 46%, rgba(185, 59, 43, 0.62) 0 6px, transparent 7px),
+    linear-gradient(150deg, transparent 0 22%, rgba(215, 168, 90, 0.28) 23% 24%, transparent 25%);
+  opacity: 0.52;
+  filter: blur(0.1px);
+}
+
+.poster-card-flower--left {
+  top: 24px;
+  left: -34px;
+  transform: rotate(-16deg);
+}
+
+.poster-card-flower--right {
+  top: 18px;
+  right: -54px;
+  transform: scaleX(-1) rotate(-14deg);
+  opacity: 0.38;
+}
+
+.poster-premium-header {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 11px;
+  align-items: center;
+  min-height: 19px;
+}
+
+.poster-premium-header p {
+  margin: 0;
+  color: #f4d28a;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-shadow: 0 0 16px rgba(244, 210, 138, 0.32);
+}
+
+.poster-premium-header span {
+  height: 12px;
+  background: url("/assets/page-04-poster/poster-cloud-divider.svg") center/contain no-repeat;
+  opacity: 0.76;
+}
+
+.poster-premium-header span:first-child {
+  transform: scaleX(-1);
+}
+
+.poster-premium-hero {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  min-height: 0;
+}
+
+.poster-premium-hero h1 {
+  margin: 0;
+  max-width: 100%;
+  color: #ffe9ad;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", serif;
+  font-size: clamp(38px, 11.7vw, 54px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-wrap: balance;
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.45),
+    0 0 22px rgba(244, 210, 138, 0.54),
+    0 6px 24px rgba(0, 0, 0, 0.82);
+}
+
+.poster-premium-hero > p {
+  display: -webkit-box;
+  max-width: 312px;
+  margin: 1px auto 1px;
+  overflow: hidden;
+  color: #e98e63;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.48;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.74);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.poster-premium-portrait {
+  position: relative;
+  width: min(100%, 308px);
+  height: clamp(214px, 58vw, 232px);
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(244, 210, 138, 0.68);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 76% 50%, rgba(244, 210, 138, 0.22), transparent 24%),
+    #160302;
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.58),
+    inset 0 0 0 3px rgba(14, 2, 2, 0.62),
+    inset 0 0 0 4px rgba(244, 210, 138, 0.22);
+}
+
+.poster-premium-portrait::before,
+.poster-premium-portrait::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 54px;
+  height: 54px;
+  border-color: rgba(244, 210, 138, 0.82);
+  pointer-events: none;
+}
+
+.poster-premium-portrait::before {
+  left: 8px;
+  top: 8px;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-top-left-radius: 14px;
+}
+
+.poster-premium-portrait::after {
+  right: 8px;
+  bottom: 8px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-bottom-right-radius: 14px;
+}
+
+.poster-premium-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 24%;
+  filter: saturate(1.08) contrast(1.07) brightness(0.98);
+}
+
+.poster-premium-portrait figcaption {
+  position: absolute;
+  z-index: 3;
+  left: 13px;
+  top: 50%;
+  max-height: 158px;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  color: rgba(255, 230, 173, 0.9);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.88);
+}
+
+.poster-signature-quote {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+  width: min(100%, 294px);
+  min-height: 55px;
+  border: 1px solid rgba(244, 210, 138, 0.52);
+  border-radius: 12px;
+  padding: 8px 12px;
+  background:
+    linear-gradient(180deg, rgba(20, 6, 4, 0.92), rgba(6, 1, 1, 0.78)),
+    radial-gradient(circle at 50% 100%, rgba(143, 33, 27, 0.3), transparent 60%);
+  box-shadow:
+    inset 0 0 0 2px rgba(244, 210, 138, 0.08),
+    0 10px 20px rgba(0, 0, 0, 0.28);
+}
+
+.poster-signature-quote span {
+  color: rgba(244, 210, 138, 0.72);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.poster-signature-quote p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: #fff0c4;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: 0.08em;
+  text-align: center;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.poster-card-grid {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 9px;
+  min-height: 112px;
+}
+
+.poster-tendency-card,
+.poster-mini-chart {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(215, 168, 90, 0.5);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(22, 7, 5, 0.86), rgba(6, 1, 1, 0.7)),
+    radial-gradient(circle at 50% 68%, rgba(244, 210, 138, 0.14), transparent 40%);
+  box-shadow: inset 0 0 0 2px rgba(244, 210, 138, 0.06);
+}
+
+.poster-tendency-card {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.poster-tendency-card span {
+  color: #f4d28a;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+.poster-tendency-card strong {
+  margin-top: 7px;
+  color: #ffe8aa;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: 0.08em;
+  text-shadow:
+    0 0 18px rgba(244, 210, 138, 0.42),
+    0 4px 16px rgba(0, 0, 0, 0.66);
+}
+
+.poster-tendency-card em {
+  margin-top: 6px;
+  color: rgba(255, 231, 178, 0.82);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.poster-mini-chart {
+  padding: 9px 10px 8px;
+}
+
+.poster-mini-chart h2 {
+  margin: 0 0 6px;
+  color: #f4d28a;
+  font-size: 13px;
+  line-height: 1.1;
+  letter-spacing: 0.13em;
+  text-align: center;
+}
+
+.poster-mini-chart__bars {
+  display: grid;
+  gap: 5px;
+}
+
+.poster-mini-chart__bar {
+  display: grid;
+  grid-template-columns: 19px minmax(0, 1fr);
+  gap: 7px;
+  align-items: center;
+}
+
+.poster-mini-chart__bar span {
+  color: rgba(255, 235, 185, 0.9);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.poster-mini-chart__bar i {
+  position: relative;
+  height: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(215, 168, 90, 0.35);
+  border-radius: 999px;
+  background: rgba(23, 8, 5, 0.76);
+}
+
+.poster-mini-chart__bar b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #8f211b, #b93b2b 40%, #e6a55f 78%, #ffe6a7);
+  box-shadow: 0 0 10px rgba(244, 210, 138, 0.28);
+}
+
+.poster-qr-block {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  width: min(100%, 318px);
+  min-height: 75px;
+  margin: 0 auto;
+  border: 1px solid rgba(244, 210, 138, 0.54);
+  border-radius: 10px;
+  padding: 8px 15px 8px 10px;
+  background:
+    linear-gradient(180deg, rgba(18, 5, 3, 0.92), rgba(8, 1, 1, 0.78)),
+    radial-gradient(circle at 78% 50%, rgba(244, 210, 138, 0.15), transparent 38%);
+  box-shadow: inset 0 0 0 2px rgba(244, 210, 138, 0.07);
+}
+
+.poster-qr-block img {
+  width: 72px;
+  height: 72px;
+  display: block;
+  border-radius: 9px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.32);
+}
+
+.poster-qr-block div {
+  display: grid;
+  gap: 4px;
+}
+
+.poster-qr-block span,
+.poster-qr-block strong {
+  color: #ffe2a1;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 14px rgba(244, 210, 138, 0.22);
+}
+
+.poster-qr-block span {
+  font-size: 18px;
+}
+
+.poster-qr-block strong {
+  font-size: 20px;
+  line-height: 1.18;
+}
+
+.poster-disclaimer {
+  position: relative;
+  z-index: 5;
+  margin: 0;
+  color: rgba(244, 210, 138, 0.7);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+.poster-action-zone {
+  width: min(100%, 390px);
+  padding: 0 14px max(2px, env(safe-area-inset-bottom));
+}
+
+.poster-action-zone p {
+  color: rgba(247, 232, 198, 0.7);
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+}
+
+.poster-action-grid {
+  gap: 8px;
+}
+
+.poster-primary-action,
+.poster-secondary-action,
+.poster-ghost-action {
+  min-height: 46px;
+  border-radius: 15px;
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+}
+
+.poster-empty-state {
+  width: calc(100% - 28px);
+}
+
+@media (max-width: 380px) {
+  .poster-fate-card,
+  .poster-fate-card--premium {
+    width: 100%;
+    padding: 12px 15px 9px;
+    gap: 6px;
+  }
+
+  .poster-premium-hero h1 {
+    font-size: clamp(36px, 11vw, 47px);
+  }
+
+  .poster-premium-hero > p {
+    max-width: 292px;
+    font-size: 14px;
+    line-height: 1.42;
+  }
+
+  .poster-premium-portrait {
+    width: min(100%, 292px);
+    height: 203px;
+  }
+
+  .poster-signature-quote {
+    width: min(100%, 282px);
+  }
+
+  .poster-signature-quote p {
+    font-size: 16px;
+  }
+
+  .poster-card-grid {
+    gap: 7px;
+  }
+
+  .poster-tendency-card strong {
+    font-size: 30px;
+  }
+
+  .poster-qr-block {
+    width: min(100%, 304px);
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 11px;
+  }
+
+  .poster-qr-block img {
+    width: 66px;
+    height: 66px;
+  }
+
+  .poster-qr-block strong {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 421px) {
+  .poster-fate-card,
+  .poster-fate-card--premium {
+    margin-top: 4px;
+  }
+}

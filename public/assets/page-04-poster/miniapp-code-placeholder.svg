@@ -1,0 +1,33 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="小程序码占位图">
+  <rect width="220" height="220" rx="24" fill="#FFF6DE"/>
+  <rect x="10" y="10" width="200" height="200" rx="20" fill="#FBEDD1" stroke="#D7A85A" stroke-width="2"/>
+  <rect x="22" y="22" width="176" height="176" rx="16" stroke="#7F1B16" stroke-opacity=".35" stroke-width="1"/>
+  <g opacity=".85" fill="#17100B">
+    <circle cx="47" cy="48" r="5"/>
+    <circle cx="73" cy="38" r="4"/>
+    <circle cx="101" cy="48" r="3"/>
+    <circle cx="143" cy="41" r="5"/>
+    <circle cx="169" cy="54" r="4"/>
+    <circle cx="39" cy="82" r="4"/>
+    <circle cx="68" cy="78" r="3"/>
+    <circle cx="91" cy="86" r="5"/>
+    <circle cx="132" cy="76" r="3"/>
+    <circle cx="174" cy="84" r="5"/>
+    <circle cx="50" cy="127" r="5"/>
+    <circle cx="80" cy="139" r="4"/>
+    <circle cx="119" cy="132" r="3"/>
+    <circle cx="151" cy="142" r="5"/>
+    <circle cx="181" cy="124" r="3"/>
+    <circle cx="38" cy="172" r="4"/>
+    <circle cx="72" cy="181" r="5"/>
+    <circle cx="112" cy="174" r="3"/>
+    <circle cx="146" cy="181" r="4"/>
+    <circle cx="177" cy="168" r="5"/>
+  </g>
+  <path d="M110 30C65 47 35 72 35 110C35 148 66 174 110 190C154 174 185 148 185 110C185 72 155 47 110 30Z" stroke="#8F211B" stroke-opacity=".28" stroke-width="2"/>
+  <circle cx="110" cy="110" r="44" fill="#8F211B"/>
+  <circle cx="110" cy="110" r="39" stroke="#F4D28A" stroke-width="2"/>
+  <text x="110" y="101" text-anchor="middle" font-family="Songti SC, STSong, SimSun, serif" font-size="20" font-weight="700" fill="#F9E5B4">深宫</text>
+  <text x="110" y="127" text-anchor="middle" font-family="Songti SC, STSong, SimSun, serif" font-size="20" font-weight="700" fill="#F9E5B4">命格</text>
+  <text x="110" y="205" text-anchor="middle" font-family="Songti SC, STSong, SimSun, serif" font-size="13" fill="#7F1B16">小程序码占位</text>
+</svg>
