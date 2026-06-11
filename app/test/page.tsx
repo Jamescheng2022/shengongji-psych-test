@@ -1,97 +1,148 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { MusicToggle } from "@/components/MusicToggle";
 import { questions } from "@/lib/test-model/questions";
 import { getExpandedScene } from "@/lib/test-model/expanded-scenes";
 import { buildEvidence } from "@/lib/test-model/narrative";
 import { computeResult } from "@/lib/test-model/scoring";
-import { saveAnswers, saveResult } from "@/lib/test-model/storage";
+import { readAnswers, saveAnswers, saveResult } from "@/lib/test-model/storage";
 import type { Answer, Choice } from "@/lib/test-model/types";
+import { BottomHint } from "@/src/components/test/BottomHint";
+import { ChoiceButton } from "@/src/components/test/ChoiceButton";
+import { ProgressMeter } from "@/src/components/test/ProgressMeter";
+import { SceneTextCard } from "@/src/components/test/SceneTextCard";
+import { TestActionBar } from "@/src/components/test/TestActionBar";
+import { TestHeader } from "@/src/components/test/TestHeader";
+import { TestPageShell } from "@/src/components/test/TestPageShell";
+
+function buildAnswer(questionId: string, choice: Choice): Answer {
+  return {
+    questionId,
+    choiceId: choice.id,
+    choiceText: choice.text,
+    evidence: choice.evidence ?? buildEvidence(choice.tags),
+    weights: choice.weights,
+    tags: choice.tags,
+  };
+}
 
 export default function TestPage() {
   const router = useRouter();
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
-  const [selected, setSelected] = useState<string | null>(null);
-  const question = questions[index];
-  const progress = Math.round(((index + 1) / questions.length) * 100);
-  const scene = getExpandedScene(question.id, question.scene);
+  const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
+  const [favoriteIds, setFavoriteIds] = useState<Set<string>>(() => new Set());
+  const [warning, setWarning] = useState("");
 
-  function choose(choice: Choice) {
-    if (selected) return;
-    setSelected(choice.id);
-    const nextAnswers = [
-      ...answers,
-      {
-        questionId: question.id,
-        choiceId: choice.id,
-        choiceText: choice.text,
-        evidence: choice.evidence ?? buildEvidence(choice.tags),
-        weights: choice.weights,
-        tags: choice.tags,
-      },
-    ];
-    saveAnswers(nextAnswers);
-    window.setTimeout(() => {
-      if (index + 1 >= questions.length) {
-        const result = computeResult(nextAnswers);
-        saveResult(result);
-        router.push("/result");
-        return;
+  const question = questions[index];
+  const scene = useMemo(() => getExpandedScene(question.id, question.scene), [question.id, question.scene]);
+  const selectedAnswer = answers[index];
+  const selectedChoiceData = question.choices.find((choice) => choice.id === selectedChoice);
+  const isLastQuestion = index + 1 >= questions.length;
+
+  useEffect(() => {
+    const storedAnswers = readAnswers();
+    if (storedAnswers.length === 0) return;
+
+    const nextIndex = Math.min(storedAnswers.length, questions.length - 1);
+    setAnswers(storedAnswers);
+    setIndex(nextIndex);
+    setSelectedChoice(storedAnswers[nextIndex]?.choiceId ?? null);
+  }, []);
+
+  useEffect(() => {
+    setSelectedChoice(selectedAnswer?.choiceId ?? null);
+    setWarning("");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [index, selectedAnswer?.choiceId]);
+
+  function selectChoice(choice: Choice) {
+    setSelectedChoice(choice.id);
+    setWarning("");
+  }
+
+  function goPrevious() {
+    if (index === 0) return;
+    const previousIndex = index - 1;
+    setIndex(previousIndex);
+    setSelectedChoice(answers[previousIndex]?.choiceId ?? null);
+  }
+
+  function toggleFavorite() {
+    setFavoriteIds((current) => {
+      const next = new Set(current);
+      if (next.has(question.id)) {
+        next.delete(question.id);
+      } else {
+        next.add(question.id);
       }
-      setAnswers(nextAnswers);
-      setIndex((value) => value + 1);
-      setSelected(null);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 180);
+      return next;
+    });
+  }
+
+  function goNext() {
+    if (!selectedChoiceData) {
+      setWarning("请先落下一枚选择。");
+      return;
+    }
+
+    const answer = buildAnswer(question.id, selectedChoiceData);
+    const nextAnswers = [...answers.slice(0, index), answer, ...answers.slice(index + 1)];
+    saveAnswers(nextAnswers);
+    setAnswers(nextAnswers);
+
+    if (isLastQuestion) {
+      const result = computeResult(nextAnswers);
+      saveResult(result);
+      router.push("/result");
+      return;
+    }
+
+    const nextIndex = index + 1;
+    setIndex(nextIndex);
+    setSelectedChoice(nextAnswers[nextIndex]?.choiceId ?? null);
   }
 
   return (
-    <main className="shell test-shell">
-      <section className="phone phone--test">
-        <header className="topbar">
-          <Link href="/">‹ 返回</Link>
-          <MusicToggle />
-        </header>
+    <TestPageShell>
+      <TestHeader title="深宫命格" />
 
-        <section className="test-screen">
-          <h1 className="test-title">深宫命册</h1>
-          <div className="test-progress-block">
-            <div className="progress-text">
-              <span>凭第一念选择</span>
-              <span>第 {index + 1} 幕 / 共 {questions.length} 幕</span>
-            </div>
-            <div className="progress" aria-hidden="true"><span style={{ width: `${progress}%` }} /></div>
-          </div>
+      <ProgressMeter current={index + 1} total={questions.length} />
 
-          <article className="hero-card question-card">
-            <p className="scene">{scene}</p>
-          </article>
+      <SceneTextCard
+        title={question.title}
+        scene={scene}
+        prompt="你会如何应对？"
+      />
 
-          <p className="choice-guide">在这种情境下，你更可能：</p>
-
-          <div className="choices">
-            {question.choices.map((choice) => {
-              const isSelected = selected === choice.id;
-              return (
-                <button
-                  key={choice.id}
-                  type="button"
-                  className={isSelected ? "choice selected" : "choice"}
-                  disabled={Boolean(selected)}
-                  onClick={() => choose(choice)}
-                >
-                  <strong>{isSelected ? "✓" : choice.id.toUpperCase()}</strong>
-                  <span>{choice.text}</span>
-                </button>
-              );
-            })}
-          </div>
-        </section>
+      <section className="test-choice-section" aria-label="选择你的应对方式">
+        <p className="test-choice-kicker">择一枚命签</p>
+        <div className="test-choice-list">
+          {question.choices.map((choice, choiceIndex) => (
+            <ChoiceButton
+              key={choice.id}
+              choice={choice}
+              index={choiceIndex}
+              selected={selectedChoice === choice.id}
+              onClick={() => selectChoice(choice)}
+            />
+          ))}
+        </div>
+        {warning ? <p className="test-choice-warning" role="status">{warning}</p> : null}
       </section>
-    </main>
+
+      <TestActionBar
+        canGoPrevious={index > 0}
+        canGoNext={Boolean(selectedChoice)}
+        favorite={favoriteIds.has(question.id)}
+        nextLabel={isLastQuestion ? "看命格" : "下一题"}
+        onPrevious={goPrevious}
+        onFavorite={toggleFavorite}
+        onNext={goNext}
+      />
+
+      <BottomHint />
+    </TestPageShell>
   );
 }
