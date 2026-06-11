@@ -1,0 +1,12 @@
+.next/
+node_modules/
+.codex-*.log
+*.log
+
+# Local audit and temporary verification screenshots.
+docs/LOCAL_REMOTE_AUDIT.md
+docs/screenshots/*round2*.png
+docs/screenshots/*-cdp.png
+docs/screenshots/*-remote-sync-*.png
+docs/screenshots/home-shengongmingge-414x896-viewport.png
+docs/screenshots/home-shengongmingge-430x932-viewport.png
