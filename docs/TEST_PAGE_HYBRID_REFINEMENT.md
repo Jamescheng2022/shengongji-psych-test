@@ -35,6 +35,18 @@ This final pass only adjusts spacing, hierarchy, and surface quality. It does no
 - Added responsive spacing for compact heights so 375x667 keeps the scene card and all four options readable.
 - Added low-opacity bottom palace/paper atmosphere for 390x844 and 430x932 so the lower half no longer feels empty.
 
+## Real Mobile Browser Viewport Pass
+
+This pass fixes the production preview issue seen on real phones, where browser chrome leaves less usable height than ideal 390x844 design frames.
+
+- Removed the effective fixed-height story-card behavior for the active content flow.
+- Removed the story-body fade mask so the question text is no longer visually clipped.
+- Kept the story text readable with natural page flow instead of hiding required reading content.
+- Compressed header, progress, card padding, choice spacing, and compact-height typography.
+- Moved the bottom hint closer to the four choices so the answer area no longer feels detached.
+- Kept the weak gold divider and paper-palace atmosphere without adding a bottom action bar.
+- Verified additional compact viewports `390x700` and `375x620` to approximate mobile browser address/tool bars.
+
 ## Product Logic
 
 - ABCD preserved: yes.
@@ -55,7 +67,7 @@ This final pass only adjusts spacing, hierarchy, and surface quality. It does no
 
 ## Mobile Checks
 
-Preview URL used: `http://localhost:3015/test`
+Preview URL used: `http://127.0.0.1:3016/test`
 
 ### 375x667
 
@@ -63,6 +75,7 @@ Preview URL used: `http://localhost:3015/test`
 - Header visible and not crowded: pass.
 - Progress visible: pass.
 - Scene card readable: pass.
+- Scene text clipped: no.
 - Four ABCD options visible: pass.
 - Bottom hint visible at the lower edge without covering the fourth option.
 - Red decision prompt remains visible and is not compressed against the card bottom.
@@ -74,6 +87,7 @@ Preview URL used: `http://localhost:3015/test`
 - Header visible and balanced: pass.
 - Progress visible: pass.
 - Scene card readable: pass.
+- Scene text clipped: no.
 - Four ABCD options visible: pass.
 - Bottom hint visible: pass.
 - Lower-page whitespace is closed with subtle decoration instead of a new action bar.
@@ -85,10 +99,16 @@ Preview URL used: `http://localhost:3015/test`
 - Header visible and balanced: pass.
 - Progress visible: pass.
 - Scene card readable: pass.
+- Scene text clipped: no.
 - Four ABCD options visible: pass.
 - Bottom hint visible with natural breathing room: pass.
 - Bottom atmosphere prevents the page from feeling unfinished on taller screens.
 - Screenshot: `docs/screenshots/test-page-hybrid-430x932.png`
+
+### Real Browser Chrome Approximation
+
+- `390x700`: no horizontal scroll, story text not clipped, 4 choices visible, bottom hint visible.
+- `375x620`: no horizontal scroll, story text not clipped, 4 choices visible, bottom hint visible.
 
 ## Interaction Verification
 
@@ -97,6 +117,10 @@ Preview URL used: `http://localhost:3015/test`
 - Clicking the first option advanced from question 1 to question 2.
 - Full 30-question automated click path reached `/result`.
 - `npm run build` passed.
+
+## Merge Recommendation
+
+After the remote preview deployment for this branch succeeds, this version is suitable for human review on a real phone. If the preview matches the product expectation, merge the branch into `main` to update production. Do not expect the production URL to change until `main` receives this commit or the Vercel preview is promoted.
 
 ## Still Needs Human Confirmation
 
