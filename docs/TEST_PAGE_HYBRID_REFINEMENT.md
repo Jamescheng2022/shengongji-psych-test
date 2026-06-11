@@ -47,6 +47,18 @@ This pass fixes the production preview issue seen on real phones, where browser 
 - Kept the weak gold divider and paper-palace atmosphere without adding a bottom action bar.
 - Verified additional compact viewports `390x700` and `375x620` to approximate mobile browser address/tool bars.
 
+## Stable Card And Progress Pass
+
+This final micro-adjustment keeps the accepted visual direction and only stabilizes layout details.
+
+- Changed the progress row to a flex layout so the track expands across the available width.
+- Kept the percentage in a fixed, right-aligned column so it no longer makes the track feel prematurely shortened.
+- Fixed the scene-card height per viewport size, keeping question 1 and question 2 at the same card height.
+- Centered the scene-card content group within the fixed card while keeping Chinese body text left-aligned.
+- Restored controlled internal scrolling for long story text instead of letting long prompts move the answer buttons.
+- Kept the red decision prompt outside the scroll body so it remains visible.
+- Adjusted 375px width card height so the first question no longer looks visually cut off.
+
 ## Product Logic
 
 - ABCD preserved: yes.
@@ -67,15 +79,17 @@ This pass fixes the production preview issue seen on real phones, where browser 
 
 ## Mobile Checks
 
-Preview URL used: `http://127.0.0.1:3016/test`
+Preview URL used: `http://127.0.0.1:3017/test`
 
 ### 375x667
 
 - No horizontal scroll: pass.
 - Header visible and not crowded: pass.
 - Progress visible: pass.
+- Progress track reaches the available width with only the intended 7px gap before the percentage.
 - Scene card readable: pass.
 - Scene text clipped: no.
+- Scene card height is stable between question 1 and question 2: 228px.
 - Four ABCD options visible: pass.
 - Bottom hint visible at the lower edge without covering the fourth option.
 - Red decision prompt remains visible and is not compressed against the card bottom.
@@ -86,8 +100,10 @@ Preview URL used: `http://127.0.0.1:3016/test`
 - No horizontal scroll: pass.
 - Header visible and balanced: pass.
 - Progress visible: pass.
+- Progress track reaches the available width with only the intended 7px gap before the percentage.
 - Scene card readable: pass.
 - Scene text clipped: no.
+- Scene card height is stable between question 1 and question 2: 253px.
 - Four ABCD options visible: pass.
 - Bottom hint visible: pass.
 - Lower-page whitespace is closed with subtle decoration instead of a new action bar.
@@ -98,8 +114,10 @@ Preview URL used: `http://127.0.0.1:3016/test`
 - No horizontal scroll: pass.
 - Header visible and balanced: pass.
 - Progress visible: pass.
+- Progress track reaches the available width with only the intended 7px gap before the percentage.
 - Scene card readable: pass.
 - Scene text clipped: no.
+- Scene card height is stable between question 1 and question 2: 270px.
 - Four ABCD options visible: pass.
 - Bottom hint visible with natural breathing room: pass.
 - Bottom atmosphere prevents the page from feeling unfinished on taller screens.
@@ -109,6 +127,7 @@ Preview URL used: `http://127.0.0.1:3016/test`
 
 - `390x700`: no horizontal scroll, story text not clipped, 4 choices visible, bottom hint visible.
 - `375x620`: no horizontal scroll, story text not clipped, 4 choices visible, bottom hint visible.
+- Fixed card heights remain stable in compact browser-height checks: 228px at `390x700`, 211px at `375x620`.
 
 ## Interaction Verification
 
