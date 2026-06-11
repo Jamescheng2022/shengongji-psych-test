@@ -71,6 +71,18 @@ This pass keeps the accepted paper-palace visual direction while simplifying the
 - Updated the progress DOM to use three stable parts: fixed left node, flexible track, fixed right percentage.
 - Reduced the visible gap before the percentage to 5-6px across checked mobile widths.
 
+## Typography And Detail Refinement Pass
+
+This pass only refines typography and surface details. It does not change page structure, click behavior, question data, scoring, storage, or result routing.
+
+- Applied a classical serif stack for the test page: `Noto Serif SC`, `Songti SC`, `STSong`, `SimSun`, and serif fallback.
+- Tuned the page title toward a steadier Song/Kai book-title feeling with modest positive letter spacing.
+- Reduced the scene-card height and padding slightly so the card feels less bulky while keeping the first question fully readable.
+- Tightened story body line-height so the text reads more like a compact palace dossier instead of a loose web paragraph.
+- Softened the red decision prompt with smaller type, lighter weight, and warmer vermilion color.
+- Refined choice buttons with lighter gold borders, softer old-paper backgrounds, smaller ABCD seals, and quieter arrows.
+- Kept the current direct-tap answer flow: no bottom action bar, no `甲乙丙丁`, and no scene title inside the card.
+
 ## Product Logic
 
 - ABCD preserved: yes.
@@ -91,7 +103,7 @@ This pass keeps the accepted paper-palace visual direction while simplifying the
 
 ## Mobile Checks
 
-Preview URL used: `http://127.0.0.1:3017/test`
+Preview URL used: `http://127.0.0.1:3019/test`
 
 ### 375x667
 
@@ -101,9 +113,10 @@ Preview URL used: `http://127.0.0.1:3017/test`
 - Progress track reaches the available width with only a 6px gap before the percentage.
 - Scene title rendered inside the card: no.
 - Red decision prompt is outside the card: yes.
+- Typography refinement: pass.
 - Scene card readable: pass.
 - Scene text clipped: no.
-- Scene card height: 200px.
+- Scene card height: 193px.
 - Four ABCD options visible: pass.
 - Bottom hint visible at the lower edge without covering the fourth option.
 - Red decision prompt remains visible and is not compressed against the card bottom.
@@ -117,9 +130,10 @@ Preview URL used: `http://127.0.0.1:3017/test`
 - Progress track reaches the available width with only a 6px gap before the percentage.
 - Scene title rendered inside the card: no.
 - Red decision prompt is outside the card: yes.
+- Typography refinement: pass.
 - Scene card readable: pass.
 - Scene text clipped: no.
-- Scene card height: 203px.
+- Scene card height: 194px.
 - Four ABCD options visible: pass.
 - Bottom hint visible: pass.
 - Lower-page whitespace is closed with subtle decoration instead of a new action bar.
@@ -133,9 +147,10 @@ Preview URL used: `http://127.0.0.1:3017/test`
 - Progress track reaches the available width with only a 6px gap before the percentage.
 - Scene title rendered inside the card: no.
 - Red decision prompt is outside the card: yes.
+- Typography refinement: pass.
 - Scene card readable: pass.
 - Scene text clipped: no.
-- Scene card height: 224px.
+- Scene card height: 214px.
 - Four ABCD options visible: pass.
 - Bottom hint visible with natural breathing room: pass.
 - Bottom atmosphere prevents the page from feeling unfinished on taller screens.
@@ -145,7 +160,7 @@ Preview URL used: `http://127.0.0.1:3017/test`
 
 - `390x700`: no horizontal scroll, story text not clipped, 4 choices visible, bottom hint visible.
 - `375x620`: no horizontal scroll, story text not clipped, 4 choices visible, bottom hint visible.
-- Fixed card heights remain stable in compact browser-height checks: 178px at `390x700`, 178px at `375x620`.
+- Fixed card heights remain stable in compact browser-height checks: 170px at `390x700`, 170px at `375x620`.
 - Progress gaps before the percentage remain tight: 6px at `390x700`, 5px at `375x620`.
 
 ## Interaction Verification
@@ -165,6 +180,7 @@ After the remote preview deployment for this branch succeeds, this version is su
 - Whether the current scene-card height feels calm enough for long 30-question sessions.
 - Whether the music button should receive a custom palace icon later.
 - Whether the red-gold badge weight is close enough to the home page visual language.
+- Whether the refined serif stack appears consistently elegant on the target Android/iOS devices.
 
 ## Recommended Next Step
 

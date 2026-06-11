@@ -2039,3 +2039,190 @@
     padding-top: 6px;
   }
 }
+
+/* Final typography and detail refinement: ancient-book tone without changing the flow. */
+.test-page {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.test-header__title h1 {
+  font-family: "Songti SC", "STSong", "KaiTi", "Noto Serif SC", serif;
+  letter-spacing: 0.07em;
+  font-weight: 700;
+}
+
+.test-header__ornament,
+.test-progress__text,
+.test-progress__percent,
+.test-decision-prompt,
+.test-choice-button__text,
+.test-bottom-hint {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+}
+
+.test-progress__text {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.test-progress__percent {
+  font-weight: 500;
+}
+
+.test-scene-card {
+  height: clamp(170px, 22dvh, 204px);
+  padding: 16px 18px 14px;
+  border-color: rgba(163, 116, 58, 0.40);
+  box-shadow:
+    0 7px 16px rgba(118, 75, 34, 0.085),
+    inset 0 0 0 4px rgba(255, 255, 255, 0.22),
+    inset 0 0 0 6px rgba(183, 140, 83, 0.07);
+}
+
+.test-scene-card::before {
+  border-color: rgba(183, 140, 83, 0.18);
+}
+
+.test-scene-card::after {
+  opacity: 0.03;
+}
+
+.test-scene-card__content {
+  justify-content: center;
+}
+
+.test-scene-card__body {
+  padding-right: 3px;
+}
+
+.test-scene-card p {
+  font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  color: #2d1b13;
+  font-size: 14.6px;
+  line-height: 1.46;
+  letter-spacing: 0.01em;
+}
+
+.test-decision-prompt {
+  margin: -2px 0 -1px;
+  color: #98291d;
+  font-size: 14px;
+  line-height: 1.32;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 rgba(255, 247, 224, 0.56);
+}
+
+.test-choice-button {
+  border-color: rgba(163, 116, 58, 0.34);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255, 255, 255, 0.42), transparent 36%),
+    linear-gradient(180deg, rgba(252, 246, 234, 0.96), rgba(240, 222, 195, 0.90));
+  box-shadow:
+    0 5px 13px rgba(118, 75, 34, 0.068),
+    inset 0 1px rgba(255, 255, 255, 0.68);
+}
+
+.test-choice-button--selected {
+  border-color: rgba(143, 33, 27, 0.66);
+  box-shadow:
+    0 8px 19px rgba(143, 33, 27, 0.12),
+    inset 0 0 0 1px rgba(185, 59, 43, 0.18);
+}
+
+.test-choice-button__seal {
+  width: 28px;
+  height: 28px;
+  color: #fff0d1;
+  font-size: 14px;
+  font-weight: 700;
+  border-color: rgba(244, 210, 138, 0.70);
+  box-shadow:
+    inset 0 0 0 2px rgba(109, 25, 18, 0.32),
+    0 0 0 2px rgba(215, 168, 90, 0.12);
+}
+
+.test-choice-button__text {
+  color: #2a1a12;
+  font-size: 14.7px;
+  line-height: 1.32;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.test-choice-button__arrow {
+  color: rgba(148, 100, 52, 0.52);
+  font-size: 18px;
+}
+
+.test-bottom-hint {
+  color: rgba(111, 78, 43, 0.62);
+  letter-spacing: 0.03em;
+}
+
+@media (min-height: 780px) {
+  .test-scene-card {
+    height: clamp(182px, 23dvh, 214px);
+    padding: 18px 20px 16px;
+  }
+
+  .test-scene-card p {
+    font-size: 15.1px;
+    line-height: 1.50;
+  }
+
+  .test-decision-prompt {
+    font-size: 14.2px;
+  }
+}
+
+@media (max-width: 380px) {
+  .test-scene-card {
+    height: clamp(178px, 29dvh, 198px);
+    padding: 15px 15px 13px;
+  }
+
+  .test-scene-card p {
+    font-size: 13.8px;
+    line-height: 1.38;
+  }
+
+  .test-decision-prompt {
+    font-size: 13.2px;
+    line-height: 1.26;
+  }
+
+  .test-choice-button__seal {
+    width: 27px;
+    height: 27px;
+    font-size: 13.5px;
+  }
+
+  .test-choice-button__text {
+    font-size: 13.7px;
+    line-height: 1.28;
+  }
+}
+
+@media (max-height: 640px) {
+  .test-scene-card {
+    height: clamp(154px, 28dvh, 170px);
+    padding: 13px 14px 11px;
+  }
+
+  .test-scene-card p {
+    font-size: 12.8px;
+    line-height: 1.32;
+  }
+
+  .test-decision-prompt {
+    font-size: 12.6px;
+    line-height: 1.22;
+  }
+
+  .test-choice-button__text {
+    font-size: 13.2px;
+  }
+}
