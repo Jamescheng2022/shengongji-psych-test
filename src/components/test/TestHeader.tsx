@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MusicToggle } from "@/components/MusicToggle";
 
 type TestHeaderProps = {
   title: string;
@@ -17,10 +18,9 @@ export function TestHeader({ title }: TestHeaderProps) {
         <span className="test-header__ornament" aria-hidden="true">✤</span>
       </div>
 
-      <button className="test-header__menu" type="button" aria-label="更多">
-        <span aria-hidden="true">•••</span>
-        <i aria-hidden="true" />
-      </button>
+      <div className="test-header__music">
+        <MusicToggle />
+      </div>
     </header>
   );
 }

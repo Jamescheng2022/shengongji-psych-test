@@ -9,7 +9,7 @@ export function ProgressMeter({ current, total }: ProgressMeterProps) {
   return (
     <section className="test-progress" aria-label={`第 ${current} 题 / 共 ${total} 题`}>
       <p className="test-progress__text">
-        <span>第 {current} 题 / 共 {total} 题</span>
+        <span>命卷进度 {current} / {total}</span>
       </p>
       <div className="test-progress__row">
         <div className="test-progress__track" aria-hidden="true">
