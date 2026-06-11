@@ -23,6 +23,18 @@ This round returns to the original test page behavior and structure:
 - Rethemed choice buttons as warm paper buttons with small vermilion ABCD badges.
 - Kept the bottom hint as a weak reading cue: `凭第一念选择，命卷自会记下`.
 
+## Final Layout Balance Pass
+
+This final pass only adjusts spacing, hierarchy, and surface quality. It does not change the test flow, question data, scoring, storage, or result routing.
+
+- Centered the scene-card rhythm around title, readable body text, and the red decision prompt.
+- Softened the paper card border, corner lines, lamp shadow, and drop shadow so the card feels less heavy.
+- Reduced the visual weight of the ABCD seals and right arrows while keeping tap targets clear.
+- Tuned option spacing and paper-button texture so the answer list feels refined without becoming cramped.
+- Moved the bottom hint into a quieter lower-page closing position and added a subtle gold divider motif.
+- Added responsive spacing for compact heights so 375x667 keeps the scene card and all four options readable.
+- Added low-opacity bottom palace/paper atmosphere for 390x844 and 430x932 so the lower half no longer feels empty.
+
 ## Product Logic
 
 - ABCD preserved: yes.
@@ -43,7 +55,7 @@ This round returns to the original test page behavior and structure:
 
 ## Mobile Checks
 
-Preview URL used: `http://localhost:3014/test`
+Preview URL used: `http://localhost:3015/test`
 
 ### 375x667
 
@@ -52,7 +64,8 @@ Preview URL used: `http://localhost:3014/test`
 - Progress visible: pass.
 - Scene card readable: pass.
 - Four ABCD options visible: pass.
-- Bottom hint hidden on this compact height to preserve answer space.
+- Bottom hint visible at the lower edge without covering the fourth option.
+- Red decision prompt remains visible and is not compressed against the card bottom.
 - Screenshot: `docs/screenshots/test-page-hybrid-375x667.png`
 
 ### 390x844
@@ -63,6 +76,7 @@ Preview URL used: `http://localhost:3014/test`
 - Scene card readable: pass.
 - Four ABCD options visible: pass.
 - Bottom hint visible: pass.
+- Lower-page whitespace is closed with subtle decoration instead of a new action bar.
 - Screenshot: `docs/screenshots/test-page-hybrid-390x844.png`
 
 ### 430x932
@@ -73,6 +87,7 @@ Preview URL used: `http://localhost:3014/test`
 - Scene card readable: pass.
 - Four ABCD options visible: pass.
 - Bottom hint visible with natural breathing room: pass.
+- Bottom atmosphere prevents the page from feeling unfinished on taller screens.
 - Screenshot: `docs/screenshots/test-page-hybrid-430x932.png`
 
 ## Interaction Verification
