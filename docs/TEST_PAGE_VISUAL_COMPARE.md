@@ -1,5 +1,31 @@
 # Test Page Visual Compare
 
+## Round 2 Small Screen Compare Notes
+
+本轮针对 375x667 小屏首版问题做可用性修正：第四个选项与底部“上一题 / 收藏 / 下一题”不应再互相挤压，下一题 CTA 必须始终可触达。
+
+调整点：
+
+- 底部操作区从普通文档流改为 sticky 底栏，并保留红金主按钮质感。
+- 375x667 使用更紧凑的 header、进度区、剧情卡和选项间距。
+- 375x667 隐藏底部免责声明，避免占用关键 CTA 空间。
+- 小屏剧情卡保持内部滚动，不把剧情文字做成图片。
+- 选项按钮保持甲乙丙丁、真实 button、pressed/selected/disabled 状态。
+
+本轮状态：
+
+- 视觉方向：继续保持浅色宣纸宫廷风。
+- 30 题：保留。
+- 4 选项：保留。
+- 六维模型：保留。
+- 题库 / 计分 / 存储：未改。
+- build：通过。
+
+截图说明：
+
+- 目标截图路径仍为 `docs/screenshots/test-page-375x667-implemented.png`、`docs/screenshots/test-page-390x844-implemented.png`、`docs/screenshots/test-page-430x932-implemented.png`。
+- 本轮 in-app Browser 对本地 URL 触发安全策略拒绝，未使用替代浏览器绕过，因此截图文件尚未由本轮重新覆盖。需要在浏览器策略恢复后重新生成并人工确认。
+
 ## 对比对象
 
 - 参考图：浅色宣纸宫廷风 30 题答题页。
