@@ -8,13 +8,11 @@ import { getResultPortrait, useFallbackPortrait } from "@/lib/test-model/assets"
 import { buildMiniBiography, buildRealLifeMirror } from "@/lib/test-model/narrative";
 import { clearTest, readResult } from "@/lib/test-model/storage";
 import type { ComputedResult } from "@/lib/test-model/types";
-
-function percent(value: number, all: number[]) {
-  const min = Math.min(...all);
-  const max = Math.max(...all);
-  if (max === min) return 70;
-  return Math.round(42 + ((value - min) / (max - min)) * 54);
-}
+import { ResultActions } from "@/src/components/result/ResultActions";
+import { ResultDimensionChart } from "@/src/components/result/ResultDimensionChart";
+import { ResultEmptyState } from "@/src/components/result/ResultEmptyState";
+import { ResultHeroCard } from "@/src/components/result/ResultHeroCard";
+import { ResultInsightCards } from "@/src/components/result/ResultInsightCards";
 
 export default function ResultPage() {
   const router = useRouter();
@@ -38,23 +36,14 @@ export default function ResultPage() {
 
   if (!payload) {
     return (
-      <main className="shell result-shell">
-        <section className="phone">
-          <article className="paper-card">
-            <p className="seal">命册未启</p>
-            <h1>你还没有完成入宫选择</h1>
-            <p>请先完成三十幕选择，命格才会落印。</p>
-          </article>
-          <div className="button-row" style={{ marginTop: 16 }}>
-            <Link className="primary-button" href="/test">开始入宫</Link>
-            <Link className="secondary-button" href="/">返回首页</Link>
-          </div>
+      <main className="shell result-page">
+        <section className="phone result-phone">
+          <ResultEmptyState />
         </section>
       </main>
     );
   }
 
-  const values = payload.rankedDimensions.map((item) => item.score);
   const primary = payload.rankedDimensions[0];
   const secondary = payload.rankedDimensions[1];
   const portrait = getResultPortrait(payload.result.id);
@@ -62,105 +51,27 @@ export default function ResultPage() {
   const realLifeMirror = payload.result.realLifeMirror ?? buildRealLifeMirror(primary?.name ?? "应变方式");
 
   return (
-    <main className="shell result-shell">
-      <section className="phone">
-        <header className="topbar">
+    <main className="shell result-page">
+      <section className="phone result-phone">
+        <header className="result-topbar">
           <Link href="/">‹ 返回</Link>
           <MusicToggle />
         </header>
 
-        <article className="result-card result-card--ritual">
-          <div className="result-hero">
-            <div className="result-portrait-frame">
-              <img src={portrait} alt={payload.result.name} onError={(event) => useFallbackPortrait(event.currentTarget)} />
-            </div>
-            <div className="result-title-block">
-              <p className="seal">你的深宫命格</p>
-              <h1>{payload.result.name}</h1>
-              <p className="verdict">{payload.result.verdict}</p>
-              <span className="fate-stamp">命</span>
-            </div>
-          </div>
+        <ResultHeroCard
+          result={payload.result}
+          portrait={portrait}
+          primary={primary}
+          secondary={secondary}
+          miniBiography={miniBiography}
+          onPortraitError={useFallbackPortrait}
+        />
 
-          <section className="result-quick-card">
-            <p className="result-label">命格总览</p>
-            <div className="result-tags">
-              <span>主倾向：{primary?.name}</span>
-              <span>副倾向：{secondary?.name}</span>
-              <span>三十幕落印</span>
-            </div>
-            <p>{miniBiography}</p>
-          </section>
+        <ResultDimensionChart dimensions={payload.rankedDimensions} />
 
-          <section className="result-section result-section--compact">
-            <h2>五维命格图</h2>
-            <p className="small-note">不是好坏分数，只是你在三十幕里最常使用的处世方式。</p>
-            <div className="dim-list">
-              {payload.rankedDimensions.map((dimension) => (
-                <div className="dim-row" key={dimension.id}>
-                  <span>{dimension.name}</span>
-                  <span className="dim-bar"><span style={{ width: `${percent(dimension.score, values)}%` }} /></span>
-                  <span>{percent(dimension.score, values)}%</span>
-                </div>
-              ))}
-            </div>
-          </section>
+        <ResultInsightCards result={payload.result} realLifeMirror={realLifeMirror} keyChoices={payload.keyChoices} />
 
-          <section className="result-grid-two">
-            <article className="result-section">
-              <h2>命格画像</h2>
-              <p>{payload.result.archetype}</p>
-            </article>
-            <article className="result-section">
-              <h2>处世底色</h2>
-              <p>{payload.result.psychProfile}</p>
-            </article>
-          </section>
-
-          <section className="result-grid-two">
-            <article className="result-section">
-              <h2>关系方式</h2>
-              <p>{payload.result.relationshipPattern}</p>
-            </article>
-            <article className="result-section">
-              <h2>困局反应</h2>
-              <p>{payload.result.stressResponse}</p>
-            </article>
-          </section>
-
-          <section className="result-section">
-            <h2>现实映照</h2>
-            <p>{realLifeMirror}</p>
-          </section>
-
-          <section className="result-section result-section--gold">
-            <h2>命格锦囊</h2>
-            <p>{payload.result.growthAdvice}</p>
-          </section>
-
-          <details className="result-details">
-            <summary>查看关键选择</summary>
-            <div className="evidence-section">
-              {payload.keyChoices.map((answer, index) => (
-                <article className="evidence-card" key={`${answer.questionId}-${answer.choiceId}`}>
-                  <strong>关键选择 {index + 1}</strong>
-                  <p>{answer.choiceText}</p>
-                  <span>{answer.evidence ?? "这个选择映出了你在困局中的惯用保护方式。"}</span>
-                </article>
-              ))}
-            </div>
-          </details>
-
-          <details className="result-details">
-            <summary>查看隐藏风险</summary>
-            <p>{payload.result.hiddenRisk}</p>
-          </details>
-        </article>
-
-        <div className="button-row result-actions" style={{ marginTop: 16 }}>
-          <Link className="primary-button" href="/poster">生成命格海报</Link>
-          <button className="secondary-button" type="button" onClick={retake}>重新入宫</button>
-        </div>
+        <ResultActions onRetake={retake} />
       </section>
     </main>
   );
