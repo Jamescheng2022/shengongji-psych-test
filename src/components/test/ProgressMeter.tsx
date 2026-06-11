@@ -12,9 +12,9 @@ export function ProgressMeter({ current, total }: ProgressMeterProps) {
         <span>命卷进度 {current} / {total}</span>
       </p>
       <div className="test-progress__row">
+        <span className="test-progress__node" aria-hidden="true" />
         <div className="test-progress__track" aria-hidden="true">
           <span className="test-progress__fill" style={{ width: `${percent}%` }} />
-          <span className="test-progress__thumb" style={{ left: `${percent}%` }} />
         </div>
         <span className="test-progress__percent">{percent}%</span>
       </div>

@@ -1691,10 +1691,24 @@
 }
 
 .test-progress__row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 34px;
   align-items: center;
-  gap: 7px;
+  column-gap: 6px;
   width: 100%;
+}
+
+.test-progress__node {
+  width: 22px;
+  height: 22px;
+  justify-self: start;
+  border-radius: 999px;
+  border: 1px solid rgba(183, 140, 83, 0.58);
+  background:
+    radial-gradient(circle at 50% 50%, #8f211b 0 18%, #f4d28a 19% 28%, #a92720 29% 44%, #f4d28a 45% 58%, rgba(255, 249, 232, 0.92) 59% 100%);
+  box-shadow:
+    0 2px 5px rgba(143, 33, 27, 0.14),
+    0 0 0 2px rgba(255, 247, 220, 0.55);
 }
 
 .test-progress__text {
@@ -1703,7 +1717,6 @@
 }
 
 .test-progress__track {
-  flex: 1 1 auto;
   min-width: 0;
   width: 100%;
   height: 8px;
@@ -1719,15 +1732,15 @@
 }
 
 .test-progress__percent {
-  flex: 0 0 34px;
+  width: 34px;
   text-align: right;
   font-size: 15px;
 }
 
 .test-scene-card {
-  height: clamp(228px, 30dvh, 270px);
+  height: clamp(178px, 23dvh, 214px);
   min-height: 0;
-  padding: 18px 19px 16px;
+  padding: 17px 19px 15px;
   overflow: hidden;
 }
 
@@ -1757,7 +1770,7 @@
 .test-scene-card__body {
   flex: 0 1 auto;
   min-height: 0;
-  max-height: calc(100% - 64px);
+  max-height: 100%;
   overflow-y: auto;
   padding-right: 4px;
   overscroll-behavior: contain;
@@ -1775,8 +1788,18 @@
 
 .test-scene-card p {
   font-size: 15px;
-  line-height: 1.48;
+  line-height: 1.52;
   text-align: left;
+}
+
+.test-decision-prompt {
+  margin: -1px 0 0;
+  color: #8f211b;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255, 247, 224, 0.68);
 }
 
 .test-scene-card strong {
@@ -1830,8 +1853,8 @@
   }
 
   .test-scene-card {
-    height: clamp(250px, 30dvh, 270px);
-    padding: 20px 21px 18px;
+    height: clamp(190px, 24dvh, 224px);
+    padding: 19px 21px 17px;
   }
 
   .test-scene-card h2 {
@@ -1885,7 +1908,7 @@
   }
 
   .test-scene-card {
-    height: clamp(228px, 32dvh, 240px);
+    height: clamp(188px, 30dvh, 208px);
     padding: 16px 16px 14px;
     border-radius: 16px;
   }
@@ -1962,17 +1985,17 @@
   }
 
   .test-progress__row {
-    display: flex;
-    gap: 7px;
+    grid-template-columns: 22px minmax(0, 1fr) 30px;
+    column-gap: 5px;
   }
 
   .test-progress__percent {
-    flex-basis: 30px;
+    width: 30px;
     font-size: 13px;
   }
 
   .test-scene-card {
-    height: clamp(204px, 34dvh, 224px);
+    height: clamp(160px, 29dvh, 178px);
     padding: 14px 15px 12px;
   }
 

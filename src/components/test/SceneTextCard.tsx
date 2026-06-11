@@ -1,11 +1,12 @@
 type SceneTextCardProps = {
-  title: string;
+  title?: string;
   scene: string;
-  prompt: string;
+  prompt?: string;
 };
 
-export function SceneTextCard({ title, scene, prompt }: SceneTextCardProps) {
+export function SceneTextCard({ scene, prompt }: SceneTextCardProps) {
   return (
+    <>
     <article className="test-scene-card">
       <span className="test-scene-card__corner test-scene-card__corner--tl" aria-hidden="true" />
       <span className="test-scene-card__corner test-scene-card__corner--tr" aria-hidden="true" />
@@ -19,12 +20,12 @@ export function SceneTextCard({ title, scene, prompt }: SceneTextCardProps) {
       </div>
 
       <div className="test-scene-card__content">
-        <h2>{title}</h2>
         <div className="test-scene-card__body">
           <p>{scene}</p>
         </div>
-        <strong>{prompt}</strong>
       </div>
     </article>
+    {prompt ? <p className="test-decision-prompt">{prompt}</p> : null}
+    </>
   );
 }

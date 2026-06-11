@@ -59,6 +59,18 @@ This final micro-adjustment keeps the accepted visual direction and only stabili
 - Kept the red decision prompt outside the scroll body so it remains visible.
 - Adjusted 375px width card height so the first question no longer looks visually cut off.
 
+## Simplified Scene Card Structure Pass
+
+This pass keeps the accepted paper-palace visual direction while simplifying the reading hierarchy.
+
+- Removed the per-question scene title from the rendered card. The question data still keeps the title field, but `/test` no longer displays it.
+- Moved the red decision prompt out of the scene card and placed it between the card and the four choices.
+- Kept the scene card focused on body text only, with the same paper texture, corner accents, and inner border language.
+- Reduced the fixed scene-card height now that the title and prompt no longer live inside it.
+- Kept long text handling inside the body region, but the first question no longer needs internal scrolling in the checked sizes.
+- Updated the progress DOM to use three stable parts: fixed left node, flexible track, fixed right percentage.
+- Reduced the visible gap before the percentage to 5-6px across checked mobile widths.
+
 ## Product Logic
 
 - ABCD preserved: yes.
@@ -86,10 +98,12 @@ Preview URL used: `http://127.0.0.1:3017/test`
 - No horizontal scroll: pass.
 - Header visible and not crowded: pass.
 - Progress visible: pass.
-- Progress track reaches the available width with only the intended 7px gap before the percentage.
+- Progress track reaches the available width with only a 6px gap before the percentage.
+- Scene title rendered inside the card: no.
+- Red decision prompt is outside the card: yes.
 - Scene card readable: pass.
 - Scene text clipped: no.
-- Scene card height is stable between question 1 and question 2: 228px.
+- Scene card height: 200px.
 - Four ABCD options visible: pass.
 - Bottom hint visible at the lower edge without covering the fourth option.
 - Red decision prompt remains visible and is not compressed against the card bottom.
@@ -100,10 +114,12 @@ Preview URL used: `http://127.0.0.1:3017/test`
 - No horizontal scroll: pass.
 - Header visible and balanced: pass.
 - Progress visible: pass.
-- Progress track reaches the available width with only the intended 7px gap before the percentage.
+- Progress track reaches the available width with only a 6px gap before the percentage.
+- Scene title rendered inside the card: no.
+- Red decision prompt is outside the card: yes.
 - Scene card readable: pass.
 - Scene text clipped: no.
-- Scene card height is stable between question 1 and question 2: 253px.
+- Scene card height: 203px.
 - Four ABCD options visible: pass.
 - Bottom hint visible: pass.
 - Lower-page whitespace is closed with subtle decoration instead of a new action bar.
@@ -114,10 +130,12 @@ Preview URL used: `http://127.0.0.1:3017/test`
 - No horizontal scroll: pass.
 - Header visible and balanced: pass.
 - Progress visible: pass.
-- Progress track reaches the available width with only the intended 7px gap before the percentage.
+- Progress track reaches the available width with only a 6px gap before the percentage.
+- Scene title rendered inside the card: no.
+- Red decision prompt is outside the card: yes.
 - Scene card readable: pass.
 - Scene text clipped: no.
-- Scene card height is stable between question 1 and question 2: 270px.
+- Scene card height: 224px.
 - Four ABCD options visible: pass.
 - Bottom hint visible with natural breathing room: pass.
 - Bottom atmosphere prevents the page from feeling unfinished on taller screens.
@@ -127,7 +145,8 @@ Preview URL used: `http://127.0.0.1:3017/test`
 
 - `390x700`: no horizontal scroll, story text not clipped, 4 choices visible, bottom hint visible.
 - `375x620`: no horizontal scroll, story text not clipped, 4 choices visible, bottom hint visible.
-- Fixed card heights remain stable in compact browser-height checks: 228px at `390x700`, 211px at `375x620`.
+- Fixed card heights remain stable in compact browser-height checks: 178px at `390x700`, 178px at `375x620`.
+- Progress gaps before the percentage remain tight: 6px at `390x700`, 5px at `375x620`.
 
 ## Interaction Verification
 
