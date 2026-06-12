@@ -12,7 +12,6 @@ export function PosterHero({ title, verdict, portrait, onPortraitError }: Poster
       <p>{verdict}</p>
       <figure className="poster-premium-portrait">
         <img src={portrait} alt={`${title}命格人物图`} onError={(event) => onPortraitError(event.currentTarget)} />
-        <figcaption>心若明镜台一处变而不惊</figcaption>
       </figure>
     </section>
   );

@@ -24,7 +24,7 @@ export function PosterActions({ copied, saved, onSave, onShare, onRetake }: Post
         <Link className="poster-secondary-action" href="/result">
           返回结果
         </Link>
-        <button className="poster-ghost-action" type="button" onClick={onRetake}>
+        <button className="poster-text-action" type="button" onClick={onRetake}>
           重新入宫
         </button>
       </div>

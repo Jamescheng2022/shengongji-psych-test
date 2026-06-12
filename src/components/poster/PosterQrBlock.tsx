@@ -7,7 +7,6 @@ export function PosterQrBlock() {
       <div>
         <span>长按识别</span>
         <strong>测你的深宫命格</strong>
-        <small>洞察命格 · 掌握人生</small>
       </div>
     </section>
   );
