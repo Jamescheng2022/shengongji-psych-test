@@ -5,8 +5,9 @@ export function PosterQrBlock() {
     <section className="poster-qr-block" aria-label="小程序码区域">
       <img src={MINIAPP_PLACEHOLDER} alt="小程序码占位图" />
       <div>
-        <span>长按识别，</span>
+        <span>长按识别</span>
         <strong>测你的深宫命格</strong>
+        <small>洞察命格 · 掌握人生</small>
       </div>
     </section>
   );

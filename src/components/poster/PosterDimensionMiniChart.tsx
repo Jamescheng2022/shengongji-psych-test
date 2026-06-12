@@ -10,26 +10,23 @@ export function PosterDimensionMiniChart({ scores, topDimension }: PosterDimensi
   const top = topDimension ? posterDimensionView[topDimension.id] : null;
 
   return (
-    <section className="poster-card-grid" aria-label="命格倾向与六维图谱">
-      <div className="poster-tendency-card">
-        <span>最高倾向</span>
-        <strong>{top?.label ?? "命格"}</strong>
-        <em>{top?.desc ?? "三十幕落印"}</em>
+    <section className="poster-dimension-flow" aria-label="命格倾向与六维图谱">
+      <h2>你的深宫六维命格图谱</h2>
+      <div className="poster-mini-chart__bars">
+        {posterDimensionOrder.map((id) => (
+          <div className="poster-mini-chart__bar" key={id}>
+            <span>{posterDimensionView[id].label}</span>
+            <i aria-hidden="true">
+              <b style={{ width: `${posterScorePercent(scores[id])}%` }} />
+            </i>
+            <em>{posterScorePercent(scores[id])}</em>
+          </div>
+        ))}
       </div>
-
-      <div className="poster-mini-chart">
-        <h2>六维命格图谱</h2>
-        <div className="poster-mini-chart__bars">
-          {posterDimensionOrder.map((id) => (
-            <div className="poster-mini-chart__bar" key={id}>
-              <span>{posterDimensionView[id].short}</span>
-              <i aria-hidden="true">
-                <b style={{ width: `${posterScorePercent(scores[id])}%` }} />
-              </i>
-            </div>
-          ))}
-        </div>
-      </div>
+      <p className="poster-top-tendency-line">
+        <span>最高倾向 · {top?.label ?? "命格"}</span>
+        <small>{top ? `${top.desc}，是你在深宫里的护身符。` : "三十幕落印，照见你的处世底色。"}</small>
+      </p>
     </section>
   );
 }

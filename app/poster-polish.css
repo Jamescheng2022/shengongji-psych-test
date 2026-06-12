@@ -1148,3 +1148,407 @@
     margin-top: 4px;
   }
 }
+
+/* Poster integrated artwork pass: reduce card-stack feeling inside the share image. */
+.poster-fate-card.poster-fate-card--premium {
+  gap: 4px;
+  padding: 12px 17px 10px;
+  background:
+    linear-gradient(180deg, rgba(1, 0, 0, 0.18), rgba(2, 0, 0, 0.38) 36%, rgba(3, 0, 0, 0.84) 100%),
+    radial-gradient(circle at 50% 9%, rgba(255, 226, 166, 0.25), transparent 24%),
+    radial-gradient(circle at 53% 44%, rgba(235, 163, 90, 0.2), transparent 30%),
+    radial-gradient(circle at 91% 33%, rgba(244, 210, 138, 0.17), transparent 17%),
+    linear-gradient(90deg, rgba(127, 27, 22, 0.76), transparent 18%, transparent 82%, rgba(95, 13, 10, 0.72)),
+    url("/assets/poster-bg.png") center/cover no-repeat,
+    linear-gradient(180deg, #210604, #050101 58%, #210604);
+  box-shadow:
+    0 30px 72px rgba(0, 0, 0, 0.58),
+    inset 0 0 0 5px rgba(20, 3, 2, 0.48),
+    inset 0 0 0 6px rgba(244, 210, 138, 0.24);
+}
+
+.poster-fate-card.poster-fate-card--premium::before {
+  inset: 7px;
+  border-color: rgba(244, 210, 138, 0.36);
+}
+
+.poster-fate-card.poster-fate-card--premium::after {
+  background:
+    linear-gradient(90deg, rgba(127, 27, 22, 0.72), transparent 14%, transparent 84%, rgba(127, 27, 22, 0.68)),
+    radial-gradient(circle at 16% 17%, rgba(185, 59, 43, 0.22), transparent 18%),
+    radial-gradient(circle at 85% 18%, rgba(244, 210, 138, 0.14), transparent 17%),
+    repeating-linear-gradient(90deg, rgba(244, 210, 138, 0.026) 0 1px, transparent 1px 24px),
+    radial-gradient(ellipse at 50% 100%, rgba(185, 59, 43, 0.36), transparent 42%);
+}
+
+.poster-premium-header {
+  min-height: 17px;
+}
+
+.poster-premium-header p {
+  font-size: 12px;
+}
+
+.poster-premium-hero {
+  gap: 4px;
+}
+
+.poster-premium-hero h1 {
+  font-size: clamp(39px, 12.2vw, 56px);
+  letter-spacing: 0.075em;
+}
+
+.poster-premium-hero > p {
+  max-width: 316px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.42;
+  color: #f0a071;
+}
+
+.poster-premium-portrait {
+  width: min(100%, 326px);
+  height: clamp(234px, 62vw, 246px);
+  border: 0;
+  border-radius: 32px 32px 72px 72px / 26px 26px 52px 52px;
+  background: transparent;
+  box-shadow:
+    0 22px 44px rgba(0, 0, 0, 0.62),
+    0 0 0 1px rgba(244, 210, 138, 0.46),
+    inset 0 0 0 1px rgba(244, 210, 138, 0.26);
+}
+
+.poster-premium-portrait::before {
+  inset: auto auto 8px 10px;
+  width: 66px;
+  height: 120px;
+  border-left: 1px solid rgba(244, 210, 138, 0.74);
+  border-top: 0;
+  border-bottom: 1px solid rgba(244, 210, 138, 0.48);
+  border-radius: 0 0 0 26px;
+}
+
+.poster-premium-portrait::after {
+  inset: 8px 10px auto auto;
+  width: 68px;
+  height: 122px;
+  border-right: 1px solid rgba(244, 210, 138, 0.72);
+  border-bottom: 0;
+  border-top: 1px solid rgba(244, 210, 138, 0.48);
+  border-radius: 0 26px 0 0;
+}
+
+.poster-premium-portrait img {
+  object-position: center 23%;
+  -webkit-mask-image: linear-gradient(180deg, #000 0 83%, rgba(0, 0, 0, 0.85) 92%, rgba(0, 0, 0, 0.35) 100%);
+  mask-image: linear-gradient(180deg, #000 0 83%, rgba(0, 0, 0, 0.85) 92%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.poster-premium-portrait figcaption {
+  left: 12px;
+  color: rgba(255, 226, 166, 0.86);
+}
+
+.poster-signature-quote {
+  width: min(100%, 330px);
+  min-height: 50px;
+  border: 0;
+  border-radius: 0;
+  padding: 7px 16px;
+  background:
+    linear-gradient(90deg, transparent, rgba(6, 1, 1, 0.54) 18%, rgba(15, 3, 2, 0.74) 50%, rgba(6, 1, 1, 0.52) 82%, transparent),
+    radial-gradient(ellipse at 50% 100%, rgba(244, 210, 138, 0.13), transparent 56%);
+  box-shadow: none;
+}
+
+.poster-signature-quote::before,
+.poster-signature-quote::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 150px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(244, 210, 138, 0.58), transparent);
+}
+
+.poster-signature-quote::before {
+  top: 0;
+}
+
+.poster-signature-quote::after {
+  bottom: 0;
+}
+
+.poster-signature-quote p {
+  font-size: 16px;
+  line-height: 1.38;
+}
+
+.poster-card-grid,
+.poster-dimension-summary,
+.poster-mini-chart,
+.poster-top-tendency {
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.poster-dimension-flow {
+  position: relative;
+  z-index: 5;
+  width: min(100%, 334px);
+  margin: 0 auto;
+  padding: 4px 3px 1px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(244, 210, 138, 0.12), transparent 54%),
+    linear-gradient(180deg, rgba(6, 1, 1, 0.38), rgba(6, 1, 1, 0.1));
+}
+
+.poster-dimension-flow::before {
+  content: "";
+  display: block;
+  width: 224px;
+  height: 18px;
+  margin: 0 auto 2px;
+  background: url("/assets/page-04-poster/poster-cloud-divider.svg") center/contain no-repeat;
+  opacity: 0.78;
+}
+
+.poster-dimension-flow h2 {
+  margin: 0 0 6px;
+  color: #ffe3a1;
+  font-size: 15px;
+  line-height: 1.1;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-shadow: 0 0 16px rgba(244, 210, 138, 0.28);
+}
+
+.poster-dimension-flow .poster-mini-chart__bars {
+  display: grid;
+  gap: 5px;
+}
+
+.poster-dimension-flow .poster-mini-chart__bar {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 28px;
+  gap: 7px;
+  align-items: center;
+}
+
+.poster-dimension-flow .poster-mini-chart__bar span {
+  color: rgba(255, 235, 185, 0.94);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.poster-dimension-flow .poster-mini-chart__bar i {
+  height: 8px;
+  border: 0;
+  border-radius: 999px;
+  overflow: visible;
+  background: linear-gradient(90deg, rgba(244, 210, 138, 0.24), rgba(244, 210, 138, 0.08));
+  box-shadow: inset 0 0 0 1px rgba(215, 168, 90, 0.34);
+}
+
+.poster-dimension-flow .poster-mini-chart__bar i::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translateY(-50%) rotate(45deg);
+  border: 1px solid rgba(244, 210, 138, 0.42);
+  background: rgba(18, 4, 3, 0.85);
+}
+
+.poster-dimension-flow .poster-mini-chart__bar b {
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #8f211b, #b93b2b 44%, #e49b57 76%, #ffe7a8);
+  box-shadow: 0 0 12px rgba(244, 210, 138, 0.26);
+}
+
+.poster-dimension-flow .poster-mini-chart__bar b::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: #ffe8aa;
+  box-shadow: 0 0 12px rgba(244, 210, 138, 0.7);
+}
+
+.poster-dimension-flow .poster-mini-chart__bar em {
+  color: rgba(255, 226, 166, 0.84);
+  font-size: 12px;
+  font-style: normal;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.poster-top-tendency-line {
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.poster-top-tendency-line span {
+  display: block;
+  color: #ffe3a1;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 16px rgba(244, 210, 138, 0.34);
+}
+
+.poster-top-tendency-line small {
+  display: block;
+  margin-top: 3px;
+  color: rgba(255, 228, 178, 0.72);
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+}
+
+.poster-qr-block {
+  width: min(100%, 304px);
+  min-height: 70px;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 13px;
+  border: 0;
+  border-radius: 999px;
+  padding: 4px 16px 4px 6px;
+  background:
+    radial-gradient(circle at 17% 50%, rgba(244, 210, 138, 0.2), transparent 30%),
+    linear-gradient(90deg, rgba(30, 7, 4, 0.92), rgba(12, 2, 1, 0.64) 66%, transparent);
+  box-shadow: none;
+}
+
+.poster-qr-block::before {
+  content: "";
+  position: absolute;
+  inset: -5px 12px -5px -6px;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 210, 138, 0.34);
+  pointer-events: none;
+}
+
+.poster-qr-block img {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  padding: 4px;
+  background: rgba(255, 246, 222, 0.96);
+  box-shadow:
+    0 0 0 1px rgba(244, 210, 138, 0.6),
+    0 0 0 7px rgba(87, 16, 11, 0.42),
+    0 8px 18px rgba(0, 0, 0, 0.36);
+}
+
+.poster-qr-block span,
+.poster-qr-block strong {
+  letter-spacing: 0.08em;
+}
+
+.poster-qr-block span {
+  font-size: 16px;
+}
+
+.poster-qr-block strong {
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.poster-qr-block small {
+  color: rgba(244, 210, 138, 0.55);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+.poster-disclaimer {
+  letter-spacing: 0.16em;
+}
+
+@media (max-width: 380px) {
+  .poster-fate-card.poster-fate-card--premium {
+    gap: 3px;
+    padding: 11px 15px 9px;
+  }
+
+  .poster-premium-hero h1 {
+    font-size: clamp(36px, 11.7vw, 48px);
+  }
+
+  .poster-premium-hero > p {
+    font-size: 13px;
+    line-height: 1.36;
+  }
+
+  .poster-premium-portrait {
+    width: min(100%, 306px);
+    height: 222px;
+  }
+
+  .poster-signature-quote {
+    min-height: 48px;
+    padding-block: 6px;
+  }
+
+  .poster-signature-quote p {
+    font-size: 15px;
+  }
+
+  .poster-dimension-flow {
+    width: min(100%, 324px);
+  }
+
+  .poster-dimension-flow h2 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .poster-dimension-flow .poster-mini-chart__bars {
+    gap: 4px;
+  }
+
+  .poster-dimension-flow .poster-mini-chart__bar {
+    grid-template-columns: 40px minmax(0, 1fr) 25px;
+    gap: 6px;
+  }
+
+  .poster-top-tendency-line span {
+    font-size: 17px;
+  }
+
+  .poster-top-tendency-line small {
+    font-size: 11px;
+  }
+
+  .poster-qr-block {
+    width: min(100%, 292px);
+    min-height: 66px;
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .poster-qr-block img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .poster-qr-block span {
+    font-size: 15px;
+  }
+
+  .poster-qr-block strong {
+    font-size: 18px;
+  }
+}

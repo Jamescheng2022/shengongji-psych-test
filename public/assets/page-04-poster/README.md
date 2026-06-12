@@ -6,4 +6,4 @@ This folder contains share-poster-only visual assets for `/poster`.
 - `poster-ornament-corner.svg`: gold corner ornament for the poster frame.
 - `poster-cloud-divider.svg`: small gold cloud divider for poster separators.
 
-When a real mini program code is available, replace `miniapp-code-placeholder.svg` with the official exported asset while keeping the same path, or update `PosterQrBlock.tsx` to point to the new file. Do not use a fake scannable code in production.
+When a real mini program code is available, replace `miniapp-code-placeholder.svg` with the official exported asset while keeping the same path, or update `PosterQrBlock.tsx` to point to the new file. If the product remains H5-first, this placeholder can instead be replaced with a real H5 URL QR code. Do not use a fake scannable code in production.
