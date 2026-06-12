@@ -27,7 +27,7 @@ export function PosterCard({ payload, portrait, onPortraitError }: PosterCardPro
         onPortraitError={onPortraitError}
       />
       <PosterQuote quote={payload.result.shareQuote} />
-      <PosterDimensionMiniChart scores={payload.scores} topDimension={top} />
+      <PosterDimensionMiniChart topDimension={top} />
       <PosterQrBlock />
       <p className="poster-disclaimer">测试结果仅供娱乐与自我观察</p>
     </article>
