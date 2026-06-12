@@ -22,7 +22,6 @@ export function PosterCard({ payload, portrait, onPortraitError }: PosterCardPro
       <PosterHeader />
       <PosterHero
         title={payload.result.name}
-        verdict={payload.result.verdict}
         portrait={portrait}
         onPortraitError={onPortraitError}
       />
